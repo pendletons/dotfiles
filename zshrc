@@ -41,6 +41,19 @@ _load_settings "$HOME/.zsh/configs"
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+# disable autocorrect
+unsetopt correct
+
+plugins=(osx)
+
+source ~/.git-flow-completion.zsh
+
+eval "$(hub alias -s)"
+
+export PATH="$HOME/.bin:$PATH"
+eval "$(rbenv init - zsh --no-rehash)"
+
+source ~/.bin/tmuxinator.zsh
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

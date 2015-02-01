@@ -1,16 +1,27 @@
 # Unix
-alias ll="ls -al"
-alias ln="ln -v"
-alias mkdir="mkdir -p"
+alias tlf="tail -f"
+alias ln='ln -v'
+alias mkdir='mkdir -p'
+alias ...='../..'
+alias l='ls -la'
+alias lh='ls -Alh'
+alias -g G='| grep'
+alias -g M='| less'
+alias -g L='| wc -l'
+alias -g ONE="| awk '{ print \$1}'"
 alias e="$EDITOR"
 alias v="$VISUAL"
 
 # Bundler
 alias b="bundle"
+alias be='bundle exec'
+alias bi='bundle install'
 
 # Rails
 alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
 alias s="rspec"
+alias br='bundle exec rspec'
+alias cop='bundle exec rubocop'
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
