@@ -28,9 +28,7 @@ call plug#begin('~/.vim/bundle')
 
 " Define bundles via Github repos
 Plug 'christoomey/vim-run-interactive'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'fatih/vim-go'
-Plug 'janko-m/vim-test'
+Plug 'ctrlpvim/ctrlp.vim' " fast file-switch
 Plug 'kchmck/vim-coffee-script'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'scrooloose/syntastic'
@@ -38,23 +36,38 @@ Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive' " git functionality
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/tComment'
 Plug 'thoughtbot/vim-rspec'
 Plug 'vim-scripts/ctags.vim'
 Plug 'vim-scripts/matchit.zip'
-Plug 'chriskempson/base16-vim'
-Plug 'rking/ag.vim'
+Plug 'rking/ag.vim' " searching
 Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim' " create gists
+Plug 'bling/vim-airline' " status bars
+Plug 'edkolev/tmuxline.vim'
+Plug 'edkolev/promptline.vim'
+Plug 'scrooloose/nerdtree' " file browser
+Plug 'majutsushi/tagbar' " class browser
+Plug 'vim-scripts/AfterColors.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'mattn/webapi-vim'
+Plug 'janko-m/vim-test'
 Plug 'mattn/gist-vim'
 Plug 'bling/vim-airline'
+
+" Themes
+Plug 'nanotech/jellybeans.vim'
+Plug 'chriskempson/base16-vim'
+Plug 'Pychimp/vim-sol'
+Plug 'paranoida/vim-airlineish'
+Plug 'endel/vim-github-colorscheme'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local

@@ -53,7 +53,12 @@ eval "$(hub alias -s)"
 export PATH="$HOME/.bin:$PATH"
 eval "$(rbenv init - zsh --no-rehash)"
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
 source ~/.bin/tmuxinator.zsh
+source ~/.shell_prompt.sh
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

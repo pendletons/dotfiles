@@ -69,3 +69,6 @@
   path = ~/.gitconfig.local
 [github]
 	user = pendletons
+[user]
+	name = Shanthi Pendleton
+	email = shanthi.pendleton@gmail.com

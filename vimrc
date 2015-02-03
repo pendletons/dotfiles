@@ -11,6 +11,7 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set noshowmode    " don't show mode as the statusline does this for us
 
 syntax on                         " show syntax highlighting
 filetype plugin indent on
@@ -18,7 +19,6 @@ filetype plugin indent on
 set expandtab                     " use spaces, not tab characters
 set showmatch                     " show bracket matches
 set ignorecase                    " ignore case in search
-set hlsearch                      " highlight all search matches
 set smartcase                     " pay attention to case when caps are used
 set incsearch                     " show search results as I type
 set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
@@ -31,9 +31,6 @@ set clipboard=unnamed             " use the system clipboard
 " set wildmode=list:longest,full
 runtime macros/matchit.vim        " use % to jump between start/end of methods
 
-" put git status, column/row number, total lines, and percentage in status
-set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
-
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
@@ -42,10 +39,15 @@ endif
 
 :au FocusLost * :wa "Save on focus lost
 
+map <F3> :set hlsearch!<CR>
+
 " Toggle nerdtree with F10
 map <F10> :NERDTreeToggle<CR>
 " Current file in nerdtree
 map <F9> :NERDTreeFind<CR>
+
+" Toggle TagbarToggle
+map <F8> :TagbarToggle<CR>
 
 " Fuzzy finder: ignore stuff that can't be opened, and generated files
 let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
@@ -137,27 +139,12 @@ map <leader>a :Ag!<space>
 " Color scheme
 set background=dark
 colorscheme base16-tomorrow
-highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
 " set up some custom colors
-highlight clear SignColumn
-highlight VertSplit    ctermbg=236
-highlight StatusLineNC ctermbg=238 ctermfg=0
-highlight StatusLine   ctermbg=240 ctermfg=12
 highlight IncSearch    ctermbg=3   ctermfg=1
 highlight Search       ctermbg=1   ctermfg=3
-highlight Visual       ctermbg=3   ctermfg=0
-highlight Pmenu        ctermbg=240 ctermfg=12
-highlight PmenuSel     ctermbg=3   ctermfg=1
 highlight SpellBad     ctermbg=0   ctermfg=1
-
-" highlight the status bar when in insert mode
-if version >= 700
-  au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
-  au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
-endif
-
+highlight LineNr       ctermbg=none ctermfg=105
 " highlight trailing spaces in annoying red
 highlight ExtraWhitespace ctermbg=1 guibg=red
 match ExtraWhitespace /\s\+$/
@@ -166,13 +153,18 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" GitGutter
+highlight GitGutterAdd          ctermfg=40 ctermbg=none
+highlight GitGutterChange       ctermfg=20 ctermbg=none
+highlight GitGutterDelete       ctermfg=9  ctermbg=none
+highlight GitGutterChangeDelete ctermfg=20 ctermbg=none
+
 " Make it obvious where 80 characters is
 set textwidth=80
-set colorcolumn=+1
 
 " Numbers
 set number
-set numberwidth=5
+set numberwidth=4
 
 " ctrlp config
 let g:ctrlp_map = '<leader>f'
@@ -260,8 +252,21 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
-let g:airline_theme='dark'
+let g:airline_theme='wombat'
+let g:airline#extensions#tabline#enabled = 1
 set t_Co=256
+
+" Tmuxline
+let g:tmuxline_preset = 'full'
+
+" Promptline
+let g:promptline_theme = 'airlineish'
+let g:promptline_preset = {
+        \'a' : [ promptline#slices#user() ],
+        \'b' : [ promptline#slices#cwd() ],
+        \'c' : [ promptline#slices#vcs_branch(), promptline#slices#git_status() ],
+        \'z' : [ '%*' ],
+        \'warn' : [ promptline#slices#battery() ]}
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
