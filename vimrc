@@ -20,13 +20,13 @@ set expandtab                     " use spaces, not tab characters
 set showmatch                     " show bracket matches
 set ignorecase                    " ignore case in search
 set smartcase                     " pay attention to case when caps are used
-set incsearch                     " show search results as I type
 set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
 set vb                            " enable visual bell (disable audio bell)
 set scrolloff=2                   " minimum lines above/below cursor
 set list listchars=tab:»·,trail:· " show extra space characters
 set nofoldenable                  " disable code folding
 set clipboard=unnamed             " use the system clipboard
+set hidden                        " hide buffers rather than closing them
 " set wildmenu                      " enable bash style tab completion
 " set wildmode=list:longest,full
 runtime macros/matchit.vim        " use % to jump between start/end of methods
@@ -38,6 +38,7 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 endif
 
 :au FocusLost * :wa "Save on focus lost
+set autowriteall
 
 map <F3> :set hlsearch!<CR>
 
@@ -48,6 +49,9 @@ map <F9> :NERDTreeFind<CR>
 
 " Toggle TagbarToggle
 map <F8> :TagbarToggle<CR>
+
+" delete buffers
+:nnoremap <Leader>q :Bdelete<CR>
 
 " Fuzzy finder: ignore stuff that can't be opened, and generated files
 let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
@@ -206,6 +210,7 @@ nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
 nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
+let g:rspec_command = 'Dispatch rspec {spec}'
 
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<space>
@@ -222,6 +227,14 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+" Move lines around
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1

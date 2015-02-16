@@ -72,3 +72,7 @@
 [user]
 	name = Shanthi Pendleton
 	email = shanthi.pendleton@gmail.com
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
