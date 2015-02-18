@@ -53,6 +53,29 @@ map <F8> :TagbarToggle<CR>
 " delete buffers
 :nnoremap <Leader>q :Bdelete<CR>
 
+" Mappings to access buffers (don't use "\p" because a
+" delay before pressing "p" would accidentally paste).
+" \l       : list buffers
+" \b \f \g : go back/forward/last-used
+" \1 \2 \3 : go to buffer 1/2/3 etc
+nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>g :e#<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
+
+" switch buffers with F4
+:nnoremap <F4> :buffers<CR>:buffer<Space>
+
 " Fuzzy finder: ignore stuff that can't be opened, and generated files
 let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
 
@@ -259,15 +282,26 @@ let g:gist_show_privates = 1
 let g:gist_post_private = 1
 let g:gist_open_browser_after_post = 1
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 " Airline
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+  let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
 let g:airline_theme='wombat'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 set t_Co=256
+
+function! AirlineInit()
+  let g:airline_section_a = airline#section#create(['mode',' ','branch'])
+  let g:airline_section_b = airline#section#create_left(['ffenc','%f'])
+  let g:airline_section_c = airline#section#create(['tagbar'])
+endfunction
+autocmd VimEnter * call AirlineInit()
 
 " Tmuxline
 let g:tmuxline_preset = 'full'
