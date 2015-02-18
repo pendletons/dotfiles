@@ -58,21 +58,21 @@
 [push]
   default = current
 [branch]
-  autosetupmerge = true
+  autosetupmerge = always
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 [include]
   path = ~/.gitconfig.local
 [github]
-	user = pendletons
+  user = pendletons
 [user]
-	name = Shanthi Pendleton
-	email = shanthi.pendleton@gmail.com
+  name = Shanthi Pendleton
+  email = shanthi.pendleton@gmail.com
 [filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
+  clean = git hawser clean %f
+  smudge = git hawser smudge %f
+  required = true
