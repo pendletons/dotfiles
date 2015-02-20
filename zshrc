@@ -44,7 +44,7 @@ _load_settings "$HOME/.zsh/configs"
 # disable autocorrect
 unsetopt correct
 
-plugins=(osx)
+plugins=(osx git gitfast rails ruby brew bundler gem tmux tmuxinator)
 
 source ~/.git-flow-completion.zsh
 

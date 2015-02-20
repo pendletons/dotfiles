@@ -186,6 +186,9 @@ highlight GitGutterChange       ctermfg=20 ctermbg=none
 highlight GitGutterDelete       ctermfg=9  ctermbg=none
 highlight GitGutterChangeDelete ctermfg=20 ctermbg=none
 
+au FilterWritePost * if &diff | set t_Co=256 | set bg=dark | colorscheme jellybeans | else | set t_co=256 | set bg=dark | colorscheme base16-tomorrow | endif
+au BufWinLeave * colorscheme base16-tomorrow
+
 " Make it obvious where 80 characters is
 set textwidth=80
 
@@ -286,34 +289,178 @@ let g:gist_open_browser_after_post = 1
 cmap w!! w !sudo tee > /dev/null %
 
 " Airline
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
-let g:airline_theme='wombat'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-set t_Co=256
+" let g:airline_powerline_fonts = 1
+" if !exists('g:airline_symbols')
+"   let g:airline_symbols = {}
+" endif
+" let g:airline_symbols.space = "\ua0"
+" let g:airline_theme='wombat'
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" set t_Co=256
 
-function! AirlineInit()
-  let g:airline_section_a = airline#section#create(['mode',' ','branch'])
-  let g:airline_section_b = airline#section#create_left(['ffenc','%f'])
-  let g:airline_section_c = airline#section#create(['tagbar'])
+" function! AirlineInit()
+"   let g:airline_section_a = airline#section#create(['mode',' ','branch'])
+"   let g:airline_section_b = airline#section#create_left(['ffenc','%f'])
+"   let g:airline_section_c = airline#section#create(['tagbar'])
+" endfunction
+" autocmd VimEnter * call AirlineInit()
+
+" Lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ ['mode','paste'],
+      \             ['fugitive','readonly','filename','modified','tagbar']
+      \           ],
+      \   'right': [ ['syntastic','lineinfo'],
+      \              ['percent'],
+      \              ['fileformat','fileencoding','filetype']
+      \           ]
+      \ },
+      \ 'component': {
+      \   'lineinfo': ' %3l:%-2v',
+      \ },
+      \ 'component_function': {
+      \   'readonly': 'MyReadOnly',
+      \   'modified': 'MyModified',
+      \   'fugitive': 'MyFugitive',
+      \   'filename': 'MyFileName',
+      \   'fileformat': 'MyFileFormat',
+      \   'filetype': 'MyFileType',
+      \   'fileencoding': 'MyFileEncoding',
+      \   'mode': 'MyMode',
+      \   'ctrlpmark': 'CtrlPMark',
+      \ },
+      \ 'component_expand': {
+      \   'syntastic': 'SyntasticStatuslineFlag',
+      \ },
+      \ 'component_type': {
+      \   'syntastic': 'error'
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+function! MyModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
-autocmd VimEnter * call AirlineInit()
+function! MyReadOnly()
+  return &ft !~? 'help' && &readonly ? '' : ''
+endfunction
+function! MyFileName()
+  let fname = expand('%:t')
+  return fname == 'ControlP' ? g:lightline.ctrlp_item :
+        \ fname == '__Tagbar__' ? g:lightline.fname :
+        \ fname =~ '__Gundo\|NERD_tree' ? '' :
+        \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \ &ft == 'unite' ? unite#get_status_string() :
+        \ &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ ('' != MyReadOnly() ? MyReadOnly() . ' ' : '') .
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFugitive()
+  try
+    if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+      let mark = ''  " edit here for cool mark
+      let _ = fugitive#head()
+      return strlen(_) ? mark._ : ''
+    endif
+  catch
+  endtry
+  return ''
+endfunction
+
+function! MyFileFormat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! MyFileType()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! MyFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! MyMode()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? 'Tagbar' :
+        \ fname == 'ControlP' ? 'CtrlP' :
+        \ fname == '__Gundo__' ? 'Gundo' :
+        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+        \ fname =~ 'NERD_tree' ? 'NERDTree' :
+        \ &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ &ft == 'vimshell' ? 'VimShell' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! CtrlPMark()
+  if expand('%:t') =~ 'ControlP'
+    call lightline#link('iR'[g:lightline.ctrlp_regex])
+    return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
+           \ , g:lightline.ctrlp_next], 0)
+  else
+    return ''
+  endif
+endfunction
+
+let g:ctrlp_status_func = {
+  \ 'main': 'CtrlPStatusFunc_1',
+  \ 'prog': 'CtrlPStatusFunc_2',
+  \ }
+
+function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
+  let g:lightline.ctrlp_regex = a:regex
+  let g:lightline.ctrlp_prev = a:prev
+  let g:lightline.ctrlp_item = a:item
+  let g:lightline.ctrlp_next = a:next
+  return lightline#statusline(0)
+endfunction
+
+function! CtrlPStatusFunc_2(str)
+  return lightline#statusline(0)
+endfunction
+
+let g:tagbar_status_func = 'TagbarStatusFunc'
+
+function! TagbarStatusFunc(current, sort, fname, ...) abort
+  let g:lightline.fname = a:fname
+  return lightline#statusline(0)
+endfunction
+
+augroup AutoSyntastic
+  autocmd!
+  autocmd BufWritePost *.c,*.cpp call s:syntastic()
+augroup END
+function! s:syntastic()
+  SyntasticCheck
+  call lightline#update()
+endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
 
 " Tmuxline
-let g:tmuxline_preset = 'full'
+" let g:tmuxline_preset = 'full'
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'win'  : ['#I', '#W'],
+      \'cwin' : ['#I', '#W', '#F'],
+      \'y'    : ['%R', '%a', '%Y'],
+      \'z'    : '#h'}
 
 " Promptline
-let g:promptline_theme = 'airlineish'
-let g:promptline_preset = {
-        \'a' : [ promptline#slices#user() ],
-        \'b' : [ promptline#slices#cwd() ],
-        \'c' : [ promptline#slices#vcs_branch(), promptline#slices#git_status() ],
-        \'z' : [ '%*' ],
-        \'warn' : [ promptline#slices#battery() ]}
+" let g:promptline_theme = 'airlineish'
+" let g:promptline_preset = {
+"         \'a' : [ promptline#slices#user() ],
+"         \'b' : [ promptline#slices#cwd() ],
+"         \'c' : [ promptline#slices#vcs_branch(), promptline#slices#git_status() ],
+"         \'z' : [ '%*' ],
+"         \'warn' : [ promptline#slices#battery() ]}
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
