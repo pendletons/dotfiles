@@ -37,7 +37,8 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
-:au FocusLost * :wa "Save on focus lost
+" Save on focus lost
+:au FocusLost * silent! wa
 set autowriteall
 
 map <F3> :set hlsearch!<CR>
@@ -187,8 +188,7 @@ highlight GitGutterChange       ctermfg=20 ctermbg=none
 highlight GitGutterDelete       ctermfg=9  ctermbg=none
 highlight GitGutterChangeDelete ctermfg=20 ctermbg=none
 
-au FilterWritePost * if &diff | set t_Co=256 | set bg=dark | colorscheme jellybeans | else | set t_co=256 | set bg=dark | colorscheme base16-tomorrow | endif
-au BufWinLeave * colorscheme base16-tomorrow
+" au FilterWritePost * if &diff | set t_Co=256 | set bg=dark | colorscheme jellybeans | else | set t_co=256 | set bg=dark | colorscheme base16-tomorrow | endif
 
 " Make it obvious where 80 characters is
 set textwidth=80
@@ -308,12 +308,15 @@ cmap w!! w !sudo tee > /dev/null %
 " endfunction
 " autocmd VimEnter * call AirlineInit()
 
+let g:bufferline_echo = 0
+
 " Lightline
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ ['mode','paste'],
-      \             ['fugitive','readonly','filename','modified','tagbar']
+      \             ['fugitive','readonly','filename','modified','tagbar'],
+      \             ['bufferline']
       \           ],
       \   'right': [ ['syntastic','lineinfo'],
       \              ['percent'],
@@ -333,6 +336,7 @@ let g:lightline = {
       \   'fileencoding': 'MyFileEncoding',
       \   'mode': 'MyMode',
       \   'ctrlpmark': 'CtrlPMark',
+      \   'bufferline': 'MyBufferLine',
       \ },
       \ 'component_expand': {
       \   'syntastic': 'SyntasticStatuslineFlag',
@@ -397,6 +401,11 @@ function! MyMode()
         \ &ft == 'vimfiler' ? 'VimFiler' :
         \ &ft == 'vimshell' ? 'VimShell' :
         \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! MyBufferLine()
+  let st=g:bufferline#refresh_status()
+  return g:bufferline_status_info.before . g:bufferline_status_info.current . g:bufferline_status_info.after
 endfunction
 
 function! CtrlPMark()
