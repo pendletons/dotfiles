@@ -46,6 +46,7 @@ map <F3> :set hlsearch!<CR>
 map <F10> :NERDTreeToggle<CR>
 " Current file in nerdtree
 map <F9> :NERDTreeFind<CR>
+let NERDTreeShowHidden=1
 
 " Toggle TagbarToggle
 map <F8> :TagbarToggle<CR>
@@ -201,6 +202,7 @@ let g:ctrlp_map = '<leader>f'
 let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_show_hidden = 1
 
 " toggle spell check with <F5>
 map <F5> :setlocal spell! spelllang=en_gb<cr>
