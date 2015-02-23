@@ -87,6 +87,11 @@ Plug 'ervandew/supertab'
 Plug 'tpope/vim-capslock.git'
 Plug 'ap/vim-css-color'
 
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
 " Ruby/Rails
 Plug 'thoughtbot/vim-rspec' " Rspec commands
 Plug 'tpope/vim-bundler' " :Bundle command
