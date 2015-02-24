@@ -98,6 +98,7 @@ Plug 'tpope/vim-bundler' " :Bundle command
 Plug 'tpope/vim-endwise' " add end in ruby files
 Plug 'tpope/vim-rails' " Rails awareness
 Plug 'vim-ruby/vim-ruby'
+Plug 'ecomba/vim-ruby-refactoring'
 
 " Themes
 " Plugin 'bling/vim-airline'
