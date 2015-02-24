@@ -3,15 +3,15 @@ highlight LineNr ctermbg=none ctermfg=105
 
 " GitGutter
 highlight clear SignColumn
-highlight GitGutterAdd          ctermfg=40 ctermbg=none guifg=40 guibg=none
-highlight GitGutterChange       ctermfg=20 ctermbg=none guifg=20 guibg=none
-highlight GitGutterDelete       ctermfg=9  ctermbg=none guifg=9  guibg=none
-highlight GitGutterChangeDelete ctermfg=20 ctermbg=none guifg=20 guibg=none
+highlight GitGutterAdd          ctermfg=NONE ctermbg=NONE gui=bold guifg=#00d700 guibg=#008700
+highlight GitGutterChange       ctermfg=NONE ctermbg=NONE gui=bold guifg=#0000d7 guibg=#0000af
+highlight GitGutterDelete       ctermfg=NONE ctermbg=NONE gui=bold guifg=#ff0000  guibg=#800000
+highlight GitGutterChangeDelete ctermfg=NONE ctermbg=NONE gui=bold guifg=#0000d7 guibg=#0000af
 
-highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
-highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
-highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
-highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
+highlight DiffAdd    cterm=bold ctermfg=NONE ctermbg=NONE gui=bold guifg=#00ff00 guibg=#00005f
+highlight DiffDelete cterm=bold ctermfg=NONE ctermbg=NONE gui=bold guifg=#00ff00 guibg=#00005f
+highlight DiffChange cterm=bold ctermfg=NONE ctermbg=NONE gui=bold guifg=#00ff00 guibg=#00005f
+highlight DiffText   cterm=bold ctermfg=NONE ctermbg=NONE gui=bold guifg=#00ff00 guibg=#870000
 
-highlight CursorLine cterm=none ctermfg=16 ctermbg=8  gui=none guifg=Black guibg=#A0A0A0
-highlight Folded     cterm=none ctermfg=16 ctermbg=8  gui=none guifg=Black guibg=#A0A0A0
+highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#000000 guibg=#A0A0A0
+highlight Folded     cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#000000 guibg=#A0A0A0
