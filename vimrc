@@ -41,6 +41,10 @@ endif
 :au FocusLost * silent! wa
 set autowriteall
 
+" ctrl-s = save
+:nmap <c-s> :w<CR>
+:imap <c-s> <Esc>:w<CR>a
+
 map <F3> :set hlsearch!<CR>
 
 " Toggle nerdtree with F10
@@ -123,6 +127,13 @@ augroup vimrcEx
 
   " Allow stylesheets to autocomplete hyphenated words
   autocmd FileType css,scss,sass setlocal iskeyword+=-
+
+  " Ruby settings
+  autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
+  autocmd FileType ruby,eruby,yaml setlocal path+=lib
+  autocmd FileType ruby,eruby,yaml setlocal colorcolumn=80
+  " Make ? part of words
+  autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
 augroup END
 
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
