@@ -37,10 +37,6 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
-" Save on focus lost
-:au FocusLost * silent! wa
-set autowriteall
-
 " ctrl-s = save
 :nmap <c-s> :w<CR>
 :imap <c-s> <Esc>:w<CR>a
@@ -131,7 +127,6 @@ augroup vimrcEx
   " Ruby settings
   autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
   autocmd FileType ruby,eruby,yaml setlocal path+=lib
-  autocmd FileType ruby,eruby,yaml setlocal colorcolumn=80
   " Make ? part of words
   autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
 augroup END
@@ -139,6 +134,10 @@ augroup END
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
+
+" Save on focus lost
+:au FocusLost * silent! wa
+set autowriteall
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -198,11 +197,6 @@ highlight GitGutterAdd          ctermfg=40 ctermbg=none
 highlight GitGutterChange       ctermfg=20 ctermbg=none
 highlight GitGutterDelete       ctermfg=9  ctermbg=none
 highlight GitGutterChangeDelete ctermfg=20 ctermbg=none
-
-" au FilterWritePost * if &diff | set t_Co=256 | set bg=dark | colorscheme jellybeans | else | set t_co=256 | set bg=dark | colorscheme base16-tomorrow | endif
-
-" Make it obvious where 80 characters is
-set textwidth=80
 
 " Numbers
 set number
@@ -297,6 +291,8 @@ set complete+=kspell
 
 " Always use vertical diffs
 set diffopt+=vertical
+
+set list listchars=tab:❘-,trail:·,extends:»,precedes:«,nbsp:×
 
 " Gist settings
 let g:gist_clip_command = 'pbcopy'

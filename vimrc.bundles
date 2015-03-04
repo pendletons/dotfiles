@@ -66,6 +66,8 @@ Plug 'christoomey/vim-tmux-navigator' " Tmux navigation for panes
 Plug 'jgdavey/tslime.vim' " Send commands to tmux
 Plug 'tpope/vim-dispatch' " Asynchronous test running
 Plug 'moll/vim-bbye' " close buffers easily
+Plug 'jeffkreeftmeijer/vim-numbertoggle.git' " Line numbers/movement
+Plug 'sjl/vitality.vim' " Iterm niceness
 
 " Themes
 Plug 'nanotech/jellybeans.vim'
