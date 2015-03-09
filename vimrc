@@ -10,6 +10,7 @@ set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
+set autoread      " Automatically read changes to files
 set autowrite     " Automatically :write before running commands
 set noshowmode    " don't show mode as the statusline does this for us
 
