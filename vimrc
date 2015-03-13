@@ -28,6 +28,7 @@ set list listchars=tab:»·,trail:· " show extra space characters
 set nofoldenable                  " disable code folding
 set clipboard=unnamed             " use the system clipboard
 set hidden                        " hide buffers rather than closing them
+let g:rainbow_active = 1          " highlight parens with different colours
 " set wildmenu                      " enable bash style tab completion
 " set wildmode=list:longest,full
 runtime macros/matchit.vim        " use % to jump between start/end of methods

@@ -16,3 +16,5 @@ highlight DiffText   cterm=bold ctermfg=NONE ctermbg=NONE gui=bold guifg=#00ff00
 highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#000000 guibg=#A0A0A0
 highlight Folded     cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#000000 guibg=#A0A0A0
 highlight Todo       cterm=NONE ctermfg=NONE ctermbg=NONE guifg=#ff0000 guibg=#ffff00
+
+highlight MatchParen cterm=NONE ctermbg=NONE ctermfg=NONE guifg=#ffffff guibg=#00a000

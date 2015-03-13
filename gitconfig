@@ -49,6 +49,9 @@
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 [merge]
   ff = only
+  defaultToUpstream = true
+[rebase]
+  autosquash = true
 [commit]
   template = ~/.gitmessage
 [fetch]
@@ -57,8 +60,6 @@
   autosquash = true
 [push]
   default = simple
-[branch]
-  autosetupmerge = always
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
