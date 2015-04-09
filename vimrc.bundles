@@ -95,6 +95,9 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 
+" Node
+Plugin 'moll/vim-node'
+
 " Ruby/Rails
 Plug 'thoughtbot/vim-rspec' " Rspec commands
 Plug 'tpope/vim-bundler' " :Bundle command
