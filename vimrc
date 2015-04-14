@@ -63,8 +63,8 @@ map <F8> :TagbarToggle<CR>
 " \b \f \g : go back/forward/last-used
 " \1 \2 \3 : go to buffer 1/2/3 etc
 nnoremap <Leader>l :ls<CR>
-nnoremap <Leader>b :bp<CR>
-nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>n :bn<CR>
 nnoremap <Leader>g :e#<CR>
 nnoremap <Leader>1 :1b<CR>
 nnoremap <Leader>2 :2b<CR>
@@ -145,10 +145,6 @@ set autowriteall
 set tabstop=2
 set shiftwidth=2
 set shiftround
-set expandtab
-
-" Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
@@ -294,8 +290,6 @@ set complete+=kspell
 " Always use vertical diffs
 set diffopt+=vertical
 
-set list listchars=tab:❘-,trail:·,extends:»,precedes:«,nbsp:×
-
 " Gist settings
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
@@ -305,24 +299,6 @@ let g:gist_open_browser_after_post = 1
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
-
-" Airline
-" let g:airline_powerline_fonts = 1
-" if !exists('g:airline_symbols')
-"   let g:airline_symbols = {}
-" endif
-" let g:airline_symbols.space = "\ua0"
-" let g:airline_theme='wombat'
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#fnamemod = ':t'
-" set t_Co=256
-
-" function! AirlineInit()
-"   let g:airline_section_a = airline#section#create(['mode',' ','branch'])
-"   let g:airline_section_b = airline#section#create_left(['ffenc','%f'])
-"   let g:airline_section_c = airline#section#create(['tagbar'])
-" endfunction
-" autocmd VimEnter * call AirlineInit()
 
 let g:bufferline_echo = 0
 
