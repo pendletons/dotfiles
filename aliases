@@ -12,6 +12,12 @@ alias -g ONE="| awk '{ print \$1}'"
 alias e="$EDITOR"
 alias v="$VISUAL"
 
+# betty
+alias betty=~/betty/main.rb
+
+# git
+alias gci="git pull --rebase && rake && git push"
+
 # sourcetree
 alias st="stree"
 
