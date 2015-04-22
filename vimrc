@@ -211,6 +211,12 @@ let g:ctrlp_show_hidden = 1
 map <F5> :setlocal spell! spelllang=en_gb<cr>
 imap <F5> <ESC>:setlocal spell! spelllang=en_gb<cr>
 
+" toggle Gundo with F6
+nnoremap <F6> :GundoToggle<CR>
+let g:gundo_preview_bottom = 1
+let g:gundo_right = 1
+let g:gundo_close_on_revert = 1
+
 " Tab completion
 " will insert tab at beginning of line,
 " will use completion if not at beginning

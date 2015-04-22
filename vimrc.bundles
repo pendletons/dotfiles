@@ -68,6 +68,9 @@ Plug 'tpope/vim-dispatch' " Asynchronous test running
 Plug 'moll/vim-bbye' " close buffers easily
 Plug 'jeffkreeftmeijer/vim-numbertoggle.git' " Line numbers/movement
 Plug 'sjl/vitality.vim' " Iterm niceness
+Plug 'terryma/vim-expand-region' " visually select regions
+Plug 'sjl/gundo.vim.git' " undo tree
+Plug 'maxbrunsfeld/vim-yankstack' " yank history
 
 " Themes
 Plug 'nanotech/jellybeans.vim'
