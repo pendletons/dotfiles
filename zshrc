@@ -83,5 +83,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 source ~/.bin/tmuxinator.zsh
 source ~/.shell_prompt.sh
 
+alias poo='$(thefuck $(fc -ln -1))'
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
