@@ -1,37 +1,20 @@
 " Leader
-let mapleader = ","
+let mapleader = "\<Space>"
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup      " prevent temporary files
 set nowritebackup " prevent temporary files
-set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
-set history=50
-set ruler         " show the cursor position all the time
-set showcmd       " display incomplete commands
-set incsearch     " do incremental searching
-set laststatus=2  " Always display the status line
-set autoread      " Automatically read changes to files
 set autowrite     " Automatically :write before running commands
-set noshowmode    " don't show mode as the statusline does this for us
 
-syntax on                         " show syntax highlighting
 filetype plugin indent on
-" set autoindent                    " set auto indent
-set expandtab                     " use spaces, not tab characters
 set showmatch                     " show bracket matches
-set ignorecase                    " ignore case in search
-set smartcase                     " pay attention to case when caps are used
-set ttimeoutlen=100               " decrease timeout for faster insert with 'O'
-set vb                            " enable visual bell (disable audio bell)
-set scrolloff=2                   " minimum lines above/below cursor
-set list listchars=tab:»·,trail:· " show extra space characters
-set nofoldenable                  " disable code folding
 set clipboard=unnamed             " use the system clipboard
-set hidden                        " hide buffers rather than closing them
 let g:rainbow_active = 1          " highlight parens with different colours
-" set wildmenu                      " enable bash style tab completion
-" set wildmode=list:longest,full
-runtime macros/matchit.vim        " use % to jump between start/end of methods
+
+" 12<Enter> to go to line 12 / <Enter> to go to end of file
+nnoremap <CR> G
+" <Backspace> to go to beginning of file
+nnoremap <BS> gg
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -39,9 +22,29 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
-" ctrl-s = save
-:nmap <c-s> :w<CR>
-:imap <c-s> <Esc>:w<CR>a
+nnoremap <Leader>w :w<CR>
+
+" copy/paste with y/p
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" Quickly select text you just pasted
+noremap gV `[v`]
+" enter visual mode with <space><space>
+nmap <Leader><Leader> V
+
+" region expanding
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+" Automatically jump to end of text you pasted
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
 
 map <F3> :set hlsearch!<CR>
 
@@ -142,8 +145,6 @@ let g:is_posix = 1
 set autowriteall
 
 " Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
 set shiftround
 
 " Use one space, not two, after punctuation.
@@ -177,31 +178,7 @@ map <leader>d :!clear && git diff %<cr>
 " map Silver Searcher
 map <leader>a :Ag!<space>
 
-" Color scheme
-set background=dark
-colorscheme base16-tomorrow
-
-" set up some custom colors
-highlight IncSearch    ctermbg=3   ctermfg=1
-highlight Search       ctermbg=1   ctermfg=3
-highlight SpellBad     ctermbg=0   ctermfg=1
-highlight LineNr       ctermbg=none ctermfg=105
-" highlight trailing spaces in annoying red
-highlight ExtraWhitespace ctermbg=1 guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
-" GitGutter
-highlight GitGutterAdd          ctermfg=40 ctermbg=none
-highlight GitGutterChange       ctermfg=20 ctermbg=none
-highlight GitGutterDelete       ctermfg=9  ctermbg=none
-highlight GitGutterChangeDelete ctermfg=20 ctermbg=none
-
 " Numbers
-set number
 set numberwidth=4
 
 " ctrlp config
@@ -224,7 +201,6 @@ let g:gundo_close_on_revert = 1
 " Tab completion
 " will insert tab at beginning of line,
 " will use completion if not at beginning
-set wildmode=list:longest,list:full
 function! InsertTabWrapper()
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
@@ -238,7 +214,6 @@ inoremap <S-Tab> <c-n>
 
 " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
-set tags=./tags;
 
 " Index ctags from any project, including those outside Rails
 map <Leader>ct :!ctags -R .<CR>
@@ -261,7 +236,7 @@ nnoremap <silent> <leader>gt :TestVisit<CR>
 let g:rspec_command = 'Dispatch rspec {spec}'
 
 " Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<space>
+nnoremap <Leader>ri :RunInInteractiveShell<space>
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -474,6 +449,28 @@ let g:tmuxline_preset = {
 "         \'c' : [ promptline#slices#vcs_branch(), promptline#slices#git_status() ],
 "         \'z' : [ '%*' ],
 "         \'warn' : [ promptline#slices#battery() ]}
+
+" Ruby Pry stuff
+" …also, Insert Mode as bpry<space>
+iabbr bpry require'pry';binding.pry
+" And admit that the typos happen:
+iabbr bpry require'pry';binding.pry
+
+" Split/Join lines
+nmap sj :SplitjoinSplit<cr>
+nmap sk :SplitjoinJoin<cr>
+
+" Add the pry debug line with \bp (or <Space>bp, if you did: map <Space> <Leader> )
+map <Leader>bp orequire'pry';binding.pry<esc>:w<cr>
+" Alias for one-handed operation:
+map <Leader><Leader>p <Leader>bp
+
+" Keep pry from annoyingly hanging around when using, e.g. pry-rescue/minitest
+map <f7> :wa<cr>:call system('kill-pry-rescue')<cr>
+
+" Nab lines from ~/.pry_history (respects "count")
+nmap <Leader>ph :<c-u>let pc = (v:count1 ? v:count1 : 1)<cr>:read !tail -<c-r>=pc<cr> ~/.pry_history<cr>:.-<c-r>=pc-1<cr>:norm <c-r>=pc<cr>==<cr>
+" ↑ thanks to Houl, ZyX-i, and paradigm of #vim for all dogpiling on this one.
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")

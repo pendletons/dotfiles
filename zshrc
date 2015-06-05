@@ -85,5 +85,18 @@ source ~/.shell_prompt.sh
 
 alias poo='$(thefuck $(fc -ln -1))'
 
+# Use ctrl-z to go back to vim if we've left it
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

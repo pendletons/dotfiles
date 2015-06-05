@@ -26,6 +26,9 @@ com! -nargs=+  -bar Bundle call VundleToPlug("Bundle", <args>)
 
 call plug#begin('~/.vim/bundle')
 
+" Sensible defaults
+Plug 'sheerun/vimrc'
+
 " Define bundles via Github repos
 Plug 'christoomey/vim-run-interactive' " interactive shell commands
 Plug 'ctrlpvim/ctrlp.vim' " fast file-switch
@@ -71,6 +74,8 @@ Plug 'sjl/vitality.vim' " Iterm niceness
 Plug 'terryma/vim-expand-region' " visually select regions
 Plug 'sjl/gundo.vim.git' " undo tree
 Plug 'maxbrunsfeld/vim-yankstack' " yank history
+Plug 'mmozuras/vim-github-comment' " comment on github from vim
+Plug 'tpope/vim-rsi' " Readline functionality for vim
 
 " Themes
 Plug 'nanotech/jellybeans.vim'
@@ -85,13 +90,16 @@ Plug 'scrooloose/syntastic'
 Plug 'slim-template/vim-slim'
 Plug 'vim-scripts/ctags.vim' " display function name in title bar
 Plug 'vim-scripts/Better-CSS-Syntax-for-Vim'
-Plug 'vim-scripts/tComment' " easily comment things
+Plug 'tpope/vim-commentary' " easily comment things
 Plug 'Raimondi/delimitMate'
 Plug 'docunext/closetag.vim'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-capslock.git'
 Plug 'ap/vim-css-color'
 Plug 'luochen1990/rainbow'
+Plug 'Valloric/YouCompleteMe' " code completion
+Plug 'tpope/vim-sleuth' " smart indent based on syntax
+Plug 'AndrewRadev/splitjoin.vim' " split lines/join lines
 
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
@@ -108,6 +116,9 @@ Plug 'tpope/vim-endwise' " add end in ruby files
 Plug 'tpope/vim-rails' " Rails awareness
 Plug 'vim-ruby/vim-ruby'
 Plug 'ecomba/vim-ruby-refactoring'
+Plug 'skalnik/vim-vroom' " Rails tests
+Plug 'kana/vim-textobj-user' " Pre-req for vim-textobj-rubyblock
+Plug 'nelstrom/vim-textobj-rubyblock' " select Ruby blocks
 
 " Themes
 " Plug 'bling/vim-airline'
