@@ -17,7 +17,7 @@ highlight CursorLine cterm=none ctermfg=16 ctermbg=8  gui=none guifg=Black guibg
 highlight Folded     cterm=none ctermfg=16 ctermbg=8  gui=none guifg=Black guibg=#A0A0A0
 highlight Todo       cterm=none ctermfg=9  ctermbg=none gui=none guifg=orangered guibg=yellow2
 
-highlight MatchParen cterm=none ctermbg=green ctermfg=white guifg=#ffffff guibg=#00a000
+highlight MatchParen cterm=none ctermbg=9 ctermfg=15 guifg=white guibg=red
 
 " YouCompleteMe
 highlight Pmenu      cterm=none ctermfg=15 ctermbg=16 gui=none guifg=White guibg=Black
@@ -42,5 +42,5 @@ highlight GitGutterChange       ctermfg=20 ctermbg=none
 highlight GitGutterDelete       ctermfg=9  ctermbg=none
 highlight GitGutterChangeDelete ctermfg=20 ctermbg=none
 
-highlight CursorLine term=underline ctermfg=16 ctermbg=159 guifg=none guibg=#AFFFFF gui=none
-highlight CtrlPMatch ctermfg=16 ctermbg=159 cterm=bold guifg=Black guibg=#AFFFFF gui=bold
+highlight CursorLine term=underline ctermfg=16 ctermbg=81 guifg=none guibg=#5fd7ff gui=none
+highlight CtrlPMatch ctermfg=16 ctermbg=81 cterm=bold guifg=Black guibg=#5fd7ff gui=bold
