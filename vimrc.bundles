@@ -29,7 +29,7 @@ call plug#begin('~/.vim/bundle')
 " Sensible defaults
 Plug 'sheerun/vimrc'
 
-" Define bundles via Github repos
+" General purpose
 Plug 'christoomey/vim-run-interactive' " interactive shell commands
 Plug 'ctrlpvim/ctrlp.vim' " fast file-switch
 Plug 'kchmck/vim-coffee-script'
@@ -76,6 +76,8 @@ Plug 'sjl/gundo.vim.git' " undo tree
 Plug 'maxbrunsfeld/vim-yankstack' " yank history
 Plug 'mmozuras/vim-github-comment' " comment on github from vim
 Plug 'tpope/vim-rsi' " Readline functionality for vim
+Plug 'tpope/vim-obsession' " Session saving
+Plug 'tmux-plugins/vim-tmux-focus-events' " Better focus lost/gained handling
 
 " Themes
 Plug 'nanotech/jellybeans.vim'
