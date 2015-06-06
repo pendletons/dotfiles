@@ -78,6 +78,7 @@ Plug 'mmozuras/vim-github-comment' " comment on github from vim
 Plug 'tpope/vim-rsi' " Readline functionality for vim
 Plug 'tpope/vim-obsession' " Session saving
 Plug 'tmux-plugins/vim-tmux-focus-events' " Better focus lost/gained handling
+Plug 'Lokaltog/vim-easymotion' " Better motion commands
 
 " Themes
 Plug 'nanotech/jellybeans.vim'
@@ -110,6 +111,7 @@ Plug 'honza/vim-snippets'
 
 " Node
 Plug 'moll/vim-node'
+Plug 'jamescarr/snipmate-nodejs'
 
 " Ruby/Rails
 Plug 'thoughtbot/vim-rspec' " Rspec commands

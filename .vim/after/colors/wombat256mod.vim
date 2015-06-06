@@ -42,5 +42,5 @@ highlight GitGutterChange       ctermfg=20 ctermbg=none
 highlight GitGutterDelete       ctermfg=9  ctermbg=none
 highlight GitGutterChangeDelete ctermfg=20 ctermbg=none
 
-highlight CursorLine term=underline ctermfg=17 ctermbg=81 guifg=Black guibg=#5fd7ff gui=none
+highlight CursorLine term=underline ctermfg=16 ctermbg=81 guifg=Black guibg=#5fd7ff gui=none
 highlight CtrlPMatch ctermfg=16 ctermbg=81 cterm=bold guifg=Black guibg=#5fd7ff gui=bold
