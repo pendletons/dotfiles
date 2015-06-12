@@ -12,6 +12,7 @@ alias -g ONE="| awk '{ print \$1}'"
 alias e="$EDITOR"
 alias v="$VISUAL"
 alias g='git'
+alias gi='git'
 
 # betty
 alias betty=~/betty/main.rb
