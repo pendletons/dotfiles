@@ -198,20 +198,6 @@ let g:gundo_preview_bottom = 1
 let g:gundo_right = 1
 let g:gundo_close_on_revert = 1
 
-" Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-n>
-
 " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
@@ -460,7 +446,7 @@ iabbr bpry require'pry';binding.pry
 nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
 
-" Add the pry debug line with \bp (or <Space>bp, if you did: map <Space> <Leader> )
+" Add the pry debug line with <Space>bp
 map <Leader>bp orequire'pry';binding.pry<esc>:w<cr>
 " Alias for one-handed operation:
 map <Leader><Leader>p <Leader>bp
