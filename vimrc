@@ -123,7 +123,7 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
   " Automatically wrap at 72 characters and spell check git commit messages
-  autocmd FileType gitcommit setlocal textwidth=72
+  autocmd FileType gitcommit setlocal textwidth=80
   autocmd FileType gitcommit setlocal spell spelllang=en_gb
 
   " Allow stylesheets to autocomplete hyphenated words
