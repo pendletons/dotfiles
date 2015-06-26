@@ -202,7 +202,8 @@ let g:gundo_close_on_revert = 1
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 " Index ctags from any project, including those outside Rails
-map <Leader>ct :!ctags -R .<CR>
+map <Leader>ct :!ctags --tag-relative --extra=+f -Rf.git/tags --exclude=.git,pkg --languages=-javascript,sql<CR><CR>
+set tags+=.git/tags
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
