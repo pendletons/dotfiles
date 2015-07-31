@@ -67,7 +67,7 @@ _load_settings "$HOME/.zsh/configs"
 # disable autocorrect
 unsetopt correct
 
-plugins=(osx git gitfast rails ruby brew bundler gem tmux tmuxinator)
+plugins=(osx git gitfast rails ruby brew bundler gem tmux tmuxinator autojump history)
 
 source ~/.git-flow-completion.zsh
 

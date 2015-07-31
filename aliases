@@ -26,11 +26,10 @@ alias st="stree"
 # Bundler
 alias b="bundle"
 alias be='bundle exec'
-alias bi='bundle install'
-alias dm='bundle exec rake db:migrate && bundle exec rake db:test:prepare'
 
 # Rails
-alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
+alias dm="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
+alias rk="rake"
 alias s="rspec"
 alias br='bundle exec rspec'
 alias cop='bundle exec rubocop --auto-correct'

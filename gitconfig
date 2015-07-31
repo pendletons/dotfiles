@@ -17,6 +17,7 @@
   changed = green
 [alias]
   aa = add --all
+  amend = commit --amend --reuse-message=HEAD
   ap = add --patch
   branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
   ci = commit -v
@@ -40,7 +41,6 @@
   pager = /usr/bin/git-pager
   info = /usr/bin/git-info
   s = status
-  st = status
   b = branch
   ba = branch -a
   d = diff
@@ -49,23 +49,61 @@
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ls = ls-files
+  ls-ignored = ls-files --exclude-standard --ignored --others
+  wd = diff --word-diff="color"
+  wds = diff --word-diff="color" --cached
+
+  # Make stashing easier
+  st = stash
+  stl = stash list
+  stp = stash pop
+
+ 	# Make rebasing easier
+	rb = rebase
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbs = rebase --skip
+
+
+	# Show compact history
+	l = "!git log --graph --pretty='tformat:%C(yellow)%h{%C(green)%ar{%C(bold blue)%an{%C(red)%d%C(reset) %s' $* | column -t -s '{' | less -FXRS"
+	# Show commit log using graph notation
+	lg = log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	# List commits showing changed files
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	ra = log --graph --abbrev-commit --date=relative -20 --all --pretty='format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
+
+	# Easily ignore committed, but changed files that I don't want to commit
+	assume = update-index --assume-unchanged
+	assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+	assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
+	unassume = update-index --no-assume-unchanged
+	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
   editor = vim
-  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol,space-before-tab
 [merge]
   defaultToUpstream = true
+  stat = true
 [rebase]
   autosquash = true
 [commit]
-  template = ~/.gitmessage
+  template = ~/dotfiles/.gitmessage
+[branch]
+  autosetupmerge = true
 [fetch]
   prune = true
 [rebase]
   autosquash = true
 [push]
   default = upstream
+[rerere]
+  enabled = true
+[diff]
+  renames = copies
+  mnemonicprefix = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -83,3 +121,6 @@
   clean = git hawser clean %f
   smudge = git hawser smudge %f
   required = true
+[advice]
+  pushNonFastForward = false
+  statusHints = false
