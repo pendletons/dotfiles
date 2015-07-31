@@ -41,6 +41,7 @@
   pager = /usr/bin/git-pager
   info = /usr/bin/git-info
   s = status
+  st = status
   b = branch
   ba = branch -a
   d = diff
@@ -54,7 +55,7 @@
   wds = diff --word-diff="color" --cached
 
   # Make stashing easier
-  st = stash
+  sts = stash
   stl = stash list
   stp = stash pop
 

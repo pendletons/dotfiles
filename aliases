@@ -26,6 +26,8 @@ alias st="stree"
 # Bundler
 alias b="bundle"
 alias be='bundle exec'
+alias bu='bundle update'
+alias dm='bundle exec rake db:migrate && bundle exec rake db:test:prepare'
 
 # Rails
 alias dm="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
