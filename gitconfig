@@ -59,27 +59,26 @@
   stl = stash list
   stp = stash pop
 
- 	# Make rebasing easier
-	rb = rebase
-	rba = rebase --abort
-	rbc = rebase --continue
-	rbs = rebase --skip
+  # Make rebasing easier
+  rb = rebase
+  rba = rebase --abort
+  rbc = rebase --continue
+  rbs = rebase --skip
 
+  # Show compact history
+  l = "!git log --graph --pretty='tformat:%C(yellow)%h{%C(green)%ar{%C(bold blue)%an{%C(red)%d%C(reset) %s' $* | column -t -s '{' | less -FXRS"
+  # Show commit log using graph notation
+  lg = log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  # List commits showing changed files
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  ra = log --graph --abbrev-commit --date=relative -20 --all --pretty='format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
 
-	# Show compact history
-	l = "!git log --graph --pretty='tformat:%C(yellow)%h{%C(green)%ar{%C(bold blue)%an{%C(red)%d%C(reset) %s' $* | column -t -s '{' | less -FXRS"
-	# Show commit log using graph notation
-	lg = log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-	# List commits showing changed files
-	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-	ra = log --graph --abbrev-commit --date=relative -20 --all --pretty='format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
-
-	# Easily ignore committed, but changed files that I don't want to commit
-	assume = update-index --assume-unchanged
-	assumed = "!git ls-files -v | grep ^h | cut -c 3-"
-	assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
-	unassume = update-index --no-assume-unchanged
-	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+  # Easily ignore committed, but changed files that I don't want to commit
+  assume = update-index --assume-unchanged
+  assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+  assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
+  unassume = update-index --no-assume-unchanged
+  unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input

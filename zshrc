@@ -71,6 +71,9 @@ plugins=(osx git gitfast rails ruby brew bundler gem tmux tmuxinator autojump hi
 
 source ~/.git-flow-completion.zsh
 
+# Autocomplete for 'g' as well
+complete -o default -o nospace -F _git g
+
 export PATH="$HOME/.bin:$PATH"
 eval "$(rbenv init - zsh --no-rehash)"
 
