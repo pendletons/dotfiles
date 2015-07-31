@@ -71,8 +71,6 @@ plugins=(osx git gitfast rails ruby brew bundler gem tmux tmuxinator)
 
 source ~/.git-flow-completion.zsh
 
-eval "$(hub alias -s)"
-
 export PATH="$HOME/.bin:$PATH"
 eval "$(rbenv init - zsh --no-rehash)"
 

@@ -16,3 +16,4 @@ tmux*log
 database.yml.sample
 Procfile.local
 mysql2pgsql.yml
+git-commit.template
