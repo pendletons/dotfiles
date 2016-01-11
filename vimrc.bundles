@@ -79,6 +79,7 @@ Plug 'tpope/vim-rsi' " Readline functionality for vim
 Plug 'tpope/vim-obsession' " Session saving
 Plug 'tmux-plugins/vim-tmux-focus-events' " Better focus lost/gained handling
 Plug 'Lokaltog/vim-easymotion' " Better motion commands
+Plug '907th/vim-auto-save' " auto save buffers
 
 " Themes
 Plug 'nanotech/jellybeans.vim'

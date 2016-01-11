@@ -69,8 +69,6 @@ unsetopt correct
 
 plugins=(osx git gitfast rails ruby brew bundler gem tmux tmuxinator autojump history)
 
-source ~/.git-flow-completion.zsh
-
 export PATH="$HOME/.bin:$PATH"
 eval "$(rbenv init - zsh --no-rehash)"
 
@@ -98,3 +96,6 @@ bindkey '^Z' fancy-ctrl-z
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+export NVM_DIR="/Users/shanthi/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

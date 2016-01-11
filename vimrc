@@ -16,6 +16,9 @@ nnoremap <CR> G
 " <Backspace> to go to beginning of file
 nnoremap <BS> gg
 
+" Ignore ex mode
+nnoremap Q <ESC>
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
@@ -142,6 +145,8 @@ let g:is_posix = 1
 " Save on focus lost
 :au FocusLost * silent! wa
 set autowriteall
+set hidden
+let g:auto_save = 1
 
 " Softtabs, 2 spaces
 set shiftround
