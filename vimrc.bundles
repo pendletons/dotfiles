@@ -113,6 +113,7 @@ Plug 'honza/vim-snippets'
 " Node
 Plug 'moll/vim-node'
 Plug 'jamescarr/snipmate-nodejs'
+Plug 'XadillaX/json-formatter.vim'
 
 " Ruby/Rails
 Plug 'thoughtbot/vim-rspec' " Rspec commands
