@@ -146,7 +146,6 @@ let g:is_posix = 1
 :au FocusLost * silent! wa
 set autowriteall
 set hidden
-let g:auto_save = 1
 
 " Softtabs, 2 spaces
 set shiftround
@@ -244,8 +243,11 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" configure syntastic syntax checking to check on open as well as save
-let g:syntastic_check_on_open=0
+" configure syntastic syntax checking
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_always_populate_loc_list=0
+let g:syntastic_auto_loc_list=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_eruby_ruby_quiet_messages =
     \ {"regex": "possibly useless use of a variable in void context"}
@@ -456,12 +458,27 @@ nmap <Leader>ph :<c-u>let pc = (v:count1 ? v:count1 : 1)<cr>:read !tail -<c-r>=p
 " ↑ thanks to Houl, ZyX-i, and paradigm of #vim for all dogpiling on this one.
 
 " RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>t :w<CR>:call RunCurrentSpecFile()<CR>
+map <Leader>s :w<CR>:call RunNearestSpec()<CR>
+map <Leader>l :w<CR>:call RunLastSpec()<CR>
+map <Leader>at :w<CR>:call RunAllSpecs()<CR>
 
 let g:rspec_command = "Dispatch rspec {spec}"
+
+map <Leader>rn :call RenameFile()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RENAME CURRENT FILE (thanks Gary Bernhardt)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
