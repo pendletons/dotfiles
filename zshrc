@@ -134,6 +134,9 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+# Docker
+eval "$(docker-machine env default)"
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
