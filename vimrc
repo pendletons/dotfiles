@@ -193,6 +193,8 @@ let g:ctrlp_show_hidden = 1
 " ignore stuff in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+let g:ag_lhandler="topleft lopen"
+
 " toggle spell check with <F5>
 map <F5> :setlocal spell! spelllang=en_gb<cr>
 imap <F5> <ESC>:setlocal spell! spelllang=en_gb<cr>
