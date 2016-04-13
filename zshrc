@@ -137,6 +137,9 @@ bindkey '^Z' fancy-ctrl-z
 # Docker
 eval "$(docker-machine env default)"
 
+# Overcommit
+export GIT_TEMPLATE_DIR=`overcommit --template-dir`
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 

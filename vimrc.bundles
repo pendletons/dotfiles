@@ -104,6 +104,7 @@ Plug 'luochen1990/rainbow'
 Plug 'Valloric/YouCompleteMe' " code completion
 Plug 'tpope/vim-sleuth' " smart indent based on syntax
 Plug 'AndrewRadev/splitjoin.vim' " split lines/join lines
+Plug 'mxw/vim-jsx' " JSX indentation/highligting
 
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
@@ -114,6 +115,7 @@ Plug 'honza/vim-snippets'
 Plug 'moll/vim-node'
 Plug 'jamescarr/snipmate-nodejs'
 Plug 'XadillaX/json-formatter.vim'
+Plug 'lfilho/cosco.vim' " , and ; handling
 
 " Ruby/Rails
 Plug 'thoughtbot/vim-rspec' " Rspec commands

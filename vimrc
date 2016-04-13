@@ -190,6 +190,8 @@ let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_show_hidden = 1
+" ignore stuff in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " toggle spell check with <F5>
 map <F5> :setlocal spell! spelllang=en_gb<cr>
@@ -254,6 +256,11 @@ let g:syntastic_eruby_ruby_quiet_messages =
 let g:syntastic_aggregate_errors=1
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_javascript_checkers = ['eslint', 'jscs']
+
+" CostCo settings for , and ;
+autocmd FileType javascript,css nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
+autocmd FileType javascript,css inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
@@ -421,6 +428,9 @@ endfunction
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
+
+" Vim Javascript
+let g:javascript_enable_domhtmlcss = 1
 
 " Tmuxline
 " let g:tmuxline_preset = 'full'
