@@ -16,6 +16,13 @@ nnoremap <CR> G
 " <Backspace> to go to beginning of file
 nnoremap <BS> gg
 
+" Shift current line to middle of vim window
+nmap <space> zz
+
+" Default search navigation to stay in middle of vim window
+nmap n nzz
+nmap N Nzz
+
 " Ignore ex mode
 nnoremap Q <ESC>
 
@@ -475,7 +482,7 @@ map <Leader>s :w<CR>:call RunNearestSpec()<CR>
 map <Leader>l :w<CR>:call RunLastSpec()<CR>
 map <Leader>at :w<CR>:call RunAllSpecs()<CR>
 
-let g:rspec_command = "Dispatch rspec {spec}"
+let g:rspec_command = "Dispatch spring rspec {spec}"
 
 map <Leader>rn :call RenameFile()<cr>
 
