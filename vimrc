@@ -230,6 +230,8 @@ nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
 let g:rspec_command = 'Dispatch rspec {spec}'
 
+let test#strategy = "dispatch"
+
 " Run commands that require an interactive shell
 nnoremap <Leader>ri :RunInInteractiveShell<space>
 
