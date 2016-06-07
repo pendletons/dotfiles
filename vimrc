@@ -34,6 +34,9 @@ endif
 
 nnoremap <Leader>w :w<CR>
 
+" open fold on space
+nnoremap <Space><Space> za
+
 " copy/paste with y/p
 vmap <Leader>y "+y
 vmap <Leader>d "+d
