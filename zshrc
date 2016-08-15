@@ -146,3 +146,9 @@ export NVM_DIR="/Users/shanthi/.nvm"
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+PATH="/Users/shanthi/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/shanthi/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/shanthi/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/shanthi/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/shanthi/perl5"; export PERL_MM_OPT;
