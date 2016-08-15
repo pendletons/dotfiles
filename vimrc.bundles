@@ -106,6 +106,9 @@ Plug 'skalnik/vim-vroom' " Rails tests
 Plug 'kana/vim-textobj-user' " Pre-req for vim-textobj-rubyblock
 Plug 'nelstrom/vim-textobj-rubyblock' " select Ruby blocks
 
+" Elixir
+Plug 'elixir-lang/vim-elixir' " Syntax highlighting/indentation
+
 " Themes
 " Plug 'bling/vim-airline'
 Plug 'itchyny/lightline.vim'
