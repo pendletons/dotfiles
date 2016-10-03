@@ -470,7 +470,7 @@ nmap sk :SplitjoinJoin<cr>
 
 " Ruby Pry stuff
 " Add the pry debug line with <Space>bp
-map <Leader>bp obinding.pry<esc>:w<cr>
+map <Leader>bp obyebug<esc>:w<cr>
 " Alias for one-handed operation:
 map <Leader><Leader>p <Leader>bp
 
