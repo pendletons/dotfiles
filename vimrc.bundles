@@ -28,7 +28,7 @@ Plug 'vim-scripts/tComment' " easily comment things
 Plug 'thoughtbot/vim-rspec'
 Plug 'vim-scripts/ctags.vim'
 Plug 'vim-scripts/matchit.zip' " % matching
-Plug 'rking/ag.vim' " searching
+Plug 'mileszs/ack.vim' " searching
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim' " create gists
 Plug 'bling/vim-airline' " status bars
