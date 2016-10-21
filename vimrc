@@ -176,7 +176,6 @@ if executable('ag')
 
   " Highlight the search term
   let g:ag_highlight=1
-endif
 
   if !exists(":Ag")
     command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
