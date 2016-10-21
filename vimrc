@@ -483,11 +483,12 @@ map <f7> :wa<cr>:call system('kill-pry-rescue')<cr>
 nmap <Leader>ph :<c-u>let pc = (v:count1 ? v:count1 : 1)<cr>:read !tail -<c-r>=pc<cr> ~/.pry_history<cr>:.-<c-r>=pc-1<cr>:norm <c-r>=pc<cr>==<cr>
 " ↑ thanks to Houl, ZyX-i, and paradigm of #vim for all dogpiling on this one.
 
-" RSpec.vim mappings
-map <Leader>t :w<CR>:call RunCurrentSpecFile()<CR>
-map <Leader>s :w<CR>:call RunNearestSpec()<CR>
-map <Leader>l :w<CR>:call RunLastSpec()<CR>
-map <Leader>at :w<CR>:call RunAllSpecs()<CR>
+" vim-test mappings
+nnoremap <silent> <Leader>t :TestFile<CR>
+nnoremap <silent> <Leader>s :TestNearest<CR>
+nnoremap <silent> <Leader>l :TestLast<CR>
+nnoremap <silent> <Leader>a :TestSuite<CR>
+nnoremap <silent> <leader>gt :TestVisit<CR>
 
 let g:rspec_command = "Dispatch spring rspec {spec}"
 
