@@ -189,7 +189,9 @@ map <leader>l :!clear && git log -p %<cr>
 map <leader>d :!clear && git diff %<cr>
 
 " map Silver Searcher
-map <leader>a :Ag!<space>
+map <leader>a :Ack!<space>
+let g:ack_default_options = " -s -H --color --nogroup --nocolumn --smart-case"
+let g:ack_use_dispatch = 1
 
 " Numbers
 set numberwidth=4
