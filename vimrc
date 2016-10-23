@@ -230,9 +230,9 @@ nnoremap <leader><leader> <c-^>
 nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
-nnoremap <silent> <Leader>a :TestSuite<CR>
+nnoremap <silent> <Leader>ta :TestSuite<CR>
 nnoremap <silent> <leader>gt :TestVisit<CR>
-let g:rspec_command = 'Dispatch rspec {spec}'
+let g:rspec_command = 'Dispatch spring rspec {spec}'
 
 let test#strategy = "dispatch"
 
@@ -482,15 +482,6 @@ map <f7> :wa<cr>:call system('kill-pry-rescue')<cr>
 " Nab lines from ~/.pry_history (respects "count")
 nmap <Leader>ph :<c-u>let pc = (v:count1 ? v:count1 : 1)<cr>:read !tail -<c-r>=pc<cr> ~/.pry_history<cr>:.-<c-r>=pc-1<cr>:norm <c-r>=pc<cr>==<cr>
 " ↑ thanks to Houl, ZyX-i, and paradigm of #vim for all dogpiling on this one.
-
-" vim-test mappings
-nnoremap <silent> <Leader>t :TestFile<CR>
-nnoremap <silent> <Leader>s :TestNearest<CR>
-nnoremap <silent> <Leader>l :TestLast<CR>
-nnoremap <silent> <Leader>a :TestSuite<CR>
-nnoremap <silent> <leader>gt :TestVisit<CR>
-
-let g:rspec_command = "Dispatch spring rspec {spec}"
 
 map <Leader>rn :call RenameFile()<cr>
 
