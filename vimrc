@@ -8,7 +8,7 @@ set autowrite     " Automatically :write before running commands
 
 filetype plugin indent on
 set showmatch                     " show bracket matches
-set clipboard=unnamed             " use the system clipboard
+" set clipboard=unnamed             " use the system clipboard
 let g:rainbow_active = 1          " highlight parens with different colours
 
 " 12<Enter> to go to line 12 / <Enter> to go to end of file
