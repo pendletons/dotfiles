@@ -49,11 +49,6 @@ setopt extendedglob
 # Allow [ or ] whereever you want
 unsetopt nomatch
 
-# vi mode
-# bindkey -v
-# bindkey "^F" vi-cmd-mode
-# bindkey jj vi-cmd-mode
-
 # handy keybindings
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
@@ -102,14 +97,12 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
-# aliases
-[[ -f ~/.aliases ]] && source ~/.aliases
 # disable autocorrect
 unsetopt correct
 
 plugins=(osx git gitfast rails ruby brew bundler gem tmux tmuxinator autojump history)
 
-export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh --no-rehash)"
 
 # Base16 Shell
@@ -118,8 +111,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 
 source ~/.bin/tmuxinator.zsh
 source ~/.shell_prompt.sh
-
-alias poo='$(thefuck $(fc -ln -1))'
 
 # Use ctrl-z to go back to vim if we've left it
 fancy-ctrl-z () {
@@ -140,15 +131,15 @@ export GIT_TEMPLATE_DIR=`overcommit --template-dir`
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
-export NVM_DIR="/Users/shanthi/.nvm"
+export NVM_DIR="~/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-PATH="/Users/shanthi/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/shanthi/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/shanthi/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/shanthi/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/shanthi/perl5"; export PERL_MM_OPT;
+PATH="~/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="~/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="~/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"~/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=~/perl5"; export PERL_MM_OPT;
