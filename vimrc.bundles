@@ -47,10 +47,10 @@ Plug 'christoomey/vim-tmux-navigator' " Tmux navigation for panes
 Plug 'jgdavey/tslime.vim' " Send commands to tmux
 Plug 'tpope/vim-dispatch' " Asynchronous test running
 Plug 'moll/vim-bbye' " close buffers easily
-Plug 'jeffkreeftmeijer/vim-numbertoggle.git' " Line numbers/movement
+Plug 'jeffkreeftmeijer/vim-numbertoggle' " Line numbers/movement
 Plug 'sjl/vitality.vim' " Iterm niceness
 Plug 'terryma/vim-expand-region' " visually select regions
-Plug 'sjl/gundo.vim.git' " undo tree
+Plug 'sjl/gundo.vim' " undo tree
 Plug 'maxbrunsfeld/vim-yankstack' " yank history
 Plug 'mmozuras/vim-github-comment' " comment on github from vim
 Plug 'tpope/vim-rsi' " Readline functionality for vim
@@ -76,7 +76,7 @@ Plug 'tpope/vim-commentary' " easily comment things
 Plug 'Raimondi/delimitMate'
 Plug 'docunext/closetag.vim'
 Plug 'ervandew/supertab'
-Plug 'tpope/vim-capslock.git'
+Plug 'tpope/vim-capslock'
 Plug 'ap/vim-css-color'
 Plug 'luochen1990/rainbow'
 Plug 'Valloric/YouCompleteMe' " code completion

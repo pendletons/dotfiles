@@ -45,5 +45,7 @@ alias path='echo $PATH | tr -s ":" "\n"'
 
 alias ctags="`brew --prefix`/bin/ctags"
 
+alias poo='thefuck'
+
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
