@@ -23,7 +23,6 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat' " Repeat plugin map commands
 Plug 'tpope/vim-surround' " alter syntax around text
-Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/tComment' " easily comment things
 Plug 'thoughtbot/vim-rspec'
 Plug 'vim-scripts/ctags.vim'
@@ -38,15 +37,13 @@ Plug 'scrooloose/nerdtree' " file browser
 Plug 'majutsushi/tagbar' " class browser
 Plug 'vim-scripts/AfterColors.vim'
 Plug 'airblade/vim-gitgutter' " Display git changes in file
-Plug 'mattn/webapi-vim' " Interface for web APISs
+Plug 'mattn/webapi-vim' " Interface for web APIs
 Plug 'janko-m/vim-test'
-Plug 'mattn/gist-vim' " create gists
 Plug 'bling/vim-airline'
 Plug 'moll/vim-bbye' " close buffers easily
 Plug 'christoomey/vim-tmux-navigator' " Tmux navigation for panes
 Plug 'jgdavey/tslime.vim' " Send commands to tmux
 Plug 'tpope/vim-dispatch' " Asynchronous test running
-Plug 'moll/vim-bbye' " close buffers easily
 Plug 'jeffkreeftmeijer/vim-numbertoggle' " Line numbers/movement
 Plug 'sjl/vitality.vim' " Iterm niceness
 Plug 'terryma/vim-expand-region' " visually select regions
