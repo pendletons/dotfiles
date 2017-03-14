@@ -1,3 +1,2 @@
 --colour
 --order random
---format <%= Gem::Specification.find_all_by_name('fuubar') ? 'Fuubar' : 'progress' %>
