@@ -128,6 +128,10 @@ bindkey '^Z' fancy-ctrl-z
 # Overcommit
 export GIT_TEMPLATE_DIR=`overcommit --template-dir`
 
+# fix ssh-add
+ssh-add -K ~/.ssh/id_rsa &> /dev/null
+ssh-add -A &> /dev/null
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
