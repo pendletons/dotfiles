@@ -10,6 +10,9 @@ Plug 'sheerun/vimrc'
 " General purpose
 Plug 'christoomey/vim-run-interactive' " interactive shell commands
 Plug 'ctrlpvim/ctrlp.vim' " fast file-switch
+Plug 'elixir-lang/vim-elixir'
+Plug 'fatih/vim-go'
+Plug 'janko-m/vim-test'
 Plug 'kchmck/vim-coffee-script'
 Plug 'pbrisbin/vim-mkdir' " create path for new file
 Plug 'scrooloose/syntastic'

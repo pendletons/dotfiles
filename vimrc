@@ -189,8 +189,13 @@ map <leader>d :!clear && git diff %<cr>
 
 " map Silver Searcher
 map <leader>a :Ack!<space>
-let g:ack_default_options = " -s -H --color --nogroup --nocolumn --smart-case"
 let g:ack_use_dispatch = 1
+let g:ack_autofold_results = 1
+let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
 
 " Numbers
 set numberwidth=4
