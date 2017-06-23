@@ -5,9 +5,6 @@ git_prompt_info() {
     echo " %{$fg_bold[green]%}%{$current_branch%}%{$reset_color%}"
   fi
 }
-setopt promptsubst
-export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%}$(git_prompt_info) %# '
-
 # load our own completion functions
 fpath=(~/.zsh/completion $fpath)
 
@@ -29,9 +26,6 @@ done
 # makes color constants available
 autoload -U colors
 colors
-
-# enable colored output from ls, etc
-export CLICOLOR=1
 
 # history settings
 setopt hist_ignore_all_dups inc_append_history
@@ -99,7 +93,6 @@ unsetopt correct
 
 plugins=(osx git gitfast rails ruby brew bundler gem tmux tmuxinator autojump history)
 
-export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh --no-rehash)"
 
 # Base16 Shell
@@ -122,9 +115,6 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-# Overcommit
-export GIT_TEMPLATE_DIR=`overcommit --template-dir`
-
 # fix ssh-add
 ssh-add -K ~/.ssh/id_rsa &> /dev/null
 ssh-add -A &> /dev/null
@@ -137,12 +127,6 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 eval $(thefuck --alias poo)
-
-PATH="~/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="~/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="~/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"~/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=~/perl5"; export PERL_MM_OPT;
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
