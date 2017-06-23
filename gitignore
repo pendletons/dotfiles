@@ -17,6 +17,13 @@ database.yml.sample
 tags
 !tags/
 
+# Emacs
+.dir-locals.el
+.projectile
+*#*#
+*#*
+*~
+
 tmp/**/*
 rerun.txt
 !tmp/cache/.keep
