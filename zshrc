@@ -12,6 +12,9 @@ fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit
 
+export PATH="$HOME/.rbenv/bin:$PATH"
+PATH="~/perl5/bin${PATH:+:${PATH}}"; export PATH;
+
 # disable ctrl-s so that vim can work
 alias vim="stty stop '' -ixoff ; vim"
 # `Frozing' tty, so after any command terminal settings will be restored
@@ -118,6 +121,9 @@ bindkey '^Z' fancy-ctrl-z
 # fix ssh-add
 ssh-add -K ~/.ssh/id_rsa &> /dev/null
 ssh-add -A &> /dev/null
+
+# include Z
+. `brew --prefix`/etc/profile.d/z.sh 
 
 export NVM_DIR="~/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

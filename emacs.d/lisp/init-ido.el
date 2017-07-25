@@ -11,7 +11,7 @@
     :config
     (ido-ubiquitous-mode 1))
 
-  (use-package flx-ido
+  (use-package ido-better-flex
     :ensure t))
 
 (provide 'init-ido)

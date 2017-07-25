@@ -22,15 +22,31 @@
     :config
     (evilnc-default-hotkeys t)))
 
-; (use-package relative-line-numbers
-  ; :ensure t)
-; (global-relative-line-numbers-mode)
+;; (evil-define-operator evil-destroy (beg end type register yank-handler)
+  ;; (evil-delete beg end type ?_ yank-handler))
+
+;; (evil-define-operator evil-destroy-replace (beg end type register yank-handler)
+  ;; (evil-destroy beg end type register yank-handler)
+  ;; (evil-paste-before 1 register))
+
+(defun whitespace-only-p (string)
+  (equal "" (replace-regexp-in-string "[ \t\n]" "" string)))
+
+;; (defadvice evil-delete (around evil-delete-yank activate)
+  ;; (if (whitespace-only-p (buffer-substring beg end))
+      ;; (evil-destroy beg end type register yank-handler)
+    ;; ad-do-it))
 
 (evil-leader/set-key
   "e" 'find-file
   "b" 'switch-to-buffer
   "k" 'kill-buffer)
 
+(evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
+(evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
+(evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+(evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
+
 (provide 'init-evil)
-  
+
 ;;; init-evil.el ends here

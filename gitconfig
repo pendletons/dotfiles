@@ -80,7 +80,7 @@
   unassume = update-index --no-assume-unchanged
   unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
 [core]
-  excludesfile = ~/.gitignore
+	excludesfile = /Users/spendleton/.gitignore
   autocrlf = input
   editor = vim
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol,space-before-tab
@@ -90,7 +90,7 @@
 [rebase]
   autosquash = true
 [commit]
-  template = ~/dotfiles/.gitmessage
+	template = ~/dotfiles/.gitmessage
 [branch]
   autosetupmerge = true
 [fetch]
@@ -115,8 +115,8 @@
 [github]
   user = pendletons
 [user]
-  name = Shanthi Pendleton
-  email = shanthi.pendleton@gmail.com
+	name = Shanthi Pendleton
+	email = shanthi.pendleton@gmail.com
 [filter "hawser"]
   clean = git hawser clean %f
   smudge = git hawser smudge %f

@@ -43,12 +43,15 @@
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (evil-magit compay evil-nerd-commenter multiple-cursors rspec-mode exec-path-from-shell flx-ido projectile-rails spacegray-theme solarized-theme ido-everywhere ido-mode ido-ubiquitous imenu+ flycheck neotree evil-indent-textobject evil-indent-plus evil-surround evil-leader relative-line-numbers magithub smex helm-rails ## helm magit use-package evil-visual-mark-mode)))
+    (json-mode auto-indent-mode ido-better-flex helm-projectile idle-highlight-mode ag evil-magit compay evil-nerd-commenter multiple-cursors rspec-mode exec-path-from-shell flx-ido projectile-rails spacegray-theme solarized-theme ido-everywhere ido-mode ido-ubiquitous imenu+ flycheck neotree evil-indent-textobject evil-indent-plus evil-surround evil-leader relative-line-numbers magithub smex helm-rails ## helm magit use-package evil-visual-mark-mode)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
+ '(projectile-mode t nil (projectile))
  '(safe-local-variable-values
    (quote
-    ((hl-sexp-mode)
+    ((flycheck-disabled-checkers . ruby-reek)
+     (rspec-use-docker-when-possible . t)
+     (hl-sexp-mode)
      (rainbow-mode . t)
      (rspec-docker-cwd . "/usr/src/app/")
      (flycheck-disabled-checkers . "ruby-reek")
@@ -75,6 +78,10 @@
  '(default ((t (:family "Menlo" :foundry "nil" :slant normal :weight normal :height 141 :width normal))))
  '(custom-comment ((t (:background "light sky blue"))))
  '(custom-comment-tag ((t (:foreground "light sky blue"))))
+ '(error ((t (:foreground "red3"))))
  '(font-lock-comment-delimiter-face ((t (:foreground "light sky blue"))))
  '(font-lock-comment-face ((t (:foreground "light sky blue"))))
+ '(font-lock-constant-face ((t (:foreground "LightGoldenrod1"))))
+ '(font-lock-string-face ((t (:foreground "pale green"))))
+ '(font-lock-variable-name-face ((t (:foreground "turquoise"))))
  '(trailing-whitespace ((t (:background "red" :foreground "red" :inverse-video t :underline nil)))))

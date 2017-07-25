@@ -6,8 +6,6 @@ export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$
 # enable colored output from ls, etc
 export CLICOLOR=1
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-PATH="~/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="~/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="~/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"~/perl5\""; export PERL_MB_OPT;

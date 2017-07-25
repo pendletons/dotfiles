@@ -12,6 +12,7 @@
 db/*.sqlite3
 log/*.log
 database.yml.sample
+Dockerfile
 
 # Git
 tags
