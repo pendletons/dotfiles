@@ -98,7 +98,7 @@
 [rebase]
   autosquash = true
 [push]
-  default = upstream
+  default = current
 [rerere]
   enabled = true
 [diff]
