@@ -159,6 +159,8 @@ set hidden
 
 " Softtabs, 2 spaces
 set shiftround
+set tabstop=2
+set expandtab
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
