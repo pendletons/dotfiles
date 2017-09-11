@@ -7,3 +7,5 @@ setopt extendedglob
 
 # Allow [ or ] wherever you want
 unsetopt nomatch
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh

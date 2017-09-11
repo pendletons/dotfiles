@@ -51,7 +51,7 @@ export ZSH=/Users/spendleton/.oh-my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fast-syntax-highlighting git-aliases git gitfast bundler osx rails ruby tmux tmuxinator)
+# plugins=(fast-syntax-highlighting git-aliases git gitfast bundler osx rails ruby tmux tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
