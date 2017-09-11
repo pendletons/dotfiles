@@ -17,7 +17,10 @@ antigen bundle <<EOBUNDLES
   tmuxinator
 EOBUNDLES
 
+antigen bundle Tarrasch/zsh-bd # navigate back skipping parent directories
 antigen bundle supercrabtree/k # better directory listings
 antigen bundle zsh-users/zsh-autosuggestions # Fish-like auto suggestions
+antigen bundle AlexisBRENON/oh-my-zsh-reminder # command prompt to do
+antigen bundle zdharma/history-search-multi-word # multi-word history matching
 
 antigen apply
