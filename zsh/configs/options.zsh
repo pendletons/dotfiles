@@ -8,5 +8,8 @@ setopt extendedglob
 # syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# plugins
+plugins=(git gitfast bundler osx rails ruby tmux tmuxinator)
+
 # Allow [ or ] whereever you want
 unsetopt nomatch
