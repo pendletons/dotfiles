@@ -147,6 +147,18 @@ augroup vimrcEx
   autocmd FileType ruby,eruby,yaml setlocal path+=lib
   " Make ? part of words
   autocmd FileType ruby,eruby,yaml setlocal iskeyword+=?
+
+  " ALE linting events
+  if g:has_async
+    set updatetime=1000
+    let g:ale_lint_on_text_changed = 0
+    autocmd CursorHold * call ale#Lint()
+    autocmd CursorHoldI * call ale#Lint()
+    autocmd InsertEnter * call ale#Lint()
+    autocmd InsertLeave * call ale#Lint()
+  else
+    echoerr "The thoughtbot dotfiles require NeoVim or Vim 8"
+  endif
 augroup END
 
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
@@ -237,7 +249,7 @@ map <Leader>ct :!ctags --tag-relative --extra=+f -Rf.git/tags --exclude=.git,pkg
 set tags+=.git/tags
 
 " Switch between the last two files
-nnoremap <leader><leader> <c-^>
+nnoremap <Leader><Leader> <c-^>
 
 " vim-test mappings
 nnoremap <silent> <Leader>t :TestFile<CR>
@@ -290,6 +302,10 @@ let g:syntastic_javascript_checkers = ['eslint', 'jscs']
 " CostCo settings for , and ;
 autocmd FileType javascript,css nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript,css inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
+
+" Move between linting errors
+nnoremap ]r :ALENextWrap<CR>
+nnoremap [r :ALEPreviousWrap<CR>
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.

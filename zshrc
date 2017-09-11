@@ -65,6 +65,7 @@ _load_settings() {
   if [ -d "$_dir" ]; then
     if [ -d "$_dir/pre" ]; then
       for config in "$_dir"/pre/**/*(N-.); do
+        if [ ${config:e} = "zwc" ] ; then continue ; fi
         . $config
       done
     fi
@@ -78,7 +79,7 @@ _load_settings() {
           :
           ;;
         *)
-          if [ -f $config ]; then
+          if [[ -f $config && ${config:e} != "zwc" ]]; then
             . $config
           fi
           ;;
@@ -87,6 +88,7 @@ _load_settings() {
 
     if [ -d "$_dir/post" ]; then
       for config in "$_dir"/post/**/*(N-.); do
+        if [ ${config:e} = "zwc" ] ; then continue ; fi
         . $config
       done
     fi
