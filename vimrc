@@ -12,6 +12,58 @@ set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 
+" 12<Enter> to go to line 12 / <Enter> to go to end of file
+nnoremap <CR> G
+" <Backspace> to go to beginning of file
+nnoremap <BS> gg
+
+" Ignore ex mode
+nnoremap Q <ESC>
+
+nnoremap <Leader>w :w<CR>
+map <F3> :set hlsearch!<CR>
+
+" Toggle nerdtree with F10
+map <F10> :NERDTreeToggle<CR>
+" Current file in nerdtree
+map <F9> :NERDTreeFind<CR>
+let NERDTreeShowHidden=1
+
+" Toggle TagbarToggle
+map <F8> :TagbarToggle<CR>
+
+" delete buffers
+:nnoremap <Leader>q :Bdelete<CR>
+" Mappings to access buffers (don't use "\p" because a
+" delay before pressing "p" would accidentally paste).
+" \l       : list buffers
+" \b \f \g : go back/forward/last-used
+" \1 \2 \3 : go to buffer 1/2/3 etc
+nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>g :e#<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
+
+" Fuzzy finder: ignore stuff that can't be opened, and generated files
+let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
+
+" Save on focus lost
+:au FocusLost * silent! wa
+set autowriteall
+set hidden
+
+let g:rainbow_active = 1          " highlight parens with different colours"
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
@@ -114,6 +166,29 @@ endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
+" ctrlp config
+let g:ctrlp_map = '<leader>f'
+let g:ctrlp_max_height = 30
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_show_hidden = 1
+" ignore stuff in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+" toggle spell check with <F5>
+map <F5> :setlocal spell! spelllang=en_gb<cr>
+imap <F5> <ESC>:setlocal spell! spelllang=en_gb<cr>"
+
+" toggle Gundo with F6
+nnoremap <F6> :GundoToggle<CR>
+let g:gundo_preview_bottom = 1
+let g:gundo_right = 1
+let g:gundo_close_on_revert = 1"
+
+" Index ctags from any project, including those outside Rails
+map <Leader>ct :!ctags --tag-relative --extra=+f -Rf.git/tags --exclude=.git,pkg --languages=-javascript,sql<CR><CR>
+set tags+=.git/tags"
+
 " Switch between the last two files
 nnoremap <Leader><Leader> <c-^>
 
@@ -129,9 +204,8 @@ nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
 nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <Leader>gt :TestVisit<CR>
-
-" Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<space>
+let g:rspec_command = 'Dispatch spring rspec {spec}'
+let test#strategy = "dispatch"
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -146,6 +220,20 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" configure syntastic syntax checking
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_always_populate_loc_list=0
+let g:syntastic_auto_loc_list=0
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+let g:syntastic_ruby_rubocop_exec = '~/code/rubocop.sh'
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {"regex": "possibly useless use of a variable in void context"}
+let g:syntastic_aggregate_errors=1
+
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_javascript_checkers = ['eslint', 'jscs']"]"
+
 " Move between linting errors
 nnoremap ]r :ALENextWrap<CR>
 nnoremap [r :ALEPreviousWrap<CR>
@@ -159,6 +247,9 @@ set complete+=kspell
 
 " Always use vertical diffs
 set diffopt+=vertical
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %"
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
