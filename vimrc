@@ -2,6 +2,7 @@
 let mapleader = "\<Space>"
 
 set backspace=2   " Backspace deletes like most programs in insert mode
+set laststatus=2  " Always display status line
 set nobackup      " prevent temporary files
 set nowritebackup " prevent temporary files
 set autowrite     " Automatically :write before running commands
@@ -158,9 +159,13 @@ set autowriteall
 set hidden
 
 " Softtabs, 2 spaces
-set shiftround
 set tabstop=2
+set shiftwidth=2
+set shiftround
 set expandtab
+
+" Display extra whitespace
+set list listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
@@ -200,7 +205,8 @@ cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
 
 " Numbers
-set numberwidth=4
+set numberwidth=5
+set number
 
 " ctrlp config
 let g:ctrlp_map = '<leader>f'
@@ -268,7 +274,7 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " configure syntastic syntax checking
-let g:syntastic_check_on_open=0
+let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_always_populate_loc_list=0
 let g:syntastic_auto_loc_list=0
