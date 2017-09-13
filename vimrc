@@ -61,6 +61,7 @@ let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;
 :au FocusLost * silent! wa
 set autowriteall
 set hidden
+set autoread " update buffer on external file change
 
 let g:rainbow_active = 1          " highlight parens with different colours"
 
@@ -146,6 +147,12 @@ endif
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=+1
+
+" map Silver Searcher
+map <leader>a :Ack!<space>
+let g:ack_use_dispatch = 1
+let g:ack_autofold_results = 1
+let g:ackprg = 'ag --vimgrep --smart-case'
 
 " Numbers
 set number
