@@ -58,7 +58,7 @@ nnoremap <Leader>0 :10b<CR>
 let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
 
 " Save on focus lost
-:au FocusLost * silent! wa
+:au BufLeave,FocusLost,VimResized * silent! wa
 set autowriteall
 set hidden
 set autoread " update buffer on external file change
