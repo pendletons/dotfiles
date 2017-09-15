@@ -199,12 +199,6 @@ set tags+=.git/tags"
 " Switch between the last two files
 nnoremap <Leader><Leader> <c-^>
 
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
 " vim-test mappings
 nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>s :TestNearest<CR>
@@ -257,6 +251,10 @@ set diffopt+=vertical
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %"
+
+" Colours
+colorscheme grb256
+highlight SpellCap guifg=Black ctermfg=Black cterm=bold
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
