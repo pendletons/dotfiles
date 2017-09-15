@@ -144,10 +144,6 @@ if executable('ag')
   endif
 endif
 
-" Make it obvious where 80 characters is
-set textwidth=80
-set colorcolumn=+1
-
 " map Silver Searcher
 map <leader>a :Ack!<space>
 let g:ack_use_dispatch = 1
@@ -255,6 +251,8 @@ cmap w!! w !sudo tee > /dev/null %"
 " Colours
 colorscheme grb256
 highlight SpellCap guifg=Black ctermfg=Black cterm=bold
+highlight Comment ctermfg=45 guifg=#A1EFFB
+highlight LineNr ctermbg=none ctermfg=105
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
