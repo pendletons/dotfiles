@@ -1,13 +1,26 @@
+# OS X
 .DS_Store
+._*
+
+# VIM
 *.sw[nop]
+
+# Rails
 .bundle
 .byebug_history
 .env
 db/*.sqlite3
 log/*.log
 rerun.txt
+database.yml.sample
+
+# Git
 tags
 !tags/
 tmp/**/*
 !tmp/cache/.keep
 *.pyc
+
+# Misc
+tmux*log
+Procfile.local
