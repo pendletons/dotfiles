@@ -15,3 +15,12 @@ bindkey "^Y" accept-and-hold
 bindkey "^N" insert-last-word
 bindkey "^Q" push-line-or-edit
 bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
+
+# directory history
+# Bind up/down arrow keys to navigate through your history
+bindkey '\e[A' directory-history-search-backward
+bindkey '\e[B' directory-history-search-forward
+
+# Bind CTRL+k and CTRL+j to substring search
+bindkey '^j' history-substring-search-up
+bindkey '^k' history-substring-search-down
