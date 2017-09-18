@@ -5,6 +5,7 @@ alias mkdir='mkdir -p'
 alias ...='../..'
 alias l='ls -la'
 alias lh='ls -Alh'
+alias mkdir="mkdir -p"
 alias -g G='| grep'
 alias -g M='| less'
 alias -g L='| wc -l'
