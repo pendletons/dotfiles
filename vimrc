@@ -98,6 +98,14 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
 
+  " Automatically wrap at 72 characters and spell check git commit messages
+  autocmd FileType gitcommit setlocal spell spelllang=en_gb textwidth=72 colorcolumn=51,73,81
+
+  " Ruby settings
+  autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
+  autocmd FileType ruby,eruby,yaml setlocal path+=lib
+  autocmd FileType ruby,eruby,yaml setlocal iskeyword+=? " Make ? part of words
+
   " ALE linting events
   if g:has_async
     set updatetime=1000
@@ -247,6 +255,9 @@ set diffopt+=vertical
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %"
+
+" Linting
+let g:ale_lint_on_text_changed = 'normal'
 
 " Colours
 colorscheme grb256
