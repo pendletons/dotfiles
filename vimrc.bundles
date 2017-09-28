@@ -46,8 +46,8 @@ Plug 'pbrisbin/vim-mkdir'
 Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-eunuch' " Unix commands
+Plug 'tpope/vim-fugitive' " git functionality
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
@@ -68,6 +68,9 @@ Plug 'maxbrunsfeld/vim-yankstack' " yank history
 Plug 'Lokaltog/vim-easymotion' " Better motion commands
 Plug '907th/vim-auto-save' " auto save buffers
 Plug 'raimondi/delimitmate' " auto-closing matching things
+
+" Themes
+Plug 'quanganhdo/grb256'
 
 " Syntax
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }

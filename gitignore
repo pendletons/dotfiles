@@ -1,5 +1,5 @@
 # OS X
-.DS_Store
+*.DS_Store
 ._*
 
 # VIM
@@ -17,9 +17,16 @@ database.yml.sample
 # Git
 tags
 !tags/
+
 tmp/**/*
+rerun.txt
 !tmp/cache/.keep
 *.pyc
+.idea
+tmux*log
+Procfile.local
+mysql2pgsql.yml
+git-commit.template
 
 # Misc
 tmux*log

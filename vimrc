@@ -1,16 +1,15 @@
 " Leader
-let mapleader = " "
+let mapleader = "\<Space>"
 
 set backspace=2   " Backspace deletes like most programs in insert mode
-set nobackup
-set nowritebackup
-set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
-set history=50
-set ruler         " show the cursor position all the time
-set showcmd       " display incomplete commands
-set incsearch     " do incremental searching
-set laststatus=2  " Always display the status line
+set nobackup      " prevent temporary files
+set nowritebackup " prevent temporary files
 set autowrite     " Automatically :write before running commands
+
+filetype plugin indent on
+set showmatch                     " show bracket matches
+" set clipboard=unnamed             " use the system clipboard
+let g:rainbow_active = 1          " highlight parens with different colours
 
 " 12<Enter> to go to line 12 / <Enter> to go to end of file
 nnoremap <CR> G
@@ -71,6 +70,73 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
+nnoremap <Leader>w :w<CR>
+
+" open fold on space
+nnoremap <Space><Space> za
+
+" copy/paste with y/p
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" Quickly select text you just pasted
+noremap gV `[v`]
+" enter visual mode with <space><space>
+nmap <Leader><Leader> V
+
+" region expanding
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+" Automatically jump to end of text you pasted
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
+map <F3> :set hlsearch!<CR>
+
+" Toggle nerdtree with F10
+map <F10> :NERDTreeToggle<CR>
+" Current file in nerdtree
+map <F9> :NERDTreeFind<CR>
+let NERDTreeShowHidden=1
+
+" Toggle TagbarToggle
+map <F8> :TagbarToggle<CR>
+
+" delete buffers
+:nnoremap <Leader>q :Bdelete<CR>
+
+" Mappings to access buffers (don't use "\p" because a
+" delay before pressing "p" would accidentally paste).
+" \l       : list buffers
+" \b \f \g : go back/forward/last-used
+" \1 \2 \3 : go to buffer 1/2/3 etc
+nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>g :e#<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
+
+" switch buffers with F4
+:nnoremap <F4> :buffers<CR>:buffer<Space>
+
+" Fuzzy finder: ignore stuff that can't be opened, and generated files
+let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
+
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
@@ -124,14 +190,15 @@ augroup END
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
 
-" Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-set shiftround
-set expandtab
+" Save on focus lost
+:au FocusLost * silent! wa
+set autowriteall
+set hidden
 
-" Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+" Softtabs, 2 spaces
+set shiftround
+set tabstop=2
+set expandtab
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
@@ -147,36 +214,59 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 
+  " Highlight the search term
+  let g:ag_highlight=1
+
   if !exists(":Ag")
     command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
     nnoremap \ :Ag<SPACE>
   endif
 endif
+" map git commands
+map <leader>b :Gblame<cr>
+map <leader>l :!clear && git log -p %<cr>
+map <leader>d :!clear && git diff %<cr>
 
 " map Silver Searcher
 map <leader>a :Ack!<space>
 let g:ack_use_dispatch = 1
 let g:ack_autofold_results = 1
 let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
 
 " Numbers
-set number
-set numberwidth=5
+set numberwidth=4
 
-" Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-n>
+" ctrlp config
+let g:ctrlp_map = '<leader>f'
+let g:ctrlp_max_height = 30
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_show_hidden = 1
+" ignore stuff in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+let g:ag_lhandler="topleft lopen"
+
+" toggle spell check with <F5>
+map <F5> :setlocal spell! spelllang=en_gb<cr>
+imap <F5> <ESC>:setlocal spell! spelllang=en_gb<cr>
+
+" toggle Gundo with F6
+nnoremap <F6> :GundoToggle<CR>
+let g:gundo_preview_bottom = 1
+let g:gundo_right = 1
+let g:gundo_close_on_revert = 1
+
+" Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
+let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
+
+" Index ctags from any project, including those outside Rails
+map <Leader>ct :!ctags --tag-relative --extra=+f -Rf.git/tags --exclude=.git,pkg --languages=-javascript,sql<CR><CR>
+set tags+=.git/tags
 
 " ctrlp config
 let g:ctrlp_map = '<leader>f'
@@ -209,9 +299,13 @@ nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
 nnoremap <silent> <Leader>ta :TestSuite<CR>
-nnoremap <silent> <Leader>gt :TestVisit<CR>
+nnoremap <silent> <leader>gt :TestVisit<CR>
 let g:rspec_command = 'Dispatch spring rspec {spec}'
+
 let test#strategy = "dispatch"
+
+" Run commands that require an interactive shell
+nnoremap <Leader>ri :RunInInteractiveShell<space>
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -226,8 +320,16 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Move lines around
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
 " configure syntastic syntax checking
-let g:syntastic_check_on_open=1
+let g:syntastic_check_on_open=0
 let g:syntastic_check_on_wq=0
 let g:syntastic_always_populate_loc_list=0
 let g:syntastic_auto_loc_list=0
@@ -238,7 +340,7 @@ let g:syntastic_eruby_ruby_quiet_messages =
 let g:syntastic_aggregate_errors=1
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_javascript_checkers = ['eslint', 'jscs']"]"
+let g:syntastic_javascript_checkers = ['eslint', 'jscs']
 
 " Move between linting errors
 nnoremap ]r :ALENextWrap<CR>

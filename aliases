@@ -1,19 +1,52 @@
 # Unix
-alias l="ls -al"
-alias ln="ln -v"
+alias tlf="tail -f"
+alias ln='ln -v'
+alias mkdir='mkdir -p'
+alias ...='../..'
+alias l='ls -la'
+alias lh='ls -Alh'
 alias mkdir="mkdir -p"
+alias -g G='| grep'
+alias -g M='| less'
+alias -g L='| wc -l'
+alias -g ONE="| awk '{ print \$1}'"
 alias e="$EDITOR"
 alias v="$VISUAL"
+alias g='git'
+alias gs='git status'
+alias gi='git'
+
+# betty
+alias betty=~/betty/main.rb
+
+# git
+alias gci="git pull --rebase && rake && git push"
+
+# sourcetree
+alias st="stree"
 
 # Bundler
 alias b="bundle"
+alias be='bundle exec'
+alias bu='bundle update'
+alias dm='bundle exec rake db:migrate && bundle exec rake db:test:prepare'
 
 # Rails
-alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
+alias dm="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
+alias rk="rake"
 alias s="rspec"
+alias br='bundle exec rspec'
+alias cop='bundle exec rubocop --auto-correct'
+
+# Docker
+alias de='env | grep DOCKER_'
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
+
+alias ctags="`brew --prefix`/bin/ctags"
+
+alias poo='thefuck'
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
