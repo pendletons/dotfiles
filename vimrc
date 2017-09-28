@@ -81,6 +81,7 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
 endif
 
 filetype plugin indent on
+au FileType ruby setl sw=2 sts=2 et
 
 augroup vimrcEx
   autocmd!
@@ -257,7 +258,7 @@ set diffopt+=vertical
 cmap w!! w !sudo tee > /dev/null %"
 
 " Linting
-let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_text_changed = 'never'
 
 " Colours
 colorscheme grb256

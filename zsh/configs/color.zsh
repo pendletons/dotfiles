@@ -2,7 +2,7 @@
 autoload -U colors
 colors
 
-export TERM="xterm-256color"
+expect ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=116"
 
 # enable colored output from ls, etc. on FreeBSD-based systems
 export CLICOLOR=1
