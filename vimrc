@@ -362,6 +362,15 @@ cmap w!! w !sudo tee > /dev/null %"
 " Linting
 let g:ale_lint_on_text_changed = 'never'
 
+" Startify
+let g:startify_custom_header = [
+  \ '                            _ ____',
+  \ '                          /( ) _   \',
+  \ '                         / //   /\` \,  ||--||--||-',
+  \ '                           \|   |/  \|  ||--||--||-',
+  \ '                     ~^~^~^~~^~~~^~~^^~^^^^^^^^^^^^',
+  \ ]
+
 " Colours
 colorscheme grb256
 highlight SpellCap guifg=Black ctermfg=Black cterm=bold

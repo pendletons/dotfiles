@@ -71,6 +71,7 @@ Plug 'raimondi/delimitmate' " auto-closing matching things
 
 " Themes
 Plug 'quanganhdo/grb256'
+Plug 'mhinz/vim-startify'
 
 " Syntax
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
