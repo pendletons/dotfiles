@@ -21,6 +21,7 @@ log/*.log
 rerun.txt
 tmp/**/*
 /tags
+!tmp/cache/.keep
 database.yml.sample
 
 # Git
@@ -35,3 +36,4 @@ tmp/**/*
 tmux*log
 Procfile.local
 mysql2pgsql.yml
+git-commit.template
