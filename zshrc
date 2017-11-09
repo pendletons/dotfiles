@@ -1,3 +1,22 @@
+export TERM="xterm-256color"
+
+# modify the prompt to contain git branch name if applicable
+git_prompt_info() {
+  current_branch=$(git current-branch 2> /dev/null)
+  if [[ -n $current_branch ]]; then
+    echo " %{$fg_bold[green]%}%{$current_branch%}%{$reset_color%}"
+  fi
+}
+setopt promptsubst
+export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%}$(git_prompt_info) %# '
+
+# load our own completion functions
+fpath=(~/.zsh/completion $fpath)
+
+# completion
+autoload -U compinit
+compinit
+
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
   source $function
@@ -33,6 +52,10 @@ _load_settings() {
   fi
 }
 _load_settings "$HOME/.zsh/configs"
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

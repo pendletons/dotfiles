@@ -1,6 +1,12 @@
+# OS X
+*.DS_Store
+._*
 *.pyc
+
+# VIM
 *.sw[nop]
-.DS_Store
+
+# Rails
 .bundle
 .byebug_history
 .env
@@ -9,8 +15,26 @@
 /log
 /node_modules/
 /tmp
+/vendor
 db/*.sqlite3
 log/*.log
 rerun.txt
-tmp/**/*
+database.yml.sample
+
+# Git
+!tags/
+tags
 /tags
+
+tmp/**/*
+!tmp/cache/.keep
+*.pyc
+.idea
+tmux*log
+Procfile.local
+mysql2pgsql.yml
+git-commit.template
+
+# Misc
+tmux*log
+Procfile.local

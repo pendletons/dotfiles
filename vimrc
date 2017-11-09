@@ -15,6 +15,56 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set modelines=0   " Disable modelines as a security precaution
 set nomodeline
+set showmatch     " show bracket matches
+set title titlestring= " Setting for autoswap plugin
+
+let g:rainbow_active = 1 " highlight parens with different colours
+let g:autoswap_detect_tmux = 1
+" When the type of shell script is /bin/sh, assume a POSIX-compatible
+" shell for syntax highlighting purposes.
+let g:is_posix = 1
+
+" 12<Enter> to go to line 12 / <Enter> to go to end of file
+nnoremap <CR> G
+" <Backspace> to go to beginning of file
+nnoremap <BS> gg
+
+" Ignore ex mode
+nnoremap Q <ESC>
+
+nnoremap <Leader>w :w<CR>
+map <F3> :set hlsearch!<CR>
+
+" delete buffers
+:nnoremap <Leader>q :Bdelete<CR>
+" Mappings to access buffers (don't use "\p" because a
+" delay before pressing "p" would accidentally paste).
+" \l       : list buffers
+" \b \f \g : go back/forward/last-used
+" \1 \2 \3 : go to buffer 1/2/3 etc
+nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>p :bp<CR>
+nnoremap <Leader>n :bn<CR>
+nnoremap <Leader>g :e#<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
+
+" Save on focus lost
+:au BufLeave,FocusLost,VimResized * silent! wa
+set autowriteall
+set hidden
+set autoread " update buffer on external file change
+
+" Fuzzy finder: ignore stuff that can't be opened, and generated files
+let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -32,6 +82,7 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
 endif
 
 filetype plugin indent on
+au FileType ruby setl sw=2 sts=2 et
 
 augroup vimrcEx
   autocmd!
@@ -73,10 +124,6 @@ augroup ale
     echoerr "The thoughtbot dotfiles require NeoVim or Vim 8"
   endif
 augroup END
-
-" When the type of shell script is /bin/sh, assume a POSIX-compatible
-" shell for syntax highlighting purposes.
-let g:is_posix = 1
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -131,11 +178,10 @@ nnoremap <Leader><Leader> <C-^>
 nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
-nnoremap <silent> <Leader>a :TestSuite<CR>
+nnoremap <silent> <Leader>ta :TestSuite<CR>
 nnoremap <silent> <Leader>gt :TestVisit<CR>
 
-" Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<Space>
+let g:rspec_command = 'Dispatch spring rspec {spec}'
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -169,6 +215,15 @@ set complete+=kspell
 
 " Always use vertical diffs
 set diffopt+=vertical
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %"
+
+" Colours
+colorscheme grb256
+highlight SpellCap guifg=Black ctermfg=Black cterm=bold
+highlight Comment ctermfg=45 guifg=#A1EFFB
+highlight LineNr ctermbg=none ctermfg=105
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
