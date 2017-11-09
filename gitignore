@@ -19,10 +19,9 @@
 db/*.sqlite3
 log/*.log
 rerun.txt
-tmp/**/*
+database.yml.sample
 /tags
 !tmp/cache/.keep
-database.yml.sample
 
 # Git
 !tags/
@@ -32,6 +31,7 @@ git-commit.template
 # Misc
 tmp/**/*
 !tmp/cache/.keep
+*.pyc
 .idea
 tmux*log
 Procfile.local
