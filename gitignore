@@ -24,9 +24,9 @@ database.yml.sample
 !tmp/cache/.keep
 
 # Git
-!tags/
 tags
 git-commit.template
+!tags/
 
 # Misc
 tmp/**/*
@@ -36,5 +36,4 @@ tmp/**/*
 tmux*log
 Procfile.local
 mysql2pgsql.yml
-git-commit.template
 .overcommit.yml
