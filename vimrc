@@ -167,15 +167,9 @@ set wildmode=list:longest,list:full
 function! InsertTabWrapper()
   let col = col('.') - 1
   if !col || getline('.')[col - 1] !~ '\k'
-<<<<<<< HEAD
     return "\<Tab>"
   else
     return "\<C-p>"
-=======
-    return "\<tab>"
-  else
-    return "\<c-p>"
->>>>>>> dc7b6ba (Remove ale hook for cursor)
   endif
 endfunction
 inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
@@ -230,7 +224,7 @@ set diffopt+=vertical
 cmap w!! w !sudo tee > /dev/null %"
 
 " Colours
-colorscheme thaumaturge
+colorscheme grb256
 highlight SpellCap guifg=Black ctermfg=Black cterm=bold
 highlight Comment ctermfg=45 guifg=#A1EFFB
 highlight LineNr ctermbg=none ctermfg=105
