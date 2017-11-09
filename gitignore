@@ -22,8 +22,8 @@ rerun.txt
 database.yml.sample
 
 # Git
-!tags/
 tags
+!tags/
 
 tmp/**/*
 !tmp/cache/.keep

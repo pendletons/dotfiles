@@ -22,11 +22,16 @@ else
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 endif
 
+" Define bundles via Github repos
+UnPlug 'christoomey/vim-run-interactive'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'elixir-lang/vim-elixir'
+UnPlug 'fatih/vim-go'
 Plug 'janko-m/vim-test'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise' " add end in ruby files
+Plug 'tpope/vim-eunuch' " Unix commands
 Plug 'tpope/vim-fugitive' " Git workflow
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-rails'
@@ -52,6 +57,8 @@ Plug 'gioele/vim-autoswap' " Better handling of swap files
 Plug 'mileszs/ack.vim'
 Plug 'benmills/vimux' " tmux integration
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim navigation
+Plug '907th/vim-auto-save' " auto save buffers
+Plug 'ajh17/VimCompletesMe' " code completion
 
 " Themes
 Plug 'quanganhdo/grb256'
