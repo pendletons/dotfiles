@@ -90,7 +90,7 @@
   name = Shanthi Pendleton
   email = shanthi.pendleton@gmail.com
 [gpg]
-	program = gpg
+  program = gpg
 [tag]
   forceSignAnnotated = true
 [pager]
