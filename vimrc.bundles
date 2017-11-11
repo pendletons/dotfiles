@@ -56,6 +56,7 @@ Plug 'raimondi/delimitmate' " auto-closing matching things
 Plug 'ajh17/VimCompletesMe' " code completion
 Plug 'terryma/vim-multiple-cursors' " SublimeText style multiple cursors
 Plug 'gioele/vim-autoswap' " Better handling of swap files
+Plug 'mileszs/ack.vim'
 
 " Themes
 Plug 'quanganhdo/grb256'
