@@ -33,6 +33,9 @@ alias gci="git pull --rebase && rake && git push"
 alias gbd='git bclean'
 alias gsave='OVERCOMMIT_DISABLE=1 git add -A && git commit -am "SAVEPOINT"'
 
+# sourcetree
+alias st="stree"
+
 # Bundler
 alias b="bundle"
 alias be='bundle exec'
