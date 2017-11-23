@@ -13,7 +13,7 @@ alias -g L='| wc -l'
 alias -g ONE="| awk '{ print \$1}'"
 alias e="$EDITOR"
 alias v="$VISUAL"
-alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias preview="fzf --preview 'bat --color always {}'"
 alias top="sudo htop" # alias top and fix high sierra bug
 alias cat='bat'
 alias ping='prettyping --nolegend'
@@ -32,6 +32,9 @@ alias gci="git pull --rebase && rake && git push"
 alias gbd='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 alias gsave='OVERCOMMIT_DISABLE=1 git add -A && git commit -am "SAVEPOINT"'
 
+# sourcetree
+alias st="stree"
+
 # Bundler
 alias b="bundle"
 alias be='bundle exec'
@@ -42,6 +45,7 @@ alias dm='bundle exec rails db:migrate && bundle exec rake db:test:prepare'
 alias migrate="rails db:migrate db:rollback && rake db:migrate db:test:prepare"
 alias s="rspec"
 alias dm="rails db:migrate db:rollback && rails db:migrate db:test:prepare"
+alias rk="rake"
 alias br='bundle exec rspec'
 alias cop='bundle exec rubocop --auto-correct'
 
