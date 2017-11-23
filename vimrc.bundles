@@ -103,6 +103,9 @@ if !exists('g:vscode')
   Plug 'maximbaz/lightline-ale' " Ale in status
 end
 
+" Other
+Plug 'wakatime/vim-wakatime' " time tracking
+
 if g:has_async
   Plug 'dense-analysis/ale'
 endif
