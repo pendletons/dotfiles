@@ -102,7 +102,6 @@ Plug 'honza/vim-snippets'
 
 " Other
 if !exists('g:vscode')
-  Plug 'wakatime/vim-wakatime' " time tracking
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
   Plug 'itchyny/lightline.vim' " Status
   Plug 'maximbaz/lightline-ale' " Ale in status
@@ -119,7 +118,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-fi
 Plug 'itchyny/lightline.vim' " Status
 Plug 'maximbaz/lightline-ale' " Ale in status
 
-if !exists('g:vscode') && g:has_async
+" Other
+Plug 'wakatime/vim-wakatime' " time tracking
+
+if g:has_async
   Plug 'dense-analysis/ale'
 endif
 
