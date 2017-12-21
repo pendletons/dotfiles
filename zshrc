@@ -48,3 +48,6 @@ _load_settings "$HOME/.zsh/configs"
 
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+
+# added by travis gem
+[ -f /Users/shanthi/.travis/travis.sh ] && source /Users/shanthi/.travis/travis.sh
