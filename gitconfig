@@ -94,7 +94,7 @@
   name = Shanthi Pendleton
   email = shanthi.pendleton@gmail.com
 [gpg]
-  program = /usr/local/bin/krgpg
+  program = gpg
 [tag]
   forceSignAnnotated = true
 [pager]
