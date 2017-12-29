@@ -62,6 +62,7 @@
   stat = true
 [commit]
   template = ~/.gitmessage
+  gpgSign = true
 [fetch]
   prune = true
 [rebase]
@@ -76,8 +77,12 @@
   name = Shanthi Pendleton
   email = shanthi.pendleton@neos.co.uk
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+[gpg]
+  program = /usr/local/bin/krgpg
+[tag]
+  forceSignAnnotated = true
