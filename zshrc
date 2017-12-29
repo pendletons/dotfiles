@@ -51,3 +51,4 @@ _load_settings "$HOME/.zsh/configs"
 
 # added by travis gem
 [ -f /Users/shanthi/.travis/travis.sh ] && source /Users/shanthi/.travis/travis.sh
+export GPG_TTY=$(tty)

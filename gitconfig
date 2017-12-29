@@ -78,3 +78,5 @@
   email = shanthi.pendleton@gmail.com
 [gpg]
 	program = gpg
+[tag]
+  forceSignAnnotated = true
