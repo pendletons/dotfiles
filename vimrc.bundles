@@ -58,6 +58,7 @@ Plug 'ajh17/VimCompletesMe' " code completion
 Plug 'terryma/vim-multiple-cursors' " SublimeText style multiple cursors
 Plug 'gioele/vim-autoswap' " Better handling of swap files
 Plug 'mileszs/ack.vim'
+Plug 'benmills/vimux' " tmux integration
 
 " Themes
 Plug 'quanganhdo/grb256'
@@ -67,6 +68,7 @@ Plug 'mhinz/vim-startify'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'tpope/vim-sleuth' " smart indent based on syntax
+Plug 'mhinz/vim-mix-format' " Elixir formatting
 
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking
