@@ -16,5 +16,8 @@ plugins=(osx git gitfast rails ruby brew bundler gem tmux tmuxinator autojump hi
 # Overcommit
 export GIT_TEMPLATE_DIR=`overcommit --template-dir`
 
+# IEx shell history
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
