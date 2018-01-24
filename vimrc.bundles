@@ -88,6 +88,7 @@ Plug 'honza/vim-snippets'
 
 " Other
 Plug 'StanAngeloff/php.vim' " PHP defaults
+Plug 'wakatime/vim-wakatime' " time tracking
 if !exists('g:vscode')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
   Plug 'junegunn/fzf.vim'
@@ -95,9 +96,6 @@ if !exists('g:vscode')
   Plug 'itchyny/lightline.vim' " Status
   Plug 'maximbaz/lightline-ale' " Ale in status
 end
-
-" Other
-Plug 'wakatime/vim-wakatime' " time tracking
 
 if g:has_async
   Plug 'dense-analysis/ale'
