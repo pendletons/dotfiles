@@ -65,6 +65,7 @@ Plug 'Chiel92/vim-autoformat' " Auto formatting
 Plug 'beanworks/vim-phpfmt' " PHP auto formatting
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+UnPlug 'elmcast/elm-vim'
 
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking
