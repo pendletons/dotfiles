@@ -61,6 +61,7 @@ Plug 'mhinz/vim-startify'
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'tpope/vim-sleuth' " smart indent based on syntax
+Plug 'elmcast/elm-vim'
 
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking
