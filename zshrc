@@ -64,7 +64,6 @@ eval $(thefuck --alias)
 export GPG_TTY=$(tty)
 
 . $HOME/.asdf/asdf.sh
-
 . $HOME/.asdf/completions/asdf.bash
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
