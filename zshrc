@@ -50,5 +50,9 @@ _load_settings "$HOME/.zsh/configs"
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # added by travis gem
-[ -f /Users/shanthi/.travis/travis.sh ] && source /Users/shanthi/.travis/travis.sh
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 export GPG_TTY=$(tty)
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
