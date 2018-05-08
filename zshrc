@@ -59,7 +59,6 @@ export RUBYOPT='-W:no-deprecated -W:no-experimental'
 export GPG_TTY=$(tty)
 
 . $HOME/.asdf/asdf.sh
-
 . $HOME/.asdf/completions/asdf.bash
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
