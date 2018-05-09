@@ -229,7 +229,7 @@ set diffopt+=vertical
 cmap w!! w !sudo tee > /dev/null %"
 
 " Colours
-colorscheme grb256
+colorscheme thaumaturge
 highlight SpellCap guifg=Black ctermfg=Black cterm=bold
 highlight Comment ctermfg=45 guifg=#A1EFFB
 highlight LineNr ctermbg=none ctermfg=105
