@@ -19,5 +19,7 @@ export GIT_TEMPLATE_DIR=`overcommit --template-dir`
 # IEx shell history
 export ERL_AFLAGS="-kernel shell_history enabled"
 
+export EDITOR=/usr/local/bin/vim
+
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
