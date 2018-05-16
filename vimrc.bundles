@@ -56,12 +56,9 @@ Plug 'zxqfl/tabnine-vim' " code completion
 Plug 'gioele/vim-autoswap' " Better handling of swap files
 Plug 'mileszs/ack.vim'
 Plug 'benmills/vimux' " tmux integration
-<<<<<<< HEAD
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim navigation
 Plug 'terryma/vim-multiple-cursors' " SublimeText style multiple cursors
 #Plug 'ajh17/VimCompletesMe' " code completion
-=======
->>>>>>> 544870c (Add vim mix format plugin)
 
 " Themes
 Plug 'quanganhdo/grb256'
