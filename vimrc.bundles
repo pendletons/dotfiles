@@ -58,6 +58,7 @@ Plug 'terryma/vim-multiple-cursors' " SublimeText style multiple cursors
 Plug 'gioele/vim-autoswap' " Better handling of swap files
 Plug 'mileszs/ack.vim'
 Plug 'benmills/vimux' " tmux integration
+Plug 'christoomey/vim-tmux-navigator' " tmux/vim navigation
 
 " Themes
 Plug 'quanganhdo/grb256'
@@ -70,6 +71,10 @@ Plug 'tpope/vim-sleuth' " smart indent based on syntax
 Plug 'mhinz/vim-mix-format' " Elixir formatting
 Plug 'elmcast/elm-vim'
 Plug 'Chiel92/vim-autoformat' " Auto formatting
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking
