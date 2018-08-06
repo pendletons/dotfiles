@@ -103,6 +103,10 @@ if !exists('g:vscode')
   Plug 'maximbaz/lightline-ale' " Ale in status
 end
 
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking
 
