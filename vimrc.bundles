@@ -86,6 +86,10 @@ endif
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 " Other
 Plug 'StanAngeloff/php.vim' " PHP defaults
 Plug 'wakatime/vim-wakatime' " time tracking
