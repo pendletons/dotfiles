@@ -125,6 +125,10 @@ Plug 'maximbaz/lightline-ale' " Ale in status
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking
 
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking
 
