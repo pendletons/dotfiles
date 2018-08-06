@@ -50,8 +50,11 @@ Plug 'gioele/vim-autoswap' " Better handling of swap files
 Plug 'mileszs/ack.vim'
 Plug 'benmills/vimux' " tmux integration
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim navigation
+<<<<<<< HEAD
 Plug 'terryma/vim-multiple-cursors' " SublimeText style multiple cursors
 #Plug 'ajh17/VimCompletesMe' " code completion
+=======
+>>>>>>> 250d719 (Update vim/tmux settings)
 
 " Themes
 Plug 'quanganhdo/grb256'
