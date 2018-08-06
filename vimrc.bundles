@@ -77,6 +77,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-fi
 Plug 'itchyny/lightline.vim' " Status
 Plug 'maximbaz/lightline-ale' " Ale in status
 
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking
 
