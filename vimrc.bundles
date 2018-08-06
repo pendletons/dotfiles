@@ -90,6 +90,10 @@ Plug 'StanAngeloff/php.vim' " PHP defaults
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
