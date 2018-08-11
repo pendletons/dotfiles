@@ -71,6 +71,7 @@ Plug 'tpope/vim-sleuth' " smart indent based on syntax
 Plug 'mhinz/vim-mix-format' " Elixir formatting
 Plug 'elmcast/elm-vim'
 Plug 'Chiel92/vim-autoformat' " Auto formatting
+Plug 'beanworks/vim-phpfmt' " PHP auto formatting
 
 " Snippets
 Plug 'SirVer/ultisnips'
