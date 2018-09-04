@@ -1,5 +1,5 @@
 # Unix
-alias l="ls -al"
+alias l="ls-go -alkSi"
 alias ln="ln -v"
 alias lh='ls -Alh'
 alias mkdir="mkdir -p"
@@ -18,6 +18,10 @@ alias gs='git status'
 alias gi='git'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias top="sudo htop" # alias top and fix high sierra bug
+alias cat='bat'
+alias ping='prettyping --nolegend'
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias help='tldr'
 
 # betty
 alias betty=~/betty/main.rb

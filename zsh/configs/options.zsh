@@ -11,7 +11,7 @@ unsetopt nomatch
 # disable autocorrect
 unsetopt correct
 
-plugins=(osx git gitfast rails ruby brew bundler gem tmux tmuxinator autojump history)
+plugins=(osx git gitfast rails ruby brew bundler gem tmux tmuxinator fasd history)
 
 # Overcommit
 export GIT_TEMPLATE_DIR=`overcommit --template-dir`
