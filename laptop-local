@@ -161,6 +161,13 @@ brew "libyaml" # should come after openssl
 brew "coreutils"
 brew "yarn"
 cask "gpg-suite"
+brew "puma-dev"
+
+brew "slack-cli"
+
+# CSVs / Spreadsheets
+brew "lua@5.1"
+brew "sc-im"
 
 # CSVs / Spreadsheets
 brew "lua@5.1"
