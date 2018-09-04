@@ -57,11 +57,8 @@ Plug 'gioele/vim-autoswap' " Better handling of swap files
 Plug 'mileszs/ack.vim'
 Plug 'benmills/vimux' " tmux integration
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim navigation
-<<<<<<< HEAD
 Plug 'terryma/vim-multiple-cursors' " SublimeText style multiple cursors
-#Plug 'ajh17/VimCompletesMe' " code completion
-=======
->>>>>>> 250d719 (Update vim/tmux settings)
+UnPlug 'ajh17/VimCompletesMe' " code completion
 
 " Themes
 Plug 'quanganhdo/grb256'
@@ -89,6 +86,7 @@ Plug 'honza/vim-snippets'
 
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
 
 if g:has_async
   Plug 'dense-analysis/ale'
