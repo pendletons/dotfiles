@@ -165,9 +165,7 @@ brew "libyaml" # should come after openssl
 brew "coreutils"
 brew "yarn"
 cask "gpg-suite"
-<<<<<<< HEAD
 brew "puma-dev"
-brew "unused"
 
 brew "slack-cli"
 
@@ -187,10 +185,10 @@ if [ ! -f "/usr/local/bin/prettyping" ]; then
   chmod +x /usr/local/bin/prettyping
 else
   fancy_echo "Skipping prettyping, already installed..."
-=======
 
 # Databases
 brew "postgres", restart_service: :changed
+brew "pgcli"
 brew "redis", restart_service: :changed
 EOF
 
@@ -198,7 +196,14 @@ if brew list | grep --silent "qt@5.5"; then
   fancy_echo "Symlink qmake binary to /usr/local/bin for Capybara Webkit..."
   brew unlink qt@5.5
   brew link --force qt@5.5
->>>>>>> bdf8c4b (Misc app updates, plus laptop local setup)
+fi
+
+if [ ! -f "/usr/local/bin/prettyping" ]; then
+  fancy_echo "Install prettyping..."
+  curl -o /usr/local/bin/prettyping https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping
+  chmod +x /usr/local/bin/prettyping
+else
+  fancy_echo "Skipping prettyping, already installed..."
 fi
 
 fancy_echo "Update heroku binary..."
@@ -212,10 +217,7 @@ mas install 443987910 # 1Password
 mas install 451444120 # Memory Clean
 mas install 585829637 # Todoist
 mas install 525742250 # JPEGmini Lite
-<<<<<<< HEAD
 mas install 1091189122 # Bear
-=======
->>>>>>> bdf8c4b (Misc app updates, plus laptop local setup)
 
 mas upgrade
 
@@ -250,22 +252,6 @@ install_asdf_language() {
   fi
 }
 
-<<<<<<< HEAD
-# fancy_echo "Installing latest Ruby..."
-# install_asdf_language "ruby"
-# gem update --system
-# gem_install_or_update "bundler"
-# number_of_cores=$(sysctl -n hw.ncpu)
-# bundle config --global jobs $((number_of_cores - 1))
-# gem_install_or_update "overcommit"
-
-# fancy_echo "Installing latest Node..."
-# bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring"
-# install_asdf_language "nodejs"
-
-fancy_echo "Installing npm packages..."
-npm install -g tldr # better man pages
-=======
 fancy_echo "Installing latest Ruby..."
 install_asdf_language "ruby"
 gem update --system
@@ -277,7 +263,9 @@ gem_install_or_update "overcommit"
 fancy_echo "Installing latest Node..."
 bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring"
 install_asdf_language "nodejs"
->>>>>>> bdf8c4b (Misc app updates, plus laptop local setup)
+
+fancy_echo "Installing npm packages..."
+npm install -g tldr # better man pages
 
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
