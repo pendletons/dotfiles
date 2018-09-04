@@ -166,7 +166,6 @@ brew "coreutils"
 brew "yarn"
 cask "gpg-suite"
 brew "puma-dev"
-brew "unused"
 
 brew "slack-cli"
 
@@ -196,6 +195,14 @@ brew "postgres", restart_service: :changed
 brew "pgcli"
 brew "redis", restart_service: :changed
 EOF
+
+if [ ! -f "/usr/local/bin/prettyping" ]; then
+  fancy_echo "Install prettyping..."
+  curl -o /usr/local/bin/prettyping https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping
+  chmod +x /usr/local/bin/prettyping
+else
+  fancy_echo "Skipping prettyping, already installed..."
+fi
 
 if [ ! -f "/usr/local/bin/prettyping" ]; then
   fancy_echo "Install prettyping..."
@@ -261,6 +268,9 @@ gem_install_or_update "overcommit"
 fancy_echo "Installing latest Node..."
 bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring"
 install_asdf_language "nodejs"
+
+fancy_echo "Installing npm packages..."
+npm install -g tldr # better man pages
 
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
