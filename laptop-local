@@ -157,6 +157,9 @@ brew "mas"
 # Image manipulation
 brew "imagemagick"
 
+# Testing
+brew "qt@5.5" if MacOS::Xcode.installed?
+
 # Programming language prerequisites and package managers
 brew "libyaml" # should come after openssl
 brew "coreutils"
@@ -196,7 +199,6 @@ mas install 443987910 # 1Password
 mas install 451444120 # Memory Clean
 mas install 585829637 # Todoist
 mas install 525742250 # JPEGmini Lite
-mas install 1091189122 # Bear
 
 mas upgrade
 
@@ -231,20 +233,17 @@ install_asdf_language() {
   fi
 }
 
-# fancy_echo "Installing latest Ruby..."
-# install_asdf_language "ruby"
-# gem update --system
-# gem_install_or_update "bundler"
-# number_of_cores=$(sysctl -n hw.ncpu)
-# bundle config --global jobs $((number_of_cores - 1))
-# gem_install_or_update "overcommit"
+fancy_echo "Installing latest Ruby..."
+install_asdf_language "ruby"
+gem update --system
+gem_install_or_update "bundler"
+number_of_cores=$(sysctl -n hw.ncpu)
+bundle config --global jobs $((number_of_cores - 1))
+gem_install_or_update "overcommit"
 
-# fancy_echo "Installing latest Node..."
-# bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring"
-# install_asdf_language "nodejs"
-
-fancy_echo "Installing npm packages..."
-npm install -g tldr # better man pages
+fancy_echo "Installing latest Node..."
+bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring"
+install_asdf_language "nodejs"
 
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
