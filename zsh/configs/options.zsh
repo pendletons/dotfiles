@@ -21,5 +21,8 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 
 export EDITOR=/usr/local/bin/vim
 
+# fzf file opening
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
+
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
