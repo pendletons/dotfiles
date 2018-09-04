@@ -109,6 +109,7 @@ Plug 'honza/vim-snippets'
 
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
 
 if g:has_async
   Plug 'dense-analysis/ale'
