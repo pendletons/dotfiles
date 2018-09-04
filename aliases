@@ -16,6 +16,8 @@ alias v="$VISUAL"
 alias g='git'
 alias gs='git status'
 alias gi='git'
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias top="sudo htop" # alias top and fix high sierra bug
 
 # betty
 alias betty=~/betty/main.rb
