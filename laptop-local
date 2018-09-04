@@ -116,7 +116,6 @@ tap "universal-ctags/universal-ctags"
 tap "caskroom/cask"
 tap "nickolasburr/pfa"
 tap "acarl005/homebrew-formulas"
-tap "joshuaclayton/formulae"
 
 # Unix
 brew "universal-ctags", args: ["HEAD"]
@@ -165,8 +164,6 @@ brew "libyaml" # should come after openssl
 brew "coreutils"
 brew "yarn"
 cask "gpg-suite"
-brew "unused"
-brew "Arkweid/lefthook/lefthook"
 
 # CSVs / Spreadsheets
 brew "lua@5.1"
