@@ -20,12 +20,18 @@ Clone onto your laptop:
 (Or, [fork and keep your fork
 updated](http://robots.thoughtbot.com/keeping-a-github-fork-updated)).
 
-Install [rcm](https://github.com/thoughtbot/rcm):
+  Install laptop local script:
+  ln -s /Users/shanthi/laptop/mac /Users/shanthi/dotfiles/laptop-local
+  sh ~/laptop/mac 2>&1 | tee ~/laptop/.log; noti
 
-    brew tap thoughtbot/formulae
-    brew install rcm
+  After the initial installation, you can run `rcup` without the one-time variable
+  `RCRC` being set (`rcup` will symlink the repo's `rcrc` to `~/.rcrc` for future
+      runs of `rcup`). [See
+  example](https://github.com/thoughtbot/dotfiles/blob/master/rcrc).
 
-Install the dotfiles:
+  This command will create symlinks for config files in your home directory.
+  Setting the `RCRC` environment variable tells `rcup` to use standard
+  configuration options:
 
     env RCRC=$HOME/dotfiles/rcrc rcup
 
