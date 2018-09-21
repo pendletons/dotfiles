@@ -76,6 +76,7 @@ ds = diff --cached
 delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
 rename-branch = !sh -c 'old=$(git current-branch) && git branch -m $old $1 && git push origin --set-upstream $1 && git push origin --delete $old' -
 pf = push --force-with-lease
+pra = pull --rebase --autostash
 save = !git add -A && git commit -m 'SAVEPOINT'
 s = status
 st = status
