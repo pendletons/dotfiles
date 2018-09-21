@@ -204,6 +204,7 @@ mas install 443987910 # 1Password
 mas install 451444120 # Memory Clean
 mas install 585829637 # Todoist
 mas install 525742250 # JPEGmini Lite
+mas install 1091189122 # Bear
 
 mas upgrade
 
