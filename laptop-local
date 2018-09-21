@@ -166,6 +166,7 @@ brew "coreutils"
 brew "yarn"
 cask "gpg-suite"
 brew "puma-dev"
+brew "unused"
 
 brew "slack-cli"
 
