@@ -28,7 +28,7 @@ alias betty=~/betty/main.rb
 alias g='git'
 alias gi='git'
 alias gf='git fetch --all --prune'
-alias gs='git status'
+alias gi='git'
 alias gci="git pull --rebase && rake && git push"
 alias gbd='git bclean'
 alias gsave='OVERCOMMIT_DISABLE=1 git add -A && git commit -am "SAVEPOINT"'
@@ -46,7 +46,6 @@ alias dm='bundle exec rails db:migrate && bundle exec rake db:test:prepare'
 alias migrate="bin/rails db:migrate db:rollback && bin/rails db:migrate db:test:prepare"
 alias s="rspec"
 alias dm="rails db:migrate db:rollback && rails db:migrate db:test:prepare"
-alias rk="rake"
 alias br='bundle exec rspec'
 alias cop='bundle exec rubocop --auto-correct'
 
