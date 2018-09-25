@@ -27,12 +27,10 @@ alias betty=~/betty/main.rb
 alias g='git'
 alias gi='git'
 alias gf='git fetch --all --prune'
-alias gs='git status'
+alias gi='git'
 alias gci="git pull --rebase && rake && git push"
 alias gbd='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
-
-# sourcetree
-alias st="stree"
+alias gsave='OVERCOMMIT_DISABLE=1 git add -A && git commit -am "SAVEPOINT"'
 
 # Bundler
 alias b="bundle"
@@ -44,7 +42,6 @@ alias dm='bundle exec rails db:migrate && bundle exec rake db:test:prepare'
 alias migrate="rails db:migrate db:rollback && rake db:migrate db:test:prepare"
 alias s="rspec"
 alias dm="rails db:migrate db:rollback && rails db:migrate db:test:prepare"
-alias rk="rake"
 alias br='bundle exec rspec'
 alias cop='bundle exec rubocop --auto-correct'
 
