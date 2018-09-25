@@ -23,6 +23,7 @@ b = branch
 bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
 bdone = "!f() { git checkout ${1-master} && git up && git bclean; }; f"
 branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+caa = commit -a --amend -C HEAD
 cb = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
 ci = commit -v
 co = checkout
@@ -30,11 +31,20 @@ ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctag
 d = diff
 ds = diff --cached
 delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
+fl = log -u
+la = "!git config -l | grep alias | cut -c 7-"
+le = log --oneline --decorate
+ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
 rename-branch = !sh -c 'old=$(git current-branch) && git branch -m $old $1 && git push origin --set-upstream $1 && git push origin --delete $old' -
 pf = push --force-with-lease
 pra = pull --rebase --autostash
 save = !git add -A && git commit -m 'SAVEPOINT'
 s = status
+sortdiff = !sh -c 'git diff "$@" | grep "^[+-]" | sort --key=1.2 | uniq -u -s1'
 st = status
 undo = reset HEAD~1 --mixed
 
