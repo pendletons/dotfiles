@@ -41,10 +41,6 @@
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
-<<<<<<< HEAD
-=======
-  rename-branch = !sh -c 'old=$(git current-branch) && git branch -m $old $1 && git push origin --set-upstream $1 && git push origin --delete $old' -
->>>>>>> f43ef01 (Add aliases for zsh and git)
   pf = push --force-with-lease
   pra = pull --rebase --autostash
   r1 = reset HEAD^
