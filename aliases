@@ -28,6 +28,8 @@ alias g='git'
 alias gi='git'
 alias gf='git fetch --all --prune'
 alias gi='git'
+alias gf='git fetch --all --prune'
+alias gs='git status'
 alias gci="git pull --rebase && rake && git push"
 alias gbd='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 alias gsave='OVERCOMMIT_DISABLE=1 git add -A && git commit -am "SAVEPOINT"'
