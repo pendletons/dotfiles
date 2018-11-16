@@ -74,6 +74,7 @@ autosetupmerge = true
 [diff]
 renames = copies
 mnemonicprefix = true
+colorMoved = zebra
 [merge]
 defaultToUpstream = true
 stat = true

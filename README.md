@@ -15,7 +15,7 @@ chsh -s $(which zsh)
 
   Clone onto your laptop:
 
-  git clone git://github.com/thoughtbot/dotfiles.git ~/dotfiles
+  git clone git://github.com/pendletons/dotfiles.git ~/dotfiles
 
   (Or, [fork and keep your fork
    updated](http://robots.thoughtbot.com/keeping-a-github-fork-updated)).
@@ -63,9 +63,9 @@ chsh -s $(which zsh)
 
   * `~/dotfiles-local/aliases.local`
   * `~/dotfiles-local/git_template.local/*`
-                                         * `~/dotfiles-local/gitconfig.local`
-                                         * `~/dotfiles-local/psqlrc.local` (we supply a blank `.psqlrc.local` to prevent `psql` from
-                                         throwing an error, but you should overwrite the file with your own copy)
+  * `~/dotfiles-local/gitconfig.local`
+  * `~/dotfiles-local/psqlrc.local` (we supply a blank `.psqlrc.local` to prevent `psql` from
+  throwing an error, but you should overwrite the file with your own copy)
                                          * `~/dotfiles-local/tmux.conf.local`
                                          * `~/dotfiles-local/vimrc.local`
                                          * `~/dotfiles-local/vimrc.bundles.local`
@@ -237,7 +237,7 @@ What's in it?
   License
   -------
 
-  dotfiles is copyright © 2009-2017 thoughtbot. It is free software, and may be
+  dotfiles is copyright © 2009-2018 thoughtbot. It is free software, and may be
   redistributed under the terms specified in the [`LICENSE`] file.
 
   [`LICENSE`]: /LICENSE
