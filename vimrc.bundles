@@ -67,6 +67,7 @@ Plug 'elmcast/elm-vim'
 Plug 'mhinz/vim-mix-format' " Elixir formatting
 Plug 'Chiel92/vim-autoformat' " Auto formatting
 Plug 'beanworks/vim-phpfmt' " PHP auto formatting
+Plug 'StanAngeloff/php.vim' " PHP defaults
 
 " Snippets
 Plug 'SirVer/ultisnips'
