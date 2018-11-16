@@ -80,6 +80,7 @@ if !exists('g:vscode')
   Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
   Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
   UnPlug 'elmcast/elm-vim'
+  Plug 'StanAngeloff/php.vim' " PHP defaults
 endif
 
 " Snippets
@@ -91,7 +92,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Other
-Plug 'StanAngeloff/php.vim' " PHP defaults
 Plug 'wakatime/vim-wakatime' " time tracking
 if !exists('g:vscode')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
