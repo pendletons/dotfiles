@@ -66,6 +66,7 @@ Plug 'tpope/vim-sleuth' " smart indent based on syntax
 Plug 'mhinz/vim-mix-format' " Elixir formatting
 Plug 'Chiel92/vim-autoformat' " Auto formatting
 Plug 'beanworks/vim-phpfmt' " PHP auto formatting
+<<<<<<< HEAD
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 UnPlug 'elmcast/elm-vim'
@@ -75,6 +76,7 @@ Plug 'wakatime/vim-wakatime' " time tracking
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
 Plug 'itchyny/lightline.vim' " Status
 Plug 'maximbaz/lightline-ale' " Ale in status
+Plug 'StanAngeloff/php.vim' " PHP defaults
 
 " Snippets
 Plug 'SirVer/ultisnips'
