@@ -87,9 +87,9 @@ augroup vimrcEx
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
   autocmd BufReadPost *
-    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+        \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal g`\"" |
+        \ endif
 
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
@@ -99,8 +99,6 @@ augroup vimrcEx
   " ALE linting events
   if g:has_async
     set updatetime=1000
-    autocmd CursorHold * call ale#Lint()
-    autocmd CursorHoldI * call ale#Lint()
     autocmd InsertEnter * call ale#Lint()
     autocmd InsertLeave * call ale#Lint()
   else
@@ -154,12 +152,12 @@ set numberwidth=5
 " will use completion if not at beginning
 set wildmode=list:longest,list:full
 function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
 endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
