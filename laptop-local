@@ -257,17 +257,17 @@ install_asdf_language() {
   fi
 }
 
-fancy_echo "Installing latest Ruby..."
-install_asdf_language "ruby"
-gem update --system
-gem_install_or_update "bundler"
-number_of_cores=$(sysctl -n hw.ncpu)
-bundle config --global jobs $((number_of_cores - 1))
-gem_install_or_update "overcommit"
+# fancy_echo "Installing latest Ruby..."
+# install_asdf_language "ruby"
+# gem update --system
+# gem_install_or_update "bundler"
+# number_of_cores=$(sysctl -n hw.ncpu)
+# bundle config --global jobs $((number_of_cores - 1))
+# gem_install_or_update "overcommit"
 
-fancy_echo "Installing latest Node..."
-bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring"
-install_asdf_language "nodejs"
+# fancy_echo "Installing latest Node..."
+# bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring"
+# install_asdf_language "nodejs"
 
 fancy_echo "Installing npm packages..."
 npm install -g tldr # better man pages
