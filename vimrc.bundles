@@ -81,11 +81,8 @@ if !exists('g:vscode')
   Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
   UnPlug 'elmcast/elm-vim'
   Plug 'StanAngeloff/php.vim' " PHP defaults
+  Plug 'hashivim/vim-terraform' " terraform
 endif
-
-" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 " Snippets
 Plug 'SirVer/ultisnips'
