@@ -73,6 +73,7 @@ Plug 'elmcast/elm-vim'
 Plug 'Chiel92/vim-autoformat' " Auto formatting
 Plug 'beanworks/vim-phpfmt' " PHP auto formatting
 Plug 'StanAngeloff/php.vim' " PHP defaults
+Plug 'hashivim/vim-terraform' " terraform
 
 " Snippets
 Plug 'SirVer/ultisnips'
