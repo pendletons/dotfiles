@@ -54,7 +54,7 @@ Plug 'maxbrunsfeld/vim-yankstack' " yank history
 Plug 'Lokaltog/vim-easymotion' " Better motion commands
 Plug '907th/vim-auto-save' " auto save buffers
 Plug 'raimondi/delimitmate' " auto-closing matching things
-Plug 'ajh17/VimCompletesMe' " code completion
+Plug 'zxqfl/tabnine-vim' " code completion
 Plug 'terryma/vim-multiple-cursors' " SublimeText style multiple cursors
 Plug 'gioele/vim-autoswap' " Better handling of swap files
 Plug 'mileszs/ack.vim'
