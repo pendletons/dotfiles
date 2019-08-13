@@ -24,5 +24,10 @@ export EDITOR=/usr/local/bin/vim
 # fzf file opening
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
 
+# make bundler faster
+CORES=`sysctl -n hw.ncpu 2>/dev/null || nproc` # mac & linux
+MAKEFLAGS="-j$CORES"; export MAKEFLAGS
+BUNDLE_JOBS="$CORES"; export BUNDLE_JOBS
+
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
