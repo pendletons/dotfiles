@@ -82,6 +82,8 @@ if !exists('g:vscode')
   UnPlug 'elmcast/elm-vim'
   Plug 'StanAngeloff/php.vim' " PHP defaults
   Plug 'hashivim/vim-terraform' " terraform
+  Plug 'ekalinin/Dockerfile.vim'
+  Plug 'jason0x43/vim-js-indent'
 endif
 
 " Snippets
