@@ -75,6 +75,8 @@ Plug 'Chiel92/vim-autoformat' " Auto formatting
 Plug 'beanworks/vim-phpfmt' " PHP auto formatting
 Plug 'StanAngeloff/php.vim' " PHP defaults
 Plug 'hashivim/vim-terraform' " terraform
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'jason0x43/vim-js-indent'
 
 " Snippets
 Plug 'SirVer/ultisnips'
