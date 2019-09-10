@@ -1,6 +1,7 @@
 # OS X
 *.DS_Store
 ._*
+*.pyc
 
 # VIM
 *.sw[nop]
@@ -9,10 +10,16 @@
 .bundle
 .byebug_history
 .env
+.git/
+/bower_components/
+/log
+/node_modules/
+/tmp
+/vendor
 db/*.sqlite3
-log/*.log
-rerun.txt
-database.yml.sample
+    log/*.log
+    rerun.txt
+    database.yml.sample
 
 # Git
 tags

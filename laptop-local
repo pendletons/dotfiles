@@ -138,6 +138,7 @@ brew "ack"
 brew "noti"
 brew "httpie"
 brew "ls-go"
+# brew "aerial"
 
 # ZSH
 brew "antigen"

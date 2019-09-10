@@ -1,3 +1,5 @@
+set encoding=utf-8
+
 " Leader
 let mapleader = " "
 
@@ -98,6 +100,8 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile gitconfig.local set filetype=gitconfig
   autocmd BufRead,BufNewFile tmux.conf.local set filetype=tmux
   autocmd BufRead,BufNewFile vimrc.local set filetype=vim
+  autocmd BufRead,BufNewFile *.ts set filetype=typescript
+  autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 augroup END
 
 " ALE linting events
@@ -105,8 +109,9 @@ augroup ale
   autocmd!
 
   if g:has_async
-    set updatetime=1000
-    let g:ale_lint_on_text_changed = 0
+    autocmd VimEnter *
+          \ set updatetime=1000 |
+          \ let g:ale_lint_on_text_changed = 0
     autocmd CursorHold * call ale#Queue(0)
     autocmd CursorHoldI * call ale#Queue(0)
     autocmd InsertEnter * call ale#Queue(0)
@@ -187,6 +192,7 @@ nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
 nnoremap <silent> <Leader>ta :TestSuite<CR>
 nnoremap <silent> <Leader>gt :TestVisit<CR>
+
 let g:rspec_command = 'Dispatch spring rspec {spec}'
 
 " Treat <li> and <p> tags like the block tags they are
