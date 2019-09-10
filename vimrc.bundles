@@ -15,17 +15,11 @@ let g:has_async = v:version >= 800 || has('nvim')
 call plug#begin('~/.vim/bundle')
 
 " Define bundles via Github repos
-UnPlug 'christoomey/vim-run-interactive'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'elixir-lang/vim-elixir'
-UnPlug 'fatih/vim-go'
 Plug 'janko-m/vim-test'
-Plug 'pangloss/vim-javascript'
 Plug 'pbrisbin/vim-mkdir'
-Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise' " add end in ruby files
-Plug 'tpope/vim-eunuch' " Unix commands
 Plug 'tpope/vim-fugitive' " Git workflow
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-rails'
@@ -45,10 +39,8 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle' " Line numbers/movement
 Plug 'sjl/gundo.vim' " undo tree
 Plug 'maxbrunsfeld/vim-yankstack' " yank history
 Plug 'Lokaltog/vim-easymotion' " Better motion commands
-Plug '907th/vim-auto-save' " auto save buffers
 Plug 'raimondi/delimitmate' " auto-closing matching things
 Plug 'zxqfl/tabnine-vim' " code completion
-Plug 'terryma/vim-multiple-cursors' " SublimeText style multiple cursors
 Plug 'gioele/vim-autoswap' " Better handling of swap files
 Plug 'mileszs/ack.vim'
 Plug 'benmills/vimux' " tmux integration
@@ -59,21 +51,11 @@ Plug 'quanganhdo/grb256'
 Plug 'mhinz/vim-startify'
 
 " Syntax
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-sleuth' " smart indent based on syntax
 Plug 'mhinz/vim-mix-format' " Elixir formatting
-Plug 'elmcast/elm-vim'
 Plug 'Chiel92/vim-autoformat' " Auto formatting
 Plug 'beanworks/vim-phpfmt' " PHP auto formatting
-Plug 'StanAngeloff/php.vim' " PHP defaults
-Plug 'hashivim/vim-terraform' " terraform
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'jason0x43/vim-js-indent'
-
-" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking

@@ -106,6 +106,8 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile gitconfig.local set filetype=gitconfig
   autocmd BufRead,BufNewFile tmux.conf.local set filetype=tmux
   autocmd BufRead,BufNewFile vimrc.local set filetype=vim
+  autocmd BufRead,BufNewFile *.ts set filetype=typescript
+  autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 augroup END
 
 " ALE linting events
@@ -114,8 +116,8 @@ augroup ale
 
   if g:has_async
     autocmd VimEnter *
-      \ set updatetime=1000 |
-      \ let g:ale_lint_on_text_changed = 0
+          \ set updatetime=1000 |
+          \ let g:ale_lint_on_text_changed = 0
     autocmd CursorHold * call ale#Queue(0)
     autocmd CursorHoldI * call ale#Queue(0)
     autocmd InsertEnter * call ale#Queue(0)
@@ -165,12 +167,12 @@ set numberwidth=5
 " will use completion if not at beginning
 set wildmode=list:longest,list:full
 function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<Tab>"
-    else
-        return "\<C-p>"
-    endif
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<Tab>"
+  else
+    return "\<C-p>"
+  endif
 endfunction
 inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
 inoremap <S-Tab> <C-n>
