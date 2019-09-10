@@ -57,14 +57,6 @@ Plug 'tpope/vim-sleuth' " smart indent based on syntax
 Plug 'mhinz/vim-mix-format' " Elixir formatting
 Plug 'Chiel92/vim-autoformat' " Auto formatting
 Plug 'beanworks/vim-phpfmt' " PHP auto formatting
-Plug 'StanAngeloff/php.vim' " PHP defaults
-Plug 'hashivim/vim-terraform' " terraform
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'jason0x43/vim-js-indent'
-
-" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking
