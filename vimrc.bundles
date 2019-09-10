@@ -25,12 +25,13 @@ endif
 UnPlug 'christoomey/vim-run-interactive'
 
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'elixir-lang/vim-elixir'
-UnPlug 'fatih/vim-go'
 Plug 'janko-m/vim-test'
+<<<<<<< HEAD
+=======
+Plug 'pbrisbin/vim-mkdir'
+>>>>>>> 2a687bc (Misc tweaks, tidy bundles)
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise' " add end in ruby files
-Plug 'tpope/vim-eunuch' " Unix commands
 Plug 'tpope/vim-fugitive' " Git workflow
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-rails'
@@ -54,7 +55,6 @@ endif
 Plug 'sjl/gundo.vim' " undo tree
 Plug 'maxbrunsfeld/vim-yankstack' " yank history
 Plug 'Lokaltog/vim-easymotion' " Better motion commands
-Plug '907th/vim-auto-save' " auto save buffers
 Plug 'raimondi/delimitmate' " auto-closing matching things
 Plug 'zxqfl/tabnine-vim' " code completion
 Plug 'gioele/vim-autoswap' " Better handling of swap files
