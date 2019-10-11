@@ -157,9 +157,6 @@ brew "mas"
 # Image manipulation
 brew "imagemagick"
 
-# Testing
-brew "qt@5.5" if MacOS::Xcode.installed?
-
 # Programming language prerequisites and package managers
 brew "libyaml" # should come after openssl
 brew "coreutils"
@@ -196,12 +193,6 @@ brew "postgres", restart_service: :changed
 brew "pgcli"
 brew "redis", restart_service: :changed
 EOF
-
-if brew list | grep --silent "qt@5.5"; then
-  fancy_echo "Symlink qmake binary to /usr/local/bin for Capybara Webkit..."
-  brew unlink qt@5.5
-  brew link --force qt@5.5
-fi
 
 if [ ! -f "/usr/local/bin/prettyping" ]; then
   fancy_echo "Install prettyping..."
