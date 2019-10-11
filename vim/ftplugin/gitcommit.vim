@@ -1,4 +1,5 @@
 " Automatically wrap at 72 characters and spell check commit messages
+call setpos('.', [0, 1, 1, 0])
 autocmd BufNewFile,BufRead PULLREQ_EDITMSG set syntax=gitcommit
 
 call setpos('.', [0, 1, 1, 0])
