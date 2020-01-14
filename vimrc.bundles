@@ -41,20 +41,26 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/tComment'
-Plug 'vim-scripts/ctags.vim'
+if !exists('g:vscode')
+  Plug 'vim-scripts/ctags.vim'
+endif
 Plug 'vim-scripts/matchit.zip' " % matching
-Plug 'scrooloose/nerdtree' " file browser
-Plug 'majutsushi/tagbar' " class browser
-Plug 'airblade/vim-gitgutter' " Display git changes in file
-Plug 'moll/vim-bbye' " close buffers easily
-Plug 'jeffkreeftmeijer/vim-numbertoggle' " Line numbers/movement
+if !exists('g:vscode')
+  Plug 'scrooloose/nerdtree' " file browser
+  Plug 'majutsushi/tagbar' " class browser
+  Plug 'airblade/vim-gitgutter' " Display git changes in file
+  Plug 'moll/vim-bbye' " close buffers easily
+  Plug 'jeffkreeftmeijer/vim-numbertoggle' " Line numbers/movement
+endif
 Plug 'sjl/gundo.vim' " undo tree
 Plug 'maxbrunsfeld/vim-yankstack' " yank history
 Plug 'Lokaltog/vim-easymotion' " Better motion commands
 Plug 'raimondi/delimitmate' " auto-closing matching things
 Plug 'zxqfl/tabnine-vim' " code completion
 Plug 'gioele/vim-autoswap' " Better handling of swap files
-Plug 'mileszs/ack.vim'
+if !exists('g:vscode')
+  Plug 'mileszs/ack.vim'
+endif
 Plug 'benmills/vimux' " tmux integration
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim navigation
 Plug '907th/vim-auto-save' " auto save buffers
@@ -65,12 +71,14 @@ Plug 'quanganhdo/grb256'
 Plug 'mhinz/vim-startify'
 
 " Syntax
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-sleuth' " smart indent based on syntax
-Plug 'mhinz/vim-mix-format' " Elixir formatting
-Plug 'Chiel92/vim-autoformat' " Auto formatting
-Plug 'beanworks/vim-phpfmt' " PHP auto formatting
 Plug 'StanAngeloff/php.vim' " PHP defaults
+if !exists('g:vscode')
+  Plug 'sheerun/vim-polyglot'
+  Plug 'tpope/vim-sleuth' " smart indent based on syntax
+  Plug 'mhinz/vim-mix-format' " Elixir formatting
+  Plug 'Chiel92/vim-autoformat' " Auto formatting
+  Plug 'beanworks/vim-phpfmt' " PHP auto formatting
+endif
 
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking
