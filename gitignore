@@ -37,3 +37,4 @@ git-commit.template
 # Misc
 tmux*log
 Procfile.local
+.overcommit.yml
