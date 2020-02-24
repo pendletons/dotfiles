@@ -83,10 +83,12 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Other
-Plug 'wakatime/vim-wakatime' " time tracking
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
-Plug 'itchyny/lightline.vim' " Status
-Plug 'maximbaz/lightline-ale' " Ale in status
+if !exists('g:vscode')
+  Plug 'wakatime/vim-wakatime' " time tracking
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
+  Plug 'itchyny/lightline.vim' " Status
+  Plug 'maximbaz/lightline-ale' " Ale in status
+end
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -98,7 +100,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-fi
 Plug 'itchyny/lightline.vim' " Status
 Plug 'maximbaz/lightline-ale' " Ale in status
 
-if g:has_async
+if !exists('g:vscode') && g:has_async
   Plug 'dense-analysis/ale'
 endif
 
