@@ -102,7 +102,7 @@ if !exists('g:vscode')
   Plug 'maximbaz/lightline-ale' " Ale in status
 end
 
-if g:has_async
+if !exists('g:vscode') && g:has_async
   Plug 'dense-analysis/ale'
 endif
 
