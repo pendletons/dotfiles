@@ -135,7 +135,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-fi
 Plug 'itchyny/lightline.vim' " Status
 Plug 'maximbaz/lightline-ale' " Ale in status
 
-if g:has_async
+if !exists('g:vscode') && g:has_async
   Plug 'dense-analysis/ale'
 endif
 
