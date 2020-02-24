@@ -3,6 +3,7 @@ POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
+
 antigen bundle <<EOBUNDLES
 brew
 bundler
@@ -19,6 +20,7 @@ tmuxinator
 wd
 EOBUNDLES
 
+antigen bundle Aloxaf/fzf-tab # fzf completion
 antigen bundle Tarrasch/zsh-bd # navigate back skipping parent directories
 antigen bundle supercrabtree/k # better directory listings
 antigen bundle zsh-users/zsh-autosuggestions # Fish-like auto suggestions
