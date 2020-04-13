@@ -162,10 +162,8 @@ brew "libyaml" # should come after openssl
 brew "coreutils"
 brew "yarn"
 cask "gpg-suite"
-brew "puma-dev"
 brew "unused"
-
-brew "slack-cli"
+brew "Arkweid/lefthook/lefthook"
 
 # CSVs / Spreadsheets
 brew "lua@5.1"
