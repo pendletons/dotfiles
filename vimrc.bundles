@@ -27,12 +27,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'elixir-lang/vim-elixir'
 UnPlug 'fatih/vim-go'
 Plug 'janko-m/vim-test'
-Plug 'pbrisbin/vim-mkdir'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise' " add end in ruby files
 Plug 'tpope/vim-eunuch' " Unix commands
 Plug 'tpope/vim-fugitive' " Git workflow
-Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
@@ -46,7 +44,6 @@ endif
 Plug 'vim-scripts/matchit.zip' " % matching
 if !exists('g:vscode')
   Plug 'scrooloose/nerdtree' " file browser
-  Plug 'majutsushi/tagbar' " class browser
   Plug 'airblade/vim-gitgutter' " Display git changes in file
   Plug 'moll/vim-bbye' " close buffers easily
   Plug 'jeffkreeftmeijer/vim-numbertoggle' " Line numbers/movement
@@ -74,7 +71,7 @@ Plug 'mhinz/vim-startify'
 if !exists('g:vscode')
   Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-sleuth' " smart indent based on syntax
-  Plug 'mhinz/vim-mix-format' " Elixir formatting
+  " Plug 'mhinz/vim-mix-format' " Elixir formatting
   Plug 'Chiel92/vim-autoformat' " Auto formatting
   Plug 'beanworks/vim-phpfmt' " PHP auto formatting
   Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
@@ -82,22 +79,16 @@ if !exists('g:vscode')
   UnPlug 'elmcast/elm-vim'
 endif
 
-" Other
-<<<<<<< HEAD
-Plug 'wakatime/vim-wakatime' " time tracking
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
-Plug 'itchyny/lightline.vim' " Status
-Plug 'maximbaz/lightline-ale' " Ale in status
-Plug 'StanAngeloff/php.vim' " PHP defaults
-
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Other
+Plug 'StanAngeloff/php.vim' " PHP defaults
 if !exists('g:vscode')
   Plug 'wakatime/vim-wakatime' " time tracking
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
+  Plug 'junegunn/fzf.vim'
   Plug 'itchyny/lightline.vim' " Status
   Plug 'maximbaz/lightline-ale' " Ale in status
 end
