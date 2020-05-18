@@ -51,6 +51,9 @@ _load_settings "$HOME/.zsh/configs"
 
 export GPG_TTY=$(tty)
 
+# ruby 2.7
+export RUBYOPT='-W:no-deprecated -W:no-experimental'
+
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
