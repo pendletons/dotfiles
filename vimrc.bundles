@@ -89,6 +89,7 @@ if !exists('g:vscode')
   Plug 'wakatime/vim-wakatime' " time tracking
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
   Plug 'junegunn/fzf.vim'
+  Plug 'airblade/vim-rooter'
   Plug 'itchyny/lightline.vim' " Status
   Plug 'maximbaz/lightline-ale' " Ale in status
 end
