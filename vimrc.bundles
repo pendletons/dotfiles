@@ -72,7 +72,7 @@ if !exists('g:vscode')
   Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-sleuth' " smart indent based on syntax
   " Plug 'mhinz/vim-mix-format' " Elixir formatting
-  Plug 'Chiel92/vim-autoformat' " Auto formatting
+  " Plug 'Chiel92/vim-autoformat' " Auto formatting
   Plug 'beanworks/vim-phpfmt' " PHP auto formatting
   Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
   Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
