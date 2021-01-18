@@ -51,6 +51,7 @@ _load_settings "$HOME/.zsh/configs"
 
 # ruby 2.7
 export RUBYOPT='-W:no-deprecated -W:no-experimental'
+export LESS="-RFX"
 
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
@@ -61,3 +62,5 @@ export GPG_TTY=$(tty)
 . $HOME/.asdf/completions/asdf.bash
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
