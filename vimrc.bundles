@@ -95,6 +95,7 @@ if !exists('g:vscode')
   Plug 'itchyny/lightline.vim' " Status
   Plug 'maximbaz/lightline-ale' " Ale in status
 end
+Plug 'kristijanhusak/orgmode.nvim'
 
 if !exists('g:vscode') && g:has_async
   Plug 'dense-analysis/ale'
