@@ -89,6 +89,7 @@ if !exists('g:vscode')
   Plug 'itchyny/lightline.vim' " Status
   Plug 'maximbaz/lightline-ale' " Ale in status
 end
+Plug 'kristijanhusak/orgmode.nvim'
 
 " Snippets
 Plug 'SirVer/ultisnips'
