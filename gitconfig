@@ -80,7 +80,7 @@
 	stat = true
 [commit]
 	template = ~/.gitmessage
-	gpgSign = true
+	#gpgSign = true
 [fetch]
 	prune = true
 [rebase]
@@ -94,7 +94,7 @@
 	email = shanthi.pendleton@gmail.com
 	signingkey = BF87A9DF
 [gpg]
-	program = /usr/local/bin/krgpg
+	program = /usr/local/bin/gpg
 [tag]
 	forceSignAnnotated = true
 [pager]
