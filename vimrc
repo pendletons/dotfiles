@@ -246,6 +246,9 @@ highlight SpellCap guifg=Black ctermfg=Black cterm=bold
 highlight Comment ctermfg=45 guifg=#A1EFFB
 highlight LineNr ctermbg=none ctermfg=105
 
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
 " Local config
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
