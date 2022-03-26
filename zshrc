@@ -1,7 +1,7 @@
 export TERM="xterm-256color"
 
 # load our own completion functions
-fpath=(~/.zsh/completion $fpath)
+fpath=(${ASDF_DIR}/completions $fpath)
 
 # completion
 autoload -U compinit
@@ -43,6 +43,9 @@ _load_settings() {
 }
 _load_settings "$HOME/.zsh/configs"
 
+# powerline
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
@@ -52,7 +55,10 @@ _load_settings "$HOME/.zsh/configs"
 export GPG_TTY=$(tty)
 
 # ruby 2.7
-export RUBYOPT='-W:no-deprecated -W:no-experimental'
+#export RUBYOPT='-W:no-deprecated -W:no-experimental'
+export LESS="-RFX"
+
+eval $(thefuck --alias)
 
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
@@ -62,3 +68,5 @@ export RUBYOPT='-W:no-deprecated -W:no-experimental'
 . $HOME/.asdf/completions/asdf.bash
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

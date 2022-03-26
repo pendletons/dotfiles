@@ -77,13 +77,13 @@ chsh -s $(which zsh)
   * `~/dotfiles-local/gitconfig.local`
   * `~/dotfiles-local/psqlrc.local` (we supply a blank `.psqlrc.local` to prevent `psql` from
   throwing an error, but you should overwrite the file with your own copy)
-                                         * `~/dotfiles-local/tmux.conf.local`
-                                         * `~/dotfiles-local/vimrc.local`
-                                         * `~/dotfiles-local/vimrc.bundles.local`
-                                         * `~/dotfiles-local/zshrc.local`
-                                         * `~/dotfiles-local/zsh/configs/*`
+  * `~/dotfiles-local/tmux.conf.local`
+  * `~/dotfiles-local/vimrc.local`
+  * `~/dotfiles-local/vimrc.bundles.local`
+  * `~/dotfiles-local/zshrc.local`
+  * `~/dotfiles-local/zsh/configs/*`
 
-                                         For example, your `~/dotfiles-local/aliases.local` might look like this:
+For example, your `~/dotfiles-local/aliases.local` might look like this:
 
 # Productivity
 alias todo='$EDITOR ~/.todo'
@@ -187,15 +187,16 @@ What's in it?
 
 [vim](http://www.vim.org/) configuration:
 
-                                           * [Ctrl-P](https://github.com/ctrlpvim/ctrlp.vim) for fuzzy file/buffer/tag finding.
-                                           * [Rails.vim](https://github.com/tpope/vim-rails) for enhanced navigation of
-                                           Rails file structure via `gf` and `:A` (alternate), `:Rextract` partials,
-                                           `:Rinvert` migrations, etc.
-                                           * Run many kinds of tests [from vim]([https://github.com/janko-m/vim-test)
-                                           * Set `<leader>` to a single space.
-                                           * Switch between the last two files with space-space.
-                                           * Syntax highlighting for Markdown, HTML, JavaScript, Ruby, Go, Elixir, more.
-  * Use [Ag](https://github.com/ggreer/the_silver_searcher) instead of Grep when
+* [Ctrl-P](https://github.com/ctrlpvim/ctrlp.vim) for fuzzy file/buffer/tag finding.
+* [fzf](https://github.com/junegunn/fzf.vim) for fuzzy file/buffer/tag finding.
+* [Rails.vim](https://github.com/tpope/vim-rails) for enhanced navigation of
+  Rails file structure via `gf` and `:A` (alternate), `:Rextract` partials,
+  `:Rinvert` migrations, etc.
+* Run many kinds of tests [from vim]([https://github.com/janko-m/vim-test)
+* Set `<leader>` to a single space.
+* Switch between the last two files with space-space.
+* Syntax highlighting for Markdown, HTML, JavaScript, Ruby, Go, Elixir, more.
+* Use [Ag](https://github.com/ggreer/the_silver_searcher) instead of Grep when
   available.
   * Map `<leader>ct` to re-index [Exuberant Ctags](http://ctags.sourceforge.net/).
   * Use [vim-mkdir](https://github.com/pbrisbin/vim-mkdir) for automatically
@@ -229,13 +230,13 @@ What's in it?
 
   Shell aliases and scripts:
 
-  * `b` for `bundle`.
-  * `g` with no arguments is `git status` and with arguments acts like `git`.
-  * `migrate` for `rake db:migrate && rake db:rollback && rake db:migrate`.
-  * `mcd` to make a directory and change into it.
-  * `replace foo bar **/*.rb` to find and replace within a given list of files.
-  * `tat` to attach to tmux session named the same as the current directory.
-  * `v` for `$VISUAL`.
+* `b` for `bundle`.
+* `g` with no arguments is `git status` and with arguments acts like `git`.
+* `migrate` for `rake db:migrate db:rollback && rake db:migrate db:test:prepare`.
+* `mcd` to make a directory and change into it.
+* `replace foo bar **/*.rb` to find and replace within a given list of files.
+* `tat` to attach to tmux session named the same as the current directory.
+* `v` for `$VISUAL`.
 
   Thanks
   ------

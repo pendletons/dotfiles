@@ -157,6 +157,9 @@ brew "mas"
 # Image manipulation
 brew "imagemagick"
 
+# Testing
+brew "qt@5.5" if MacOS::Xcode.installed?
+
 # Programming language prerequisites and package managers
 brew "libyaml" # should come after openssl
 brew "coreutils"
@@ -174,6 +177,14 @@ brew "postgres", restart_service: :changed
 brew "pgcli"
 brew "redis", restart_service: :changed
 EOF
+
+if [ ! -f "/usr/local/bin/prettyping" ]; then
+  fancy_echo "Install prettyping..."
+  curl -o /usr/local/bin/prettyping https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping
+  chmod +x /usr/local/bin/prettyping
+else
+  fancy_echo "Skipping prettyping, already installed..."
+fi
 
 if [ ! -f "/usr/local/bin/prettyping" ]; then
   fancy_echo "Install prettyping..."

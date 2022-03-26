@@ -13,7 +13,8 @@ alias -g L='| wc -l'
 alias -g ONE="| awk '{ print \$1}'"
 alias e="$EDITOR"
 alias v="$VISUAL"
-alias preview="fzf --preview 'bat --color \"always\" {}'"
+#alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias preview="fzf --preview 'bat --color always {}'"
 alias top="sudo htop" # alias top and fix high sierra bug
 alias cat='bat'
 alias ping='prettyping --nolegend'
@@ -25,11 +26,14 @@ alias betty=~/betty/main.rb
 
 # git
 alias g='git'
+alias gci="git pull --rebase && rake && git push"
+alias gco='git checkout'
 alias gi='git'
 alias gf='git fetch --all --prune'
+alias gp='git push'
 alias gs='git status'
 alias gci="git pull --rebase && rake && git push"
-alias gbd='git bclean'
+alias gbd='git branch --merged | egrep -v "(^\*|master|dev|main)" | xargs git branch -d'
 alias gsave='OVERCOMMIT_DISABLE=1 git add -A && git commit -am "SAVEPOINT"'
 
 # Bundler
@@ -54,4 +58,6 @@ alias path='echo $PATH | tr -s ":" "\n"'
 alias ctags="`brew --prefix`/bin/ctags"
 
 # Include custom aliases
-[[ -f ~/.aliases.local ]] && source ~/.aliases.local
+if [[ -f ~/.aliases.local ]]; then
+  source ~/.aliases.local
+fi

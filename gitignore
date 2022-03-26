@@ -17,9 +17,9 @@
 /tmp
 /vendor
 db/*.sqlite3
-    log/*.log
-    rerun.txt
-    database.yml.sample
+log/*.log
+rerun.txt
+database.yml.sample
 
 # Git
 tags

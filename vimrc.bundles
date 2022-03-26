@@ -14,10 +14,22 @@ let g:has_async = v:version >= 800 || has('nvim')
 
 call plug#begin('~/.vim/bundle')
 
+" If fzf has already been installed via Homebrew, use the existing fzf
+" Otherwise, install fzf. The `--all` flag makes fzf accessible outside of vim
+if isdirectory("/usr/local/opt/fzf")
+  Plug '/usr/local/opt/fzf'
+else
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+endif
+
 " Define bundles via Github repos
+UnPlug 'christoomey/vim-run-interactive'
+Plug 'ctrlpvim/ctrlp.vim'
+UnPlug 'fatih/vim-go'
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-endwise' " add end in ruby files
+Plug 'tpope/vim-eunuch' " Unix commands
 Plug 'tpope/vim-fugitive' " Git workflow
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
@@ -44,17 +56,20 @@ if !exists('g:vscode')
 endif
 Plug 'benmills/vimux' " tmux integration
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim navigation
+Plug '907th/vim-auto-save' " auto save buffers
+Plug 'ajh17/VimCompletesMe' " code completion
 
 " Themes
 Plug 'quanganhdo/grb256'
 Plug 'mhinz/vim-startify'
 
 " Syntax
+Plug 'StanAngeloff/php.vim' " PHP defaults
 if !exists('g:vscode')
   Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-sleuth' " smart indent based on syntax
   " Plug 'mhinz/vim-mix-format' " Elixir formatting
-  Plug 'Chiel92/vim-autoformat' " Auto formatting
+  " Plug 'Chiel92/vim-autoformat' " Auto formatting
   Plug 'beanworks/vim-phpfmt' " PHP auto formatting
 endif
 
@@ -68,8 +83,20 @@ if !exists('g:vscode')
   Plug 'maximbaz/lightline-ale' " Ale in status
 end
 
+Plug 'kristijanhusak/orgmode.nvim'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" Other
+Plug 'wakatime/vim-wakatime' " time tracking
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
+Plug 'itchyny/lightline.vim' " Status
+Plug 'maximbaz/lightline-ale' " Ale in status
+
 if !exists('g:vscode') && g:has_async
-  Plug 'w0rp/ale'
+  Plug 'dense-analysis/ale'
 endif
 
 if filereadable(expand("~/.vimrc.bundles.local"))
