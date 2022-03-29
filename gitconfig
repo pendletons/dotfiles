@@ -29,6 +29,7 @@
   co = checkout
   ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
   d = diff
+  dif = diff
   ds = diff --cached
   delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
   fl = log -u
@@ -39,6 +40,7 @@
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+  p = push --force-with-lease
   pf = push --force-with-lease
   pra = pull --rebase --autostash
   save = !git add -A && git commit -m 'SAVEPOINT'
