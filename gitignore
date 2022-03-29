@@ -39,3 +39,4 @@ git-commit.template
 tmux*log
 Procfile.local
 .overcommit.yml
+antigen.zsh
