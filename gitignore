@@ -37,3 +37,4 @@ tmux*log
 Procfile.local
 mysql2pgsql.yml
 .overcommit.yml
+antigen.zsh

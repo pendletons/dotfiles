@@ -60,7 +60,6 @@ endif
 Plug 'benmills/vimux' " tmux integration
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim navigation
 Plug 'terryma/vim-multiple-cursors' " SublimeText style multiple cursors
-UnPlug 'ajh17/VimCompletesMe' " code completion
 Plug '907th/vim-auto-save' " auto save buffers
 
 " Themes
@@ -72,11 +71,10 @@ if !exists('g:vscode')
   Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-sleuth' " smart indent based on syntax
   " Plug 'mhinz/vim-mix-format' " Elixir formatting
-  " Plug 'Chiel92/vim-autoformat' " Auto formatting
+  Plug 'Chiel92/vim-autoformat' " Auto formatting
   Plug 'beanworks/vim-phpfmt' " PHP auto formatting
   Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
   Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-  UnPlug 'elmcast/elm-vim'
   Plug 'StanAngeloff/php.vim' " PHP defaults
   Plug 'hashivim/vim-terraform' " terraform
   Plug 'ekalinin/Dockerfile.vim'
@@ -94,7 +92,7 @@ if !exists('g:vscode')
   Plug 'airblade/vim-rooter'
   Plug 'itchyny/lightline.vim' " Status
   Plug 'maximbaz/lightline-ale' " Ale in status
-end
+endif
 Plug 'kristijanhusak/orgmode.nvim'
 
 if !exists('g:vscode') && g:has_async

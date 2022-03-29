@@ -1,5 +1,5 @@
 # Unix
-alias l="ls-go -alkSi"
+alias l="ls -al"
 alias ln="ln -v"
 alias lh='ls -Alh'
 alias mkdir="mkdir -p"
