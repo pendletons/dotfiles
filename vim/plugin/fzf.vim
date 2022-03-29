@@ -3,5 +3,5 @@ let g:fzf_action = {
                                                       \ 'ctrl-x': 'split',
                                                       \ 'ctrl-v': 'vsplit' }
 
-nmap <Leader>f :Files<CR>
+nmap <Leader>f :FZF<CR>
 nmap <Leader>gf :Buffers<CR>
