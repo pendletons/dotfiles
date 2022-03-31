@@ -24,9 +24,9 @@ antigen bundle Aloxaf/fzf-tab # fzf completion
 antigen bundle Tarrasch/zsh-bd # navigate back skipping parent directories
 antigen bundle supercrabtree/k # better directory listings
 antigen bundle zsh-users/zsh-autosuggestions # Fish-like auto suggestions
-
-#antigen bundle zdharma/history-search-multi-word # multi-word history matching
 antigen bundle tymm/zsh-directory-history # directory-based history
+
+antigen bundle smallhadroncollider/antigen-git-rebase # command: rebase
 
 antigen theme romkatv/powerlevel10k
 
