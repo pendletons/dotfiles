@@ -24,10 +24,7 @@ chsh -s $(which zsh)
   ln -s /Users/shanthi/laptop/mac /Users/shanthi/dotfiles/laptop-local
   sh ~/laptop/mac 2>&1 | tee ~/laptop/.log; noti
 
-  After the initial installation, you can run `rcup` without the one-time variable
-  `RCRC` being set (`rcup` will symlink the repo's `rcrc` to `~/.rcrc` for future
-      runs of `rcup`). [See
-  example](https://github.com/thoughtbot/dotfiles/blob/master/rcrc).
+    brew install rcm
 
   This command will create symlinks for config files in your home directory.
   Setting the `RCRC` environment variable tells `rcup` to use standard
@@ -74,16 +71,16 @@ chsh -s $(which zsh)
 
   * `~/dotfiles-local/aliases.local`
   * `~/dotfiles-local/git_template.local/*`
-  * `~/dotfiles-local/gitconfig.local`
-  * `~/dotfiles-local/psqlrc.local` (we supply a blank `.psqlrc.local` to prevent `psql` from
-  throwing an error, but you should overwrite the file with your own copy)
-  * `~/dotfiles-local/tmux.conf.local`
-  * `~/dotfiles-local/vimrc.local`
-  * `~/dotfiles-local/vimrc.bundles.local`
-  * `~/dotfiles-local/zshrc.local`
-  * `~/dotfiles-local/zsh/configs/*`
+                                         * `~/dotfiles-local/gitconfig.local`
+                                         * `~/dotfiles-local/psqlrc.local` (we supply a blank `.psqlrc.local` to prevent `psql` from
+                                         throwing an error, but you should overwrite the file with your own copy)
+                                         * `~/dotfiles-local/tmux.conf.local`
+                                         * `~/dotfiles-local/vimrc.local`
+                                         * `~/dotfiles-local/vimrc.bundles.local`
+                                         * `~/dotfiles-local/zshrc.local`
+                                         * `~/dotfiles-local/zsh/configs/*`
 
-For example, your `~/dotfiles-local/aliases.local` might look like this:
+                                         For example, your `~/dotfiles-local/aliases.local` might look like this:
 
 # Productivity
 alias todo='$EDITOR ~/.todo'
@@ -232,7 +229,7 @@ What's in it?
 
 * `b` for `bundle`.
 * `g` with no arguments is `git status` and with arguments acts like `git`.
-* `migrate` for `rake db:migrate db:rollback && rake db:migrate db:test:prepare`.
+* `migrate` for `bin/rails db:migrate db:rollback && bin/rails db:migrate db:test:prepare`.
 * `mcd` to make a directory and change into it.
 * `replace foo bar **/*.rb` to find and replace within a given list of files.
 * `tat` to attach to tmux session named the same as the current directory.

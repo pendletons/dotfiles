@@ -11,10 +11,10 @@ unsetopt nomatch
 # disable autocorrect
 unsetopt correct
 
-plugins=(osx git gitfast rails ruby brew bundler gem tmux tmuxinator autojump fasd history)
+plugins=(osx git gitfast rails ruby brew bundler gem tmux tmuxinator autojump fasd history zsh-asdf-direnv)
 
 # Overcommit
-export GIT_TEMPLATE_DIR=`overcommit --template-dir`
+#export GIT_TEMPLATE_DIR=`overcommit --template-dir`
 
 # IEx shell history
 export ERL_AFLAGS="-kernel shell_history enabled"

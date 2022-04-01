@@ -14,6 +14,7 @@ let g:has_async = v:version >= 800 || has('nvim')
 
 call plug#begin('~/.vim/bundle')
 
+" Define bundles via Github repos
 " If fzf has already been installed via Homebrew, use the existing fzf
 " Otherwise, install fzf. The `--all` flag makes fzf accessible outside of vim
 if isdirectory("/usr/local/opt/fzf")
@@ -21,10 +22,11 @@ if isdirectory("/usr/local/opt/fzf")
 else
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 endif
+UnPlug 'christoomey/vim-run-interactive'
 
 " Define bundles via Github repos
 UnPlug 'christoomey/vim-run-interactive'
-Plug 'ctrlpvim/ctrlp.vim'
+UnPlug 'elixir-lang/vim-elixir'
 UnPlug 'fatih/vim-go'
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-bundler'
@@ -56,36 +58,27 @@ if !exists('g:vscode')
 endif
 Plug 'benmills/vimux' " tmux integration
 Plug 'christoomey/vim-tmux-navigator' " tmux/vim navigation
+Plug 'terryma/vim-multiple-cursors' " SublimeText style multiple cursors
 Plug '907th/vim-auto-save' " auto save buffers
-Plug 'ajh17/VimCompletesMe' " code completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " code completion
 
 " Themes
 Plug 'quanganhdo/grb256'
 Plug 'mhinz/vim-startify'
 
 " Syntax
-Plug 'StanAngeloff/php.vim' " PHP defaults
-Plug 'jparise/vim-graphql'
 if !exists('g:vscode')
   Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-sleuth' " smart indent based on syntax
   " Plug 'mhinz/vim-mix-format' " Elixir formatting
-  " Plug 'Chiel92/vim-autoformat' " Auto formatting
+  Plug 'Chiel92/vim-autoformat' " Auto formatting
   Plug 'beanworks/vim-phpfmt' " PHP auto formatting
+  Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+  Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+  Plug 'StanAngeloff/php.vim' " PHP defaults
+  Plug 'hashivim/vim-terraform' " terraform
+  Plug 'ekalinin/Dockerfile.vim'
+  Plug 'jason0x43/vim-js-indent'
 endif
-
-" Other
-if !exists('g:vscode')
-  Plug 'wakatime/vim-wakatime' " time tracking
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
-  Plug 'junegunn/fzf.vim'
-  Plug 'airblade/vim-rooter'
-  Plug 'itchyny/lightline.vim' " Status
-  Plug 'maximbaz/lightline-ale' " Ale in status
-end
-
-Plug 'kristijanhusak/orgmode.nvim'
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -93,9 +86,14 @@ Plug 'honza/vim-snippets'
 
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
-Plug 'itchyny/lightline.vim' " Status
-Plug 'maximbaz/lightline-ale' " Ale in status
+if !exists('g:vscode')
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fzf fuzzy-finder"
+  Plug 'junegunn/fzf.vim'
+  Plug 'airblade/vim-rooter'
+  Plug 'itchyny/lightline.vim' " Status
+  Plug 'maximbaz/lightline-ale' " Ale in status
+endif
+Plug 'kristijanhusak/orgmode.nvim'
 
 if !exists('g:vscode') && g:has_async
   Plug 'dense-analysis/ale'
