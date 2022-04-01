@@ -350,7 +350,6 @@ inject_into_file 'bin/setup', before: 'puts "\n== Removing old logs and tempfile
   system("npm install standard --global")
 
   # set ruby/node versions
-  [".tool-versions"].each do |file_name|
   File.open(".tool-versions", "w") do |f|
     f.write "nodejs 17.7.2\n"
     f.write "ruby 3.1.1\n"
