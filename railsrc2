@@ -1,0 +1,14 @@
+ --database=postgresql
+ --main
+ --webpack=react
+ --css=tailwind
+ --skip-action-cable
+ --skip-action-mailbox
+ --skip-action-text
+ --skip-coffee
+ --skip-hotwire
+ --skip-jbuilder
+ --skip-spring
+ --skip-test
+ --skip-turbolinks
+ --template=~/.rails/template.rb
