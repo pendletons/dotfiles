@@ -6,27 +6,29 @@ let g:fzf_action = {
 nmap <Leader>f :FzfPreviewProjectFilesRpc<CR>
 nmap <Leader>b :FzfPreviewBuffersRpc<CR>
 
-nnoremap <Leader>gs    :FzfPreviewGitStatusRpc<CR>
-nnoremap <Leader>g;    :FzfPreviewChangesRpc<CR>
-nnoremap <Leader>a     :FzfPreviewProjectGrepRpc<Space>
+" searching
+nnoremap          <Leader>a     :FzfPreviewProjectGrepRpc<Space>
+" location list
+nnoremap <silent> <Leader>l     :FzfPreviewLocationListRpc<CR>
 
+" git status
+nnoremap <silent> <Leader>gs    :FzfPreviewGitStatusRpc<CR>
+" git actions (branch, log, stash, etc.)
+nnoremap <silent> <Leader>ga    :FzfPreviewGitActionsRpc<CR>
+" show quickfix window
+nnoremap <silent> <Leader>qf    :FzfPreviewQuickFixRpc<CR>
+
+" nnoremap <silent> <Leader>g;    :FzfPreviewChangesRpc<CR>
+nnoremap <silent> <Leader>B     :FzfPreviewAllBuffersRpc<CR>
+" Select files from selected resources (project, git, directory, buffer, project_old, project_mru, project_mrw, old, mru, mrw)
+nnoremap <silent> <Leader>o     :FzfPreviewFromResourcesRpc buffer project_mru<CR>
+" Select line from current buffer
+" nnoremap <silent> <Leader>/     :FzfPreviewLinesRpc --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
+
+" file picker
 xmap <Leader>f :FzfPreviewProjectFilesRpc<CR>
+" project search - visual mode
+xnoremap <Leader>gr    "sy:FzfPreviewProjectGrepRpc<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
 
 let g:fzf_buffers_jump = 1
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
-
-" Recommended config
-" nnoremap <silent> [fzf-p]gs    :<C-u>FzfPreviewGitStatusRpc<CR>
-" nnoremap <silent> [fzf-p]ga    :<C-u>FzfPreviewGitActionsRpc<CR>
-" nnoremap <silent> [fzf-p]b     :<C-u>FzfPreviewBuffersRpc<CR>
-" nnoremap <silent> [fzf-p]B     :<C-u>FzfPreviewAllBuffersRpc<CR>
-" nnoremap <silent> [fzf-p]o     :<C-u>FzfPreviewFromResourcesRpc buffer project_mru<CR>
-" nnoremap <silent> [fzf-p]<C-o> :<C-u>FzfPreviewJumpsRpc<CR>
-" nnoremap <silent> [fzf-p]g;    :<C-u>FzfPreviewChangesRpc<CR>
-" nnoremap <silent> [fzf-p]/     :<C-u>FzfPreviewLinesRpc --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
-" nnoremap <silent> [fzf-p]*     :<C-u>FzfPreviewLinesRpc --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
-" nnoremap          [fzf-p]gr    :<C-u>FzfPreviewProjectGrepRpc<Space>
-" xnoremap          [fzf-p]gr    "sy:FzfPreviewProjectGrepRpc<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
-" nnoremap <silent> [fzf-p]t     :<C-u>FzfPreviewBufferTagsRpc<CR>
-" nnoremap <silent> [fzf-p]q     :<C-u>FzfPreviewQuickFixRpc<CR>
-" nnoremap <silent> [fzf-p]l     :<C-u>FzfPreviewLocationListRpc<CR>
