@@ -89,6 +89,7 @@ Plug 'wakatime/vim-wakatime' " time tracking
 if !exists('g:vscode')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fzf fuzzy-finder"
   Plug 'junegunn/fzf.vim'
+  Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
   Plug 'airblade/vim-rooter'
   Plug 'itchyny/lightline.vim' " Status
   Plug 'maximbaz/lightline-ale' " Ale in status
