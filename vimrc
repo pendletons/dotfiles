@@ -146,7 +146,7 @@ if executable('ag')
 
   nnoremap \ :Ag<SPACE>
 endif
-map <leader>a :Ack!<space>
+" map <leader>a :Ack!<space>
 let g:ack_use_dispatch = 0
 let g:ack_autofold_results = 1
 let g:ackprg = 'ag --nogroup --nocolor --column'
