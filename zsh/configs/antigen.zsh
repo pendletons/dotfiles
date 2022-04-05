@@ -1,2 +1,2 @@
-source /opt/homebrew/share/antigen/antigen.zsh
+source /usr/local/share/antigen/antigen.zsh
 antigen init ~/.antigenrc
