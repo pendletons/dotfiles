@@ -51,7 +51,6 @@
   rh1 = reset HEAD^ --hard
   rh2 = reset HEAD^^ --hard
   s = status
-  save = !git add -A && git commit -m 'SAVEPOINT'
   st = status
   undo = reset HEAD~1 --mixed
 

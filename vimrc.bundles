@@ -46,6 +46,7 @@ endif
 Plug 'vim-scripts/matchit.zip' " % matching
 if !exists('g:vscode')
   Plug 'scrooloose/nerdtree' " file browser
+  Plug 'ryanoasis/vim-devicons' " icons in NerdTree
   Plug 'airblade/vim-gitgutter' " Display git changes in file
   Plug 'moll/vim-bbye' " close buffers easily
   Plug 'jeffkreeftmeijer/vim-numbertoggle' " Line numbers/movement

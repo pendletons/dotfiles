@@ -6,3 +6,4 @@
 # *~
 .envrc
 .tool-versions
+i18n-tasks/
