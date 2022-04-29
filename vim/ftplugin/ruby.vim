@@ -36,5 +36,5 @@ autocmd BufRead {*_spec.rb,spec_helper.rb} syn keyword rubyRspec
 
 highlight def link rubyRspec Function
 
-let g:ale_linters = { 'ruby': ['rubocop'] }
-let g:ale_fixers = { 'ruby': ['rubocop'] }
+let g:ale_linters = { 'ruby': ['rubocop', 'brakeman', 'rails_best_practices'] }
+let g:ale_fixers = { 'ruby': ['rubocop', 'prettier'] }

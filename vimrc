@@ -130,9 +130,6 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
-" Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
-
 " Use one space, not two, after punctuation.
 set nojoinspaces
 
@@ -225,9 +222,6 @@ highlight SpellCap guifg=Black ctermfg=Black cterm=bold
 highlight Comment ctermfg=45 guifg=#A1EFFB
 highlight LineNr ctermbg=none ctermfg=105
 
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
 " Status line
 function! GitBranch()
   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
@@ -252,6 +246,17 @@ set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\
+
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+
+" highlight trailing whitespace
+highlight ExtraWhitespace guibg=red ctermbg=darkred
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")

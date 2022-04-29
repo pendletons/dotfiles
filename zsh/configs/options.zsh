@@ -11,7 +11,28 @@ unsetopt nomatch
 # disable autocorrect
 unsetopt correct
 
-plugins=(osx git gitfast rails ruby brew bundler gem tmux tmuxinator autojump fasd history zsh-asdf-direnv)
+plugins=(
+  autojump
+  brew
+  bundler
+  fasd
+  gem
+  git
+  gitfast
+  history
+  osx
+  rails
+  ruby
+  ssh-agent
+  tmux
+  tmuxinator
+  zsh-asdf-direnv
+)
+
+# ssh: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent
+zstyle :omz:plugins:ssh-agent agent-forwarding yes
+zstyle :omz:plugins:ssh-agent helper ksshaskpass
+zstyle :omz:plugins:ssh-agent lazy yes
 
 # Overcommit
 #export GIT_TEMPLATE_DIR=`overcommit --template-dir`
