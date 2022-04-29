@@ -15,7 +15,7 @@ chsh -s $(which zsh)
 
   Clone onto your laptop:
 
-  git clone git://github.com/thoughtbot/dotfiles.git ~/dotfiles
+  git clone git://github.com/pendletons/dotfiles.git ~/dotfiles
 
   (Or, [fork and keep your fork
    updated](http://robots.thoughtbot.com/keeping-a-github-fork-updated)).
@@ -30,18 +30,18 @@ chsh -s $(which zsh)
   Setting the `RCRC` environment variable tells `rcup` to use standard
   configuration options:
 
-    env RCRC=$HOME/dotfiles/rcrc rcup
+  env RCRC=$HOME/dotfiles/rcrc rcup
 
-After the initial installation, you can run `rcup` without the one-time variable
-`RCRC` being set (`rcup` will symlink the repo's `rcrc` to `~/.rcrc` for future
-runs of `rcup`). [See
-example](https://github.com/thoughtbot/dotfiles/blob/master/rcrc).
+  After the initial installation, you can run `rcup` without the one-time variable
+  `RCRC` being set (`rcup` will symlink the repo's `rcrc` to `~/.rcrc` for future
+      runs of `rcup`). [See
+  example](https://github.com/thoughtbot/dotfiles/blob/master/rcrc).
 
-This command will create symlinks for config files in your home directory.
-Setting the `RCRC` environment variable tells `rcup` to use standard
-configuration options:
+  This command will create symlinks for config files in your home directory.
+  Setting the `RCRC` environment variable tells `rcup` to use standard
+  configuration options:
 
-* Exclude the `README.md`, `README-ES.md` and `LICENSE` files, which are part of
+  * Exclude the `README.md`, `README-ES.md` and `LICENSE` files, which are part of
   the `dotfiles` repository but do not need to be symlinked in.
   * Give precedence to personal overrides which by default are placed in
   `~/dotfiles-local`
@@ -184,6 +184,7 @@ What's in it?
 
 [vim](http://www.vim.org/) configuration:
 
+* [Ctrl-P](https://github.com/ctrlpvim/ctrlp.vim) for fuzzy file/buffer/tag finding.
 * [fzf](https://github.com/junegunn/fzf.vim) for fuzzy file/buffer/tag finding.
 * [Rails.vim](https://github.com/tpope/vim-rails) for enhanced navigation of
   Rails file structure via `gf` and `:A` (alternate), `:Rextract` partials,
@@ -194,8 +195,8 @@ What's in it?
 * Syntax highlighting for Markdown, HTML, JavaScript, Ruby, Go, Elixir, more.
 * Use [Ag](https://github.com/ggreer/the_silver_searcher) instead of Grep when
   available.
-* Map `<leader>ct` to re-index ctags.
-* Use [vim-mkdir](https://github.com/pbrisbin/vim-mkdir) for automatically
+  * Map `<leader>ct` to re-index [Exuberant Ctags](http://ctags.sourceforge.net/).
+  * Use [vim-mkdir](https://github.com/pbrisbin/vim-mkdir) for automatically
   creating non-existing directories before writing the buffer.
   * Use [vim-plug](https://github.com/junegunn/vim-plug) to manage plugins.
 
@@ -245,8 +246,8 @@ What's in it?
   License
   -------
 
-dotfiles is copyright © 2009-2018 thoughtbot. It is free software, and may be
-redistributed under the terms specified in the [`LICENSE`] file.
+  dotfiles is copyright © 2009-2018 thoughtbot. It is free software, and may be
+  redistributed under the terms specified in the [`LICENSE`] file.
 
   [`LICENSE`]: /LICENSE
 

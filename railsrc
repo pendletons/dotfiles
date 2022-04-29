@@ -1,0 +1,6 @@
+ --main
+ --database=postgresql
+ --css=bulma
+ --skip-coffee
+ --skip-test
+ --template=~/.rails/template.rb

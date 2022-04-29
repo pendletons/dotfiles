@@ -20,10 +20,9 @@ db/*.sqlite3
 log/*.log
 rerun.txt
 database.yml.sample
-/tags
-!tmp/cache/.keep
 
 # Git
+/tags
 tags
 git-commit.template
 !tags/

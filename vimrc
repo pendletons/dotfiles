@@ -107,6 +107,7 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile tmux.conf.local set filetype=tmux
   autocmd BufRead,BufNewFile vimrc.local set filetype=vim
   autocmd BufRead,BufNewFile *.ts set filetype=typescript
+  autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 augroup END
 
 " ALE linting events

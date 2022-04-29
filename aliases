@@ -13,8 +13,8 @@ alias -g L='| wc -l'
 alias -g ONE="| awk '{ print \$1}'"
 alias e="$EDITOR"
 alias v="$VISUAL"
-
-alias preview="fzf --preview 'bat --color \"always\" {}'"
+#alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias preview="fzf --preview 'bat --color always {}'"
 alias top="sudo htop" # alias top and fix high sierra bug
 alias cat='bat'
 alias ping='prettyping --nolegend'
@@ -33,9 +33,6 @@ alias gp='git push'
 alias gs='git status'
 alias gci="git pull --rebase && rake && git push"
 alias gbd='git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -d'
-
-# sourcetree
-alias st="stree"
 
 # tmux
 alias tx=tmuxinator
@@ -63,5 +60,5 @@ alias ctags="`brew --prefix`/bin/ctags"
 
 # Include custom aliases
 if [[ -f ~/.aliases.local ]]; then
-  source ~/.aliases.local
+source ~/.aliases.local
 fi
