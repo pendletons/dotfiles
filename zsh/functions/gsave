@@ -4,8 +4,7 @@
 
 function gsave() {
   export OVERCOMMIT_DISABLE=1
-  echo "OD = ${OVERCOMMIT_DISABLE}"
-  git add -A
-  git commit -am "SAVEPOINT"
-  git push
+    git add -A
+    git commit -am "SAVEPOINT"
+    git push
 }
