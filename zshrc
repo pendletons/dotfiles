@@ -78,7 +78,9 @@ eval "$(pyenv init -)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 . $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+
+# source ~/dotfiles/antigen.zsh
+# antigen init ~/.antigenrc
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
