@@ -60,7 +60,7 @@ export GPG_TTY=$(tty)
 #export RUBYOPT='-W:no-deprecated -W:no-experimental'
 export LESS="-RFX"
 
-eval $(thefuck --alias)
+eval $(thefuck --alias poo)
 
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
@@ -70,7 +70,7 @@ eval $(thefuck --alias)
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:$PATH"
 
 # color-ls
-source $(dirname $(gem which colorls))/tab_complete.sh
+# source $(dirname $(gem which colorls))/tab_complete.sh
 
 eval "$(pyenv init -)"
 
