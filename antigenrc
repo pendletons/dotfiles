@@ -1,4 +1,4 @@
-POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
+#POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -17,7 +17,6 @@ antigen bundle <<EOBUNDLES
   tmux
   tmuxinator
   wd
-wd
 EOBUNDLES
 
 antigen bundle Aloxaf/fzf-tab # fzf completion
