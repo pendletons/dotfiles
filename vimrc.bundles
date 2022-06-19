@@ -22,19 +22,11 @@ if &compatible
   else
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   endif
-  UnPlug 'christoomey/vim-run-interactive'
 
   " Define bundles via Github repos
-  UnPlug 'christoomey/vim-run-interactive'
-  UnPlug 'elixir-lang/vim-elixir'
-  UnPlug 'fatih/vim-go'
-  Plug 'janko-m/vim-test'
   Plug 'tpope/vim-bundler'
   Plug 'tpope/vim-endwise' " add end in ruby files
-  Plug 'tpope/vim-eunuch' " Unix commands
   Plug 'tpope/vim-fugitive' " Git workflow
-  Plug 'tpope/vim-rails'
-  Plug 'tpope/vim-rake'
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-surround'
@@ -52,7 +44,6 @@ if &compatible
     Plug 'jeffkreeftmeijer/vim-numbertoggle' " Line numbers/movement
   endif
   Plug 'raimondi/delimitmate' " auto-closing matching things
-  Plug 'zxqfl/tabnine-vim' " code completion
   Plug 'gioele/vim-autoswap' " Better handling of swap files
   if !exists('g:vscode')
     Plug 'mileszs/ack.vim'
@@ -83,9 +74,36 @@ if &compatible
     Plug 'slim-template/vim-slim'
   endif
 
-  " Snippets
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
+  " Define bundles via Github repos
+  Plug 'elixir-lang/vim-elixir'
+  Plug 'janko-m/vim-test'
+  Plug 'tpope/vim-bundler'
+  Plug 'tpope/vim-endwise' " add end in ruby files
+  Plug 'tpope/vim-eunuch' " Unix commands
+  Plug 'tpope/vim-fugitive' " Git workflow
+  Plug 'tpope/vim-rails'
+  Plug 'tpope/vim-rake'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-rhubarb'
+  Plug 'tpope/vim-surround'
+  Plug 'vim-ruby/vim-ruby'
+  Plug 'vim-scripts/tComment'
+  if !exists('g:vscode')
+    Plug 'vim-scripts/ctags.vim'
+  endif
+  Plug 'vim-scripts/matchit.zip' " % matching
+  if !exists('g:vscode')
+    Plug 'scrooloose/nerdtree' " file browser
+    Plug 'ryanoasis/vim-devicons' " icons in NerdTree
+    Plug 'airblade/vim-gitgutter' " Display git changes in file
+    Plug 'moll/vim-bbye' " close buffers easily
+    Plug 'jeffkreeftmeijer/vim-numbertoggle' " Line numbers/movement
+  endif
+  Plug 'raimondi/delimitmate' " auto-closing matching things
+  Plug 'gioele/vim-autoswap' " Better handling of swap files
+  if !exists('g:vscode')
+    Plug 'mileszs/ack.vim'
+  endif
 
   " Other
   Plug 'wakatime/vim-wakatime' " time tracking
@@ -94,10 +112,7 @@ if &compatible
     Plug 'junegunn/fzf.vim'
     Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
     Plug 'airblade/vim-rooter'
-    Plug 'itchyny/lightline.vim' " Status
-    Plug 'maximbaz/lightline-ale' " Ale in status
   endif
-  Plug 'kristijanhusak/orgmode.nvim'
 
   if !exists('g:vscode') && g:has_async
     Plug 'dense-analysis/ale'

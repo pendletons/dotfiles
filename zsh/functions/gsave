@@ -1,0 +1,10 @@
+# Save git progress without OVERCOMMIT complaining
+#
+#   gsave
+
+function gsave() {
+  export OVERCOMMIT_DISABLE=1
+    git add -A
+    git commit -am "SAVEPOINT"
+    git push
+}
