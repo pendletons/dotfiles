@@ -72,7 +72,8 @@ eval "$(pyenv init -)"
 . $HOME/.asdf/asdf.sh
 
 [[ -f /opt/homebrew/share/antigen/antigen.zsh ]] && source /opt/homebrew/share/antigen/antigen.zsh
-# [[ ! -f "antigen" ]] && antigen init ~/.antigenrc
+[[ -f /usr/local/share/antigen/antigen.zsh ]] && source /usr/local/share/antigen/antigen.zsh
+antigen init ~/.antigenrc
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
