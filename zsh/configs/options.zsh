@@ -30,4 +30,3 @@ MAKEFLAGS="-j$CORES"; export MAKEFLAGS
 BUNDLE_JOBS="$CORES"; export BUNDLE_JOBS
 
 . $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
