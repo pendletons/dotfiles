@@ -89,6 +89,7 @@
   path = ~/.gitconfig.local
 [push]
   default = current
+  autoSetupRemote = true
 [user]
   name = Shanthi Pendleton
   email = shanthi.pendleton@gmail.com
