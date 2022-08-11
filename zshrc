@@ -69,8 +69,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.
 
 eval "$(pyenv init -)"
 
-. $HOME/.asdf/asdf.sh
-
 [[ -f /opt/homebrew/share/antigen/antigen.zsh ]] && source /opt/homebrew/share/antigen/antigen.zsh
 [[ -f /usr/local/share/antigen/antigen.zsh ]] && source /usr/local/share/antigen/antigen.zsh
 antigen init ~/.antigenrc
@@ -87,3 +85,6 @@ antigen init ~/.antigenrc
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+export PATH="$HOME/.bin:$PATH"
+source /usr/local/opt/asdf/asdf.sh
