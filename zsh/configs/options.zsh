@@ -12,6 +12,7 @@ unsetopt nomatch
 unsetopt correct
 
 plugins=(
+  asdf
   autojump
   brew
   bundler
@@ -49,5 +50,3 @@ export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort'"
 CORES=`sysctl -n hw.ncpu 2>/dev/null || nproc` # mac & linux
 MAKEFLAGS="-j$CORES"; export MAKEFLAGS
 BUNDLE_JOBS="$CORES"; export BUNDLE_JOBS
-
-. $HOME/.asdf/asdf.sh
