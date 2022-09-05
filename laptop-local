@@ -4,23 +4,26 @@
 # Be prepared to turn your laptop (or desktop, no haters here)
 # into an awesome development machine.
 
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+brew install --cask 1password/tap/1password-cli
+
 brew bundle --file=- <<EOF
 brew "antigen"
+brew "diff-so-fancy"
+brew "direnv"
+brew "mas"
+brew "overmind"
+brew "pyenv"
 brew "thefuck"
-brew "rust"
-brew "rustup"
+brew "lefthook"
 EOF
-
-fancy_echo "Installing dura..."
-cargo install dura
 
 fancy_echo "Install Apple Store applications..."
 mas install 748212890 # Memory Cleaner
 mas install 497799835 # Xcode
-mas install 443987910 # 1Password
 mas install 451444120 # Memory Clean
 mas install 525742250 # JPEGmini Lite
-mas install 1091189122 # Bear
 
 mas upgrade
 
@@ -29,4 +32,3 @@ gem update --system
 gem_install_or_update "bundler"
 number_of_cores=$(sysctl -n hw.ncpu)
 bundle config --global jobs $((number_of_cores - 1))
-gem_install_or_update "overcommit"
