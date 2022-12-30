@@ -73,8 +73,6 @@ eval "$(pyenv init -)"
 [[ -f /usr/local/share/antigen/antigen.zsh ]] && source /usr/local/share/antigen/antigen.zsh
 antigen init ~/.antigenrc
 
-# Local config
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -88,3 +86,6 @@ fi
 
 export PATH="$HOME/.bin:$PATH"
 source /usr/local/opt/asdf/asdf.sh
+
+# Local config
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

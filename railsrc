@@ -1,6 +1,5 @@
  --main
  --database=postgresql
  --css=tailwind
- --skip-coffee
  --skip-test
  --template=~/.rails/template.rb
