@@ -1,9 +1,9 @@
-# Save git progress without OVERCOMMIT complaining
+# Save git progress without LEFTHOOK complaining
 #
 #   gsave
 
 function gsave() {
-  export OVERCOMMIT_DISABLE=1
+  export LEFTHOOK=0
     git add -A
     git commit -am "SAVEPOINT"
     git push

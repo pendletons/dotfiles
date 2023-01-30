@@ -1,5 +1,5 @@
 # Unix
-alias l="colorls -lA --sd --gs"
+alias l="exa --long --header --git"
 alias ln="ln -v"
 alias lh='ls -Alh'
 alias mkdir="mkdir -p"
