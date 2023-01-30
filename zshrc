@@ -88,3 +88,5 @@ fi
 
 export PATH="$HOME/.bin:$PATH"
 source /usr/local/opt/asdf/asdf.sh
+source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+eval "$(zoxide init zsh)"

@@ -17,6 +17,7 @@ brew "overmind"
 brew "pyenv"
 brew "thefuck"
 brew "lefthook"
+brew "zoxide"
 EOF
 
 fancy_echo "Install Apple Store applications..."
