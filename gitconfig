@@ -34,8 +34,9 @@
   ds = diff --cached
   delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
   done = !git push origin HEAD
-  f = !git fetch --all && git rebase origin/master
+  f = !git fetch --all
   fl = log -u
+  fr = !git fetch --all && git rebase origin/master
   la = "!git config -l | grep alias | cut -c 7-"
   le = log --oneline --decorate
   ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
