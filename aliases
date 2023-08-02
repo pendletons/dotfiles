@@ -1,5 +1,5 @@
 # Unix
-alias l="colorls -lA --sd --gs"
+alias l="exa --long --header --git"
 alias ln="ln -v"
 alias lh='ls -Alh'
 alias mkdir="mkdir -p"
@@ -20,7 +20,7 @@ alias cat='bat'
 alias ping='prettyping --nolegend'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias help='tldr'
-alias om='overmind'
+alias om=overmind
 
 # betty
 alias betty=~/betty/main.rb
