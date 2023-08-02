@@ -55,19 +55,15 @@ export GPG_TTY=$(tty)
 #export RUBYOPT='-W:no-deprecated -W:no-experimental'
 export LESS="-RFX"
 
-eval $(thefuck --alias poo)
-
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:$PATH"
 
 # color-ls
-# source $(dirname $(gem which colorls))/tab_complete.sh
 
-eval "$(pyenv init -)"
+source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 [[ -f /opt/homebrew/share/antigen/antigen.zsh ]] && source /opt/homebrew/share/antigen/antigen.zsh
 [[ -f /usr/local/share/antigen/antigen.zsh ]] && source /usr/local/share/antigen/antigen.zsh
@@ -83,9 +79,6 @@ antigen init ~/.antigenrc
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-export PATH="$HOME/.bin:$PATH"
-source /usr/local/opt/asdf/asdf.sh
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

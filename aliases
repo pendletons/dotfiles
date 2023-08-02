@@ -57,8 +57,6 @@ alias de='env | grep DOCKER_'
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
-alias ctags="`brew --prefix`/bin/ctags"
-
 # Include custom aliases
 if [[ -f ~/.aliases.local ]]; then
 source ~/.aliases.local
