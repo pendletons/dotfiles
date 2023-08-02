@@ -27,6 +27,4 @@ antigen bundle tymm/zsh-directory-history # directory-based history
 
 antigen bundle smallhadroncollider/antigen-git-rebase # command: rebase
 
-antigen theme romkatv/powerlevel10k
-
 antigen apply
