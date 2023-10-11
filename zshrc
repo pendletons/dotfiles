@@ -1,14 +1,8 @@
-
-
 export TERM="xterm-256color"
 
 # load our own completion functions
 fpath=(~/.zsh/completion $fpath)
 fpath=(${ASDF_DIR}/completions $fpath)
-
-# completion
-autoload -U compinit
-compinit
 
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
@@ -51,8 +45,6 @@ _load_settings "$HOME/.zsh/configs"
 
 export GPG_TTY=$(tty)
 
-# ruby 2.7
-#export RUBYOPT='-W:no-deprecated -W:no-experimental'
 export LESS="-RFX"
 
 # added by travis gem
@@ -81,9 +73,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export PATH="$HOME/.bin:$PATH"
-source /usr/local/opt/asdf/asdf.sh
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# completion
+autoload -Uz compinit && compinit

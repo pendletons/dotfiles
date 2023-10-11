@@ -89,7 +89,7 @@
   stat = true
 [commit]
   template = ~/.gitmessage
-  gpgSign = true
+	gpgsign = true
 [fetch]
   prune = true
 [rebase]
@@ -102,8 +102,9 @@
 [user]
   name = Shanthi Pendleton
   email = shanthi.pendleton@gmail.com
+	signingkey = 391B4456D822276EF5E9321D1ECC54533F210EB5
 [gpg]
-  program = gpg
+	program = /opt/homebrew/bin/gpg
 [tag]
   forceSignAnnotated = true
 [pager]

@@ -26,7 +26,6 @@ plugins=(
   ruby
   ssh-agent
   tmux
-  tmuxinator
   zsh-asdf-direnv
 )
 
