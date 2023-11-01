@@ -139,6 +139,7 @@ brew "noti"
 brew "httpie"
 brew "ls-go"
 # brew "aerial"
+brew "thefuck"
 
 # ZSH
 brew "antigen"
