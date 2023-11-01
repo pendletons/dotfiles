@@ -45,7 +45,6 @@ Plug 'gioele/vim-autoswap' " Better handling of swap files
 if !exists('g:vscode')
   Plug 'mileszs/ack.vim'
 endif
-#Plug 'ajh17/VimCompletesMe' " code completion
 
 " Themes
 Plug 'quanganhdo/grb256'
