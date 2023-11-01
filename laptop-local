@@ -140,6 +140,8 @@ brew "httpie"
 brew "ls-go"
 # brew "aerial"
 brew "thefuck"
+brew "pyenv"
+brew "asdf"
 
 # ZSH
 brew "antigen"
