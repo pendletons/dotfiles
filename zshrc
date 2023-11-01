@@ -83,3 +83,4 @@ eval $(thefuck --alias poo)
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 export PATH="$HOME/.bin:$PATH"
+source /opt/homebrew/opt/asdf/libexec/asdf.sh
