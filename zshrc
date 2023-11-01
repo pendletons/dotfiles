@@ -65,6 +65,8 @@ eval $(thefuck --alias poo)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+[ -f ~/.antigenrc ] && source ~/.antigenrc
+
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:$PATH"
 
 # color-ls
@@ -79,8 +81,6 @@ eval $(thefuck --alias poo)
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-
-source /opt/homebrew/share/antigen/antigen.zsh
 
 export PATH="$HOME/.bin:$PATH"
 source /opt/homebrew/opt/asdf/libexec/asdf.sh
