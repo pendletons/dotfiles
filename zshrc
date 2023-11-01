@@ -80,5 +80,7 @@ eval $(thefuck --alias poo)
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
+source /opt/homebrew/share/antigen/antigen.zsh
+
 export PATH="$HOME/.bin:$PATH"
 source /opt/homebrew/opt/asdf/libexec/asdf.sh
