@@ -81,3 +81,5 @@ eval $(thefuck --alias poo)
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+export PATH="$HOME/.bin:$PATH"
