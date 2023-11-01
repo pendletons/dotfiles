@@ -77,8 +77,6 @@ eval $(thefuck --alias poo)
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-. $HOME/.asdf/asdf.sh
-
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
