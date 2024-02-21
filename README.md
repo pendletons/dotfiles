@@ -1,21 +1,18 @@
-thoughtbot dotfiles
-===================
+# thoughtbot dotfiles
 
 ![prompt](http://images.thoughtbot.com/thoughtbot-dotfiles-prompt.png)
 
-Requirements
-------------
+## Requirements
 
 Set zsh as your login shell:
 
 chsh -s $(which zsh)
 
-  Install
-  -------
+## Install
 
   Clone onto your laptop:
 
-  git clone git://github.com/pendletons/dotfiles.git ~/dotfiles
+    git clone git@github.com:thoughtbot/dotfiles.git ~/dotfiles
 
   (Or, [fork and keep your fork
    updated](http://robots.thoughtbot.com/keeping-a-github-fork-updated)).
@@ -185,7 +182,6 @@ What's in it?
 [vim](http://www.vim.org/) configuration:
 
 * [Ctrl-P](https://github.com/ctrlpvim/ctrlp.vim) for fuzzy file/buffer/tag finding.
-* [fzf](https://github.com/junegunn/fzf.vim) for fuzzy file/buffer/tag finding.
 * [Rails.vim](https://github.com/tpope/vim-rails) for enhanced navigation of
   Rails file structure via `gf` and `:A` (alternate), `:Rextract` partials,
   `:Rinvert` migrations, etc.
@@ -229,7 +225,7 @@ What's in it?
 
 * `b` for `bundle`.
 * `g` with no arguments is `git status` and with arguments acts like `git`.
-* `migrate` for `bin/rails db:migrate db:rollback && bin/rails db:migrate db:test:prepare`.
+* `migrate` for `rake db:migrate && rake db:rollback && rake db:migrate`.
 * `mcd` to make a directory and change into it.
 * `replace foo bar **/*.rb` to find and replace within a given list of files.
 * `tat` to attach to tmux session named the same as the current directory.

@@ -13,14 +13,13 @@ alias -g L='| wc -l'
 alias -g ONE="| awk '{ print \$1}'"
 alias e="$EDITOR"
 alias v="$VISUAL"
-#alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias preview="fzf --preview 'bat --color always {}'"
 alias top="sudo htop" # alias top and fix high sierra bug
 alias cat='bat'
 alias ping='prettyping --nolegend'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias help='tldr'
-alias om=overmind
+alias om='overmind'
 
 # betty
 alias betty=~/betty/main.rb
@@ -45,7 +44,7 @@ alias bu='bundle update'
 alias dm='bundle exec rails db:migrate && bundle exec rake db:test:prepare'
 
 # Rails
-alias migrate="bin/rails db:migrate db:rollback && bin/rails db:migrate db:test:prepare"
+alias migrate="rails db:migrate db:rollback && rake db:migrate db:test:prepare"
 alias s="rspec"
 alias dm="rails db:migrate db:rollback && rails db:migrate db:test:prepare"
 alias br='bundle exec rspec'

@@ -35,5 +35,6 @@ tmp/**/*
 tmux*log
 Procfile.local
 mysql2pgsql.yml
+git-commit.template
 .overcommit.yml
 antigen.zsh

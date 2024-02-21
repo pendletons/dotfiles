@@ -15,42 +15,35 @@ let g:has_async = v:version >= 800 || has('nvim')
 call plug#begin('~/.vim/bundle')
 
 " Define bundles via Github repos
-" If fzf has already been installed via Homebrew, use the existing fzf
-" Otherwise, install fzf. The `--all` flag makes fzf accessible outside of vim
-if isdirectory("/usr/local/opt/fzf")
-  Plug '/usr/local/opt/fzf'
-else
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-endif
+UnPlug 'christoomey/vim-run-interactive'
 
-" Define bundles via Github repos
-Plug 'tpope/vim-bundler'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'elixir-lang/vim-elixir'
+UnPlug 'fatih/vim-go'
+Plug 'janko-m/vim-test'
+Plug 'pbrisbin/vim-mkdir'
 Plug 'tpope/vim-endwise' " add end in ruby files
-Plug 'tpope/vim-fugitive' " Git workflow
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
 Plug 'vim-scripts/tComment'
 if !exists('g:vscode')
   Plug 'vim-scripts/ctags.vim'
 endif
 Plug 'vim-scripts/matchit.zip' " % matching
 if !exists('g:vscode')
-  Plug 'scrooloose/nerdtree' " file browser
-  Plug 'moll/vim-bbye' " close buffers easily
   Plug 'jeffkreeftmeijer/vim-numbertoggle' " Line numbers/movement
 endif
+Plug 'maxbrunsfeld/vim-yankstack' " yank history
+Plug 'Lokaltog/vim-easymotion' " Better motion commands
+Plug '907th/vim-auto-save' " auto save buffers
 Plug 'raimondi/delimitmate' " auto-closing matching things
 Plug 'gioele/vim-autoswap' " Better handling of swap files
 if !exists('g:vscode')
   Plug 'mileszs/ack.vim'
 endif
-Plug 'benmills/vimux' " tmux integration
-Plug 'christoomey/vim-tmux-navigator' " tmux/vim navigation
-Plug 'terryma/vim-multiple-cursors' " SublimeText style multiple cursors
-Plug '907th/vim-auto-save' " auto save buffers
 
 " Themes
 Plug 'quanganhdo/grb256'
@@ -60,58 +53,20 @@ Plug 'mhinz/vim-startify'
 if !exists('g:vscode')
   Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-sleuth' " smart indent based on syntax
-  " Plug 'mhinz/vim-mix-format' " Elixir formatting
   Plug 'Chiel92/vim-autoformat' " Auto formatting
-  Plug 'beanworks/vim-phpfmt' " PHP auto formatting
-  Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
   Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-  Plug 'StanAngeloff/php.vim' " PHP defaults
   Plug 'hashivim/vim-terraform' " terraform
   Plug 'ekalinin/Dockerfile.vim'
   Plug 'jason0x43/vim-js-indent'
-  Plug 'othree/html5.vim'
-  Plug 'slim-template/vim-slim'
-endif
-
-" Define bundles via Github repos
-Plug 'elixir-lang/vim-elixir'
-Plug 'janko-m/vim-test'
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-endwise' " add end in ruby files
-Plug 'tpope/vim-eunuch' " Unix commands
-Plug 'tpope/vim-fugitive' " Git workflow
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-surround'
-Plug 'vim-ruby/vim-ruby'
-Plug 'vim-scripts/tComment'
-if !exists('g:vscode')
-  Plug 'vim-scripts/ctags.vim'
-endif
-Plug 'vim-scripts/matchit.zip' " % matching
-if !exists('g:vscode')
-  Plug 'scrooloose/nerdtree' " file browser
-  Plug 'ryanoasis/vim-devicons' " icons in NerdTree
-  Plug 'airblade/vim-gitgutter' " Display git changes in file
-  Plug 'moll/vim-bbye' " close buffers easily
-  Plug 'jeffkreeftmeijer/vim-numbertoggle' " Line numbers/movement
-endif
-Plug 'raimondi/delimitmate' " auto-closing matching things
-Plug 'gioele/vim-autoswap' " Better handling of swap files
-if !exists('g:vscode')
-  Plug 'mileszs/ack.vim'
 endif
 
 " Other
 Plug 'wakatime/vim-wakatime' " time tracking
 if !exists('g:vscode')
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fzf fuzzy-finder"
-  Plug 'junegunn/fzf.vim'
-  Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
-  Plug 'airblade/vim-rooter'
-endif
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf fuzzy-finder
+  Plug 'itchyny/lightline.vim' " Status
+  Plug 'maximbaz/lightline-ale' " Ale in status
+end
 
 if !exists('g:vscode') && g:has_async
   Plug 'dense-analysis/ale'

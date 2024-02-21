@@ -107,7 +107,6 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile tmux.conf.local set filetype=tmux
   autocmd BufRead,BufNewFile vimrc.local set filetype=vim
   autocmd BufRead,BufNewFile *.ts set filetype=typescript
-  autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 augroup END
 
 " ALE linting events
@@ -142,10 +141,7 @@ if executable('ag')
   " Use ag in fzf for listing files. Lightning fast and respects .gitignore
   let $FZF_DEFAULT_COMMAND = 'ag --literal --files-with-matches --nocolor --hidden -g ""'
 
-  if !exists(":Ag")
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
-  endif
+  nnoremap \ :Ag<SPACE>
 endif
 " map <leader>a :Ack!<space>
 let g:ack_use_dispatch = 0
@@ -178,11 +174,14 @@ inoremap <S-Tab> <C-n>
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
 
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+" vim-test mappings
+nnoremap <silent> <Leader>t :TestFile<CR>
+nnoremap <silent> <Leader>s :TestNearest<CR>
+nnoremap <silent> <Leader>l :TestLast<CR>
+nnoremap <silent> <Leader>ta :TestSuite<CR>
+nnoremap <silent> <Leader>gt :TestVisit<CR>
+
+let g:rspec_command = 'Dispatch spring rspec {spec}'
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
