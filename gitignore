@@ -22,10 +22,12 @@ rerun.txt
 database.yml.sample
 
 # Git
-!tags/
-tags
 /tags
+tags
+git-commit.template
+!tags/
 
+# Misc
 tmp/**/*
 !tmp/cache/.keep
 *.pyc
@@ -34,9 +36,5 @@ tmux*log
 Procfile.local
 mysql2pgsql.yml
 git-commit.template
-
-# Misc
-tmux*log
-Procfile.local
 .overcommit.yml
 antigen.zsh

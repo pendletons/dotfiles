@@ -5,3 +5,5 @@
 # *.[oa]
 # *~
 .envrc
+i18n-tasks/
+.tool-versions

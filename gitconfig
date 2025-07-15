@@ -1,6 +1,6 @@
 [init]
   templatedir = ~/.git_template
-	defaultBranch = main
+  defaultBranch = main
 [color]
   ui = auto
 [color "branch"]
@@ -33,26 +33,33 @@
   dif = diff
   ds = diff --cached
   delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
-  f = fetch
-  rename-branch = !sh -c 'old=$(git current-branch) && git branch -m $old $1 && git push origin --set-upstream $1 && git push origin --delete $old' -
-  p = push
-  pf = push --force-with-lease
-  pra = pull --rebase --autostash
-  r1 = reset HEAD^
-  r2 = reset HEAD^^
-  rh = reset --hard
-  rh1 = reset HEAD^ --hard
-  rh2 = reset HEAD^^ --hard
-  save = !git add -A && git commit -m 'SAVEPOINT'
-  r1 = reset HEAD^
-  r2 = reset HEAD^^
-  recent = "!r() { count=$1; git for-each-ref --sort=-committerdate refs/heads --format='%(refname:short)|%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' --color=always --count=${count:-20} | while read line; do branch=$(echo \"$line\" | awk 'BEGIN { FS = \"|\" }; { print $1 }' | tr -d '*'); ahead=$(git rev-list --count \"${master:-origin/master}..${branch}\"); behind=$(git rev-list --count \"${branch}..${master:-origin/master}\"); colorline=$(echo \"$line\" | sed 's/^[^|]*|//'); echo \"$ahead|$behind|$colorline\" | awk -F'|' -vOFS='|' '{$5=substr($5,1,70)}1' ; done | ( echo \"ahead|behind||branch|lastcommit|message|author\\n\" && cat) | column -ts'|';}; r"
+  done = !git push origin HEAD
+  f = !git fetch --all
+  fl = log -u
+  fr = !git fetch --all && git rebase origin/master
+  la = "!git config -l | grep alias | cut -c 7-"
+  le = log --oneline --decorate
+  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  n = checkout -b
+  new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
   oldest = "!r() { count=$1; git for-each-ref --sort=committerdate refs/heads --format='%(refname:short)|%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' --color=always --count=${count:-20} | while read line; do branch=$(echo \"$line\" | awk 'BEGIN { FS = \"|\" }; { print $1 }' | tr -d '*'); ahead=$(git rev-list --count \"${master:-origin/master}..${branch}\"); behind=$(git rev-list --count \"${branch}..${master:-origin/master}\"); colorline=$(echo \"$line\" | sed 's/^[^|]*|//'); echo \"$ahead|$behind|$colorline\" | awk -F'|' -vOFS='|' '{$5=substr($5,1,70)}1' ; done | ( echo \"ahead|behind||branch|lastcommit|message|author\\n\" && cat) | column -ts'|';}; r"
+  p = push
+  pra = pull --rebase --autostash
+  p = push
+  pra = pull --rebase --autostash
+  recent = "!r() { count=$1; git for-each-ref --sort=-committerdate refs/heads --format='%(refname:short)|%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' --color=always --count=${count:-20} | while read line; do branch=$(echo \"$line\" | awk 'BEGIN { FS = \"|\" }; { print $1 }' | tr -d '*'); ahead=$(git rev-list --count \"${master:-origin/master}..${branch}\"); behind=$(git rev-list --count \"${branch}..${master:-origin/master}\"); colorline=$(echo \"$line\" | sed 's/^[^|]*|//'); echo \"$ahead|$behind|$colorline\" | awk -F'|' -vOFS='|' '{$5=substr($5,1,70)}1' ; done | ( echo \"ahead|behind||branch|lastcommit|message|author\\n\" && cat) | column -ts'|';}; r"
   rename-branch = !sh -c 'old=$(git current-branch) && git branch -m $old $1 && git push origin --set-upstream $1 && git push origin --delete $old' -
+  res = !git reset --hard
+  r1 = reset HEAD^
+  r2 = reset HEAD^^
   rh = reset --hard
   rh1 = reset HEAD^ --hard
   rh2 = reset HEAD^^ --hard
   s = status
+  save = !git add -A && git commit -m 'SAVEPOINT'
   st = status
   undo = reset HEAD~1 --mixed
 
@@ -84,7 +91,7 @@
   stat = true
 [commit]
   template = ~/.gitmessage
-	gpgsign = true
+  gpgsign = true
 [fetch]
   prune = true
 [rebase]
@@ -97,9 +104,9 @@
 [user]
   name = Shanthi Pendleton
   email = shanthi.pendleton@gmail.com
-	signingkey = 391B4456D822276EF5E9321D1ECC54533F210EB5
+  signingkey = 391B4456D822276EF5E9321D1ECC54533F210EB5
 [gpg]
-	program = /opt/homebrew/bin/gpg
+  program = /opt/homebrew/bin/gpg
 [tag]
   forceSignAnnotated = true
 [pager]

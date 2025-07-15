@@ -34,9 +34,6 @@ alias gs='git status'
 alias gci="git pull --rebase && rake && git push"
 alias gbd='git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -d'
 
-# sourcetree
-alias st="stree"
-
 # tmux
 alias tx=tmuxinator
 
@@ -61,5 +58,5 @@ alias path='echo $PATH | tr -s ":" "\n"'
 
 # Include custom aliases
 if [[ -f ~/.aliases.local ]]; then
-  source ~/.aliases.local
+source ~/.aliases.local
 fi
