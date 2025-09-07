@@ -1,0 +1,29 @@
+source /opt/homebrew/share/antigen/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+antigen bundle <<EOBUNDLES
+brew
+bundler
+common-aliases
+fast-syntax-highlighting
+git # required for other bundles
+gitfast
+git-aliases
+osx
+rails
+ruby
+tmux
+wd
+EOBUNDLES
+
+antigen bundle Aloxaf/fzf-tab # fzf completion
+antigen bundle Tarrasch/zsh-bd # navigate back skipping parent directories
+antigen bundle supercrabtree/k # better directory listings
+
+antigen bundle smallhadroncollider/antigen-git-rebase # command: rebase
+
+antigen theme romkatv/powerlevel10k
+
+antigen apply

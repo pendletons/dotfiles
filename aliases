@@ -1,25 +1,60 @@
 # Unix
-alias ll="ls -al"
+alias l="exa --long --header --git"
 alias ln="ln -v"
+alias lh='ls -Alh'
 alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
+alias tlf="tail -f"
+alias ...='../..'
+alias -g G='| grep'
+alias -g M='| less'
+alias -g L='| wc -l'
+alias -g ONE="| awk '{ print \$1}'"
+alias e="$EDITOR"
+alias v="$VISUAL"
+alias preview="fzf --preview 'bat --color always {}'"
+alias top="sudo htop" # alias top and fix high sierra bug
+alias cat='bat'
+alias ping='prettyping --nolegend'
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias help='tldr'
+alias om='overmind'
+
+# betty
+alias betty=~/betty/main.rb
+
+# git
+alias g='git'
+alias gco='git checkout'
+alias gi='git'
+alias gf='git fetch --all --prune'
+alias gp='git push'
+alias gs='git status'
+alias gci="git pull --rebase && rake && git push"
+alias gbd='git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -d'
+
+# tmux
+alias tx=tmuxinator
 
 # Bundler
 alias b="bundle"
+alias be='bundle exec'
+alias bu='bundle update'
+alias dm='bundle exec rails db:migrate && bundle exec rake db:test:prepare'
 
 # Rails
-alias migrate="bin/rails db:migrate db:rollback && bin/rails db:migrate db:test:prepare"
+alias migrate="rails db:migrate db:rollback && rake db:migrate db:test:prepare"
 alias s="rspec"
+alias dm="rails db:migrate db:rollback && rails db:migrate db:test:prepare"
+alias br='bundle exec rspec'
+alias cop='bundle exec rubocop --auto-correct'
+
+# Docker
+alias de='env | grep DOCKER_'
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
-
-# Easier navigation: ..., ...., ....., and -
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias -- -="cd -"
 
 # Include custom aliases
 if [[ -f ~/.aliases.local ]]; then

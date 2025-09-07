@@ -1,30 +1,122 @@
 [init]
-  defaultBranch = main
   templatedir = ~/.git_template
-[push]
-  default = current
+  defaultBranch = main
 [color]
   ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[color "status"]
+  added = yellow
+  changed = green
 [alias]
   aa = add --all
+  amend = commit --amend --reuse-message=HEAD
   ap = add --patch
+  b = branch
+  bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
+  bdone = "!f() { git checkout ${1-master} && git up && git bclean; }; f"
   branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+  caa = commit -a --amend -C HEAD
+  cb = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
   ci = commit -v
   co = checkout
-  pf = push --force-with-lease
+  ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
+  d = diff
+  dif = diff
+  ds = diff --cached
+  delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
+  done = !git push origin HEAD
+  f = !git fetch --all
+  fl = log -u
+  fr = !git fetch --all && git rebase origin/master
+  la = "!git config -l | grep alias | cut -c 7-"
+  le = log --oneline --decorate
+  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  n = checkout -b
+  new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+  oldest = "!r() { count=$1; git for-each-ref --sort=committerdate refs/heads --format='%(refname:short)|%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' --color=always --count=${count:-20} | while read line; do branch=$(echo \"$line\" | awk 'BEGIN { FS = \"|\" }; { print $1 }' | tr -d '*'); ahead=$(git rev-list --count \"${master:-origin/master}..${branch}\"); behind=$(git rev-list --count \"${branch}..${master:-origin/master}\"); colorline=$(echo \"$line\" | sed 's/^[^|]*|//'); echo \"$ahead|$behind|$colorline\" | awk -F'|' -vOFS='|' '{$5=substr($5,1,70)}1' ; done | ( echo \"ahead|behind||branch|lastcommit|message|author\\n\" && cat) | column -ts'|';}; r"
+  p = push
+  pra = pull --rebase --autostash
+  p = push
+  pra = pull --rebase --autostash
+  recent = "!r() { count=$1; git for-each-ref --sort=-committerdate refs/heads --format='%(refname:short)|%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' --color=always --count=${count:-20} | while read line; do branch=$(echo \"$line\" | awk 'BEGIN { FS = \"|\" }; { print $1 }' | tr -d '*'); ahead=$(git rev-list --count \"${master:-origin/master}..${branch}\"); behind=$(git rev-list --count \"${branch}..${master:-origin/master}\"); colorline=$(echo \"$line\" | sed 's/^[^|]*|//'); echo \"$ahead|$behind|$colorline\" | awk -F'|' -vOFS='|' '{$5=substr($5,1,70)}1' ; done | ( echo \"ahead|behind||branch|lastcommit|message|author\\n\" && cat) | column -ts'|';}; r"
+  rename-branch = !sh -c 'old=$(git current-branch) && git branch -m $old $1 && git push origin --set-upstream $1 && git push origin --delete $old' -
+  res = !git reset --hard
+  r1 = reset HEAD^
+  r2 = reset HEAD^^
+  rh = reset --hard
+  rh1 = reset HEAD^ --hard
+  rh2 = reset HEAD^^ --hard
+  s = status
+  save = !git add -A && git commit -m 'SAVEPOINT'
   st = status
+  undo = reset HEAD~1 --mixed
+
+  # Make stashing easier
+  sts = stash
+  stl = stash list
+  stp = stash pop
+
+  # Make rebasing easier
+  rb = rebase
+  rba = rebase --abort
+  rbc = rebase --continue
+  rbs = rebase --skip
+
+  today = "!today() { git_today \"$@\"; }; today"
 [core]
+  editor = vim
   excludesfile = ~/.gitignore
   autocrlf = input
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol,space-before-tab
+[branch]
+  autosetupmerge = true
+[diff]
+  renames = copies
+  mnemonicprefix = true
+  colorMoved = zebra
 [merge]
-  ff = only
+  defaultToUpstream = true
+  stat = true
 [commit]
   template = ~/.gitmessage
+  gpgsign = true
 [fetch]
   prune = true
 [rebase]
   autosquash = true
 [include]
   path = ~/.gitconfig.local
-[diff]
-  colorMoved = zebra
+[push]
+  default = current
+  autoSetupRemote = true
+[user]
+  name = Shanthi Pendleton
+  email = shanthi.pendleton@gmail.com
+  signingkey = 391B4456D822276EF5E9321D1ECC54533F210EB5
+[gpg]
+  program = /opt/homebrew/bin/gpg
+[tag]
+  forceSignAnnotated = true
+[pager]
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+[pull]
+  ff = only
