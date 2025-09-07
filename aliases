@@ -1,7 +1,6 @@
 # Unix
-alias l="exa --long --header --git"
-alias ln="ln -v"
-alias lh='ls -Alh'
+alias l="eza --long --header --git --icons"
+alias ls="eza --oneline --icons"
 alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
