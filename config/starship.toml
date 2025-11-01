@@ -1,48 +1,120 @@
-format = """$character$directory$git_metrics\
-$hostname\
-$shell\
-$env_var\
-$jobs\
-$username"""
+"$schema" = 'https://starship.rs/config-schema.json'
 
-right_format = """
-$cmd_duration\
+format="""
+[╭─](#769ff0)\
+[](fg:prefix_prompt)\
+$directory\
+[](fg:first_segment_end_fg bg:first_segment_end_bg)\
 $git_branch\
-$git_commit\
-$git_state\
-$git_status\
 ${custom.jj_change}\
 ${custom.jj_desc}\
+[](fg:second_segment_end_fg bg:second_segment_end_bg)\
+$nodejs\
 $php\
-$python\
 $ruby\
-${custom.rails}\
+[](fg:third_segment_end_fg bg:third_segment_end_bg)\
+$time\
+[](fg:fourth_segment_end_fg bg:fourth_segment_end_bg)\
+[](fg:fourth_segment_end_bg bg:end_fade_bg)\
+[](fg:end_fade_bg)\
+$fill\
+$status\
+$cmd_duration\
+$git_status\
+$git_metrics\
 $battery\
-$time"""
+[$line_break╰─$character](#769ff0)"""
 
 continuation_prompt = '▶▶ '
 
-[aws]
-disabled = true
+command_timeout = 1000
+
+palette = 'tokyo'
+
+[palettes.tokyo]
+prefix_prompt = '#6c7086'
+first_segment_content_bg = '#6c7086'
+first_segment_content_fg = '#89dceb'
+first_segment_end_fg = '#6c7086'
+first_segment_end_bg = '#89dceb'
+second_segment_content_fg = '#1e1e2e'
+second_segment_content_bg = '#89dceb'
+second_segment_end_fg = '#89dceb'
+second_segment_end_bg = '#6c7086'
+third_segment_content_bg = '#6c7086'
+third_segment_content_fg = '#89dceb'
+third_segment_end_fg = '#6c7086'
+third_segment_end_bg = '#585b70'
+fourth_segment_content_fg = '#a6adc8'
+fourth_segment_content_bg = '#585b70'
+fourth_segment_end_fg = '#585b70'
+fourth_segment_end_bg = '#45475a'
+end_fade_bg = '#313244'
 
 [character]
 format = "$symbol "
+success_symbol = "[❯](fg:first_segment_content_fg)"
+error_symbol = "[❯](fg:first_segment_content_fg)"
+vicmd_symbol = "[❮](fg:first_segment_content_fg)"
+
+[fill]
+symbol = ' '
 
 [directory]
+style = "fg:first_segment_content_fg bg:first_segment_content_bg"
 home_symbol = "🏠"
-truncation_length = 3
+truncation_length = 1
+truncation_symbol = ""
 use_os_path_sep = true
-style = "italic blue"
-format = '[$path]($style)[$read_only]($read_only_style) '
-repo_root_style = 'bold blue'
-repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
+format = '[ $path ]($style)[$read_only]($read_only_style)'
 
-[gcloud]
-disabled = true
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "fg:second_segment_content_fg bg:second_segment_content_bg"
+format = '[ $symbol $branch(:$remote_branch) ]($style)'
+ignore_branches = ["main", "master"]
+
+[git_status]
+format = '([[  ](fourth_content_segment_bg)($conflicted )($modified )($staged )($untracked )($ahead_behind )]($style))'
+ahead = '[⬆](bold purple)'
+behind = '[⬇](bold purple)'
+staged = '[✚](green)'
+deleted = '[✖](red)'
+renamed = '[➜](purple)'
+untracked = '[◼](white)'
+modified = '[✱](blue)'
+conflicted = '[═](yellow)'
+diverged = '⇕ '
+up_to_date = ''
+
+[git_metrics]
+format = '(([  ](third_content_segment_bg)[+$added]($added_style) )([-$deleted]($deleted_style)) )($style)'
+added_style = 'italic green'
+deleted_style = 'italic red'
+only_nonzero_diffs = true
+ignore_submodules = true
+disabled = false
+
+[git_state]
+format = '\[[  ](third_content_segment_bg)$state ($progress_current/$progress_total)]($style)\]'
+cherry_pick = '[🍒 PICKING](bold red)'
+
+[status]
+disabled = false
+map_symbol = false
+format = "[$symbol$common_meaning$signal_name$maybe_int]($style)"
+symbol = '✘ '
 
 [cmd_duration]
-format = '[\[⏱ $duration\]]($style)'
+format = '[⏱ $duration]($style)'
 style = '220 dimmed'
+min_time = 2_000
 
 [jobs]
 format = "[$symbol$number]($style) "
@@ -56,121 +128,70 @@ disabled = false
 
 [time]
 disabled = false
-format = ' [⏱︎ $time]($style)'
 use_12hr = false
 utc_time_offset = "local"
-style = "italic dimmed white"
+style = "fg:fourth_segment_content_fg bg:fourth_segment_content_bg"
+format = '[  $time ]($style)'
 
 [battery]
-format = '\[[$symbol $percentage]($style)\]'
-full_symbol = "🔋"
-charging_symbol = "⚡️"
-discharging_symbol = "🪫"
-unknown_symbol = "❔"
+format = '[[  ](third_content_segment_bg)$symbol$percentage]($style)'
+full_symbol = ""
+charging_symbol = "⚡"
+discharging_symbol = " "
+unknown_symbol = ""
 empty_symbol = "⚠️"
 
 [[battery.display]]
 threshold = 20
-style = "italic bold red"
+style = "bold red"
 
 [[battery.display]]
 threshold = 60
-style = "italic dimmed bright-cyan"
+style = "bright-cyan"
 
 [[battery.display]]
-threshold = 70
-style = "italic dimmed yellow"
-
-[git_branch]
-format = '[$symbol$branch(:$remote_branch)]($style) '
-style = "italic bright-blue"
-truncation_symbol = "⋯"
-truncation_length = 20
-ignore_branches = ["main", "master"]
-only_attached = true
-
-[git_commit]
-format = '\[[\($hash$tag\)]($style)\]'
-disabled = true
-
-[git_metrics]
-format = '((\[[+$added]($added_style))|([-$deleted]($deleted_style)\])) '
-added_style = 'italic dimmed green'
-deleted_style = 'italic dimmed red'
-only_nonzero_diffs = true
-ignore_submodules = true
-disabled = false
-
-[git_state]
-format = '\[[$state ($progress_current/$progress_total)]($style)\]'
-cherry_pick = '[🍒 PICKING](bold red)'
-
-[git_status]
-format = '([\[$all_status$ahead_behind\]]($style))'
-style = 'bold green'
-conflicted = '🏳'
-ahead = '🏎💨${count}(green)'
-behind = '😰${count}(red)'
-diverged = '😵⇡${ahead_count}⇣${behind_count}'
-up_to_date = '✓(green)'
-untracked = '🤷'
-stashed = '📦'
-modified = '✎'
-staged = '[+](green)'
-renamed = '👅'
-deleted = '🗑'
+threshold = 100
+style = "green"
 
 [nodejs]
-format = " [node](italic) [◫ ($version)](bold bright-green)"
+style = 'fg:third_segment_content_fg bg:third_segment_content_bg'
+format = "[  ($version)]($style)"
 version_format = "${raw}"
 detect_files = ["package-lock.json", "yarn.lock"]
 detect_folders = ["node_modules"]
 detect_extensions = []
 
 [php]
-format = '\[[$symbol($version)]($style)\]'
-style = '39 dimmed'
+style = 'fg:third_segment_content_fg bg:third_segment_content_bg'
+format = '[ $symbol ($version)]($style)'
+symbol = '🐘'
 
 [ruby]
-format = " [${symbol}${version}]($style)"
-symbol = "◆ "
+style = 'fg:third_segment_content_fg bg:third_segment_content_bg'
+format = "[ ${symbol} ${version}]($style)"
 version_format = "${raw}"
-style = "dimmed red"
+symbol = ''
 
 [package]
+style = 'fg:third_segment_content_fg bg:third_segment_content_bg'
 format = " [pkg](italic dimmed) [$symbol$version]($style)"
 version_format = "${raw}"
 symbol = "◨ "
-style = "dimmed yellow italic bold"
-
-[nix_shell]
-style = 'bold italic dimmed blue'
-symbol = '✶'
-format = '[$symbol nix⎪$state⎪]($style) [$name](italic dimmed white)'
-impure_msg = '[⌽](bold dimmed red)'
-pure_msg = '[⌾](bold dimmed green)'
-unknown_msg = '[◌](bold dimmed yellow)'
-
-[custom.rails]
-command = "grep '^[[:space:]]*rails (' Gemfile.lock | grep -o '[0-9]\\+\\(\\.[0-9]\\+\\)\\{2,3\\}' | head -n 1"
-detect_files = ['Gemfile.lock']
-symbol = ""
-style = "dimmed red"
-format = '[ $symbol( v$output) ]($style)'
 
 [custom.jj_change]
+style = "fg:26 bold bg:second_segment_content_bg"
 description = "The working copy of the repo in your current directory: workspaces (if relevant), change ID, bookmarks"
 command     = ''' jj log --no-graph -r=@ -T='separate(" ", working_copies, change_id.shortest(), bookmarks,)' '''
 when        = ''' test -n "$(jj status)" || exit 1 '''
-format      = ' [$symbol ($output)]($style) '
+format      = '[ $symbol ($output) ]($style)'
 symbol      = '🐦'
-style       = 'bold purple'
 ignore_timeout  = true
 
 [custom.jj_desc]
+style = "fg:second_segment_content_fg bg:second_segment_content_bg"
 description = "The description of your working copy, if set"
 command     = ''' jj log --no-graph -r=@ -T="description" | awk 'NR==1 {if(length($0) > 25) {s = substr($0, 1, 25); sub(/[ \t\r\n]+$/, "", s); print s "…"} else {print $0}}' '''
 when        = ''' test -n "$(jj status)" -a -n "$(jj log --no-graph -r=@ -T='description')" || exit 1 '''
-format      = '$symbol [($output)]($style) '
+format      = '$symbol [($output) ]($style)'
 symbol      = '|'
 ignore_timeout  = true
