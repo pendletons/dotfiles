@@ -192,6 +192,6 @@ style = "fg:second_segment_content_fg bg:second_segment_content_bg"
 description = "The description of your working copy, if set"
 command     = ''' jj log --no-graph -r=@ -T="description" | awk 'NR==1 {if(length($0) > 25) {s = substr($0, 1, 25); sub(/[ \t\r\n]+$/, "", s); print s "…"} else {print $0}}' '''
 when        = ''' test -n "$(jj status)" -a -n "$(jj log --no-graph -r=@ -T='description')" || exit 1 '''
-format      = '$symbol [($output) ]($style)'
+format      = '[$symbol ($output) ]($style)'
 symbol      = '|'
 ignore_timeout  = true
